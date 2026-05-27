@@ -40,7 +40,7 @@ jobs:
         run: flutter test
 
       - name: Build APK
-        run: flutter build apk --debug
+        run: flutter build apk --debug --target-platform android-arm64
 
       - name: Rename APK
         run: |
