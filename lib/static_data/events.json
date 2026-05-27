@@ -1,0 +1,122 @@
+[
+  {
+    "id": "evt_istanbul_jazz_1",
+    "cityId": "istanbul",
+    "title": "Jazz Night at Bomontiada",
+    "image": "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400",
+    "startDate": "2026-05-27T21:00:00.000Z",
+    "endDate": "2026-05-27T23:30:00.000Z",
+    "category": "Music",
+    "subcategory": "Nightlife",
+    "discoveryBoost": 5.0,
+    "onlyThisWeek": true
+  },
+  {
+    "id": "evt_istanbul_coffee_1",
+    "cityId": "istanbul",
+    "title": "Istanbul Coffee Festival",
+    "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400",
+    "startDate": "2026-05-16T10:00:00.000Z",
+    "endDate": "2026-06-10T20:00:00.000Z",
+    "category": "Food",
+    "subcategory": "Festival",
+    "discoveryBoost": 7.0,
+    "onlyThisWeek": false
+  },
+  {
+    "id": "evt_istanbul_art_1",
+    "cityId": "istanbul",
+    "title": "Modern Art Exhibition",
+    "image": "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=400",
+    "startDate": "2026-05-20T10:00:00.000Z",
+    "endDate": "2026-06-10T18:00:00.000Z",
+    "category": "Art",
+    "subcategory": "Exhibition",
+    "discoveryBoost": 6.0,
+    "onlyThisWeek": false
+  },
+  {
+    "id": "evt_istanbul_bazaar_1",
+    "cityId": "istanbul",
+    "title": "Ramadan Night Market",
+    "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400",
+    "startDate": "2026-05-28T17:00:00.000Z",
+    "endDate": "2026-06-15T23:00:00.000Z",
+    "category": "Food",
+    "subcategory": "Market",
+    "discoveryBoost": 5.5,
+    "onlyThisWeek": false
+  },
+  {
+    "id": "evt_istanbul_film_1",
+    "cityId": "istanbul",
+    "title": "Istanbul Film Festival",
+    "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400",
+    "startDate": "2026-06-01T12:00:00.000Z",
+    "endDate": "2026-06-14T22:00:00.000Z",
+    "category": "Art",
+    "subcategory": "Film",
+    "discoveryBoost": 6.5,
+    "onlyThisWeek": false
+  },
+  {
+    "id": "evt_izmir_agora_1",
+    "cityId": "izmir",
+    "title": "Agora Open Air Concert",
+    "image": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=400",
+    "startDate": "2026-06-05T20:00:00.000Z",
+    "endDate": "2026-06-05T23:00:00.000Z",
+    "category": "Music",
+    "subcategory": "Concert",
+    "discoveryBoost": 5.0,
+    "onlyThisWeek": false
+  },
+  {
+    "id": "evt_antalya_culture_1",
+    "cityId": "antalya",
+    "title": "Antalya Culture Festival",
+    "image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=400",
+    "startDate": "2026-06-10T10:00:00.000Z",
+    "endDate": "2026-06-20T22:00:00.000Z",
+    "category": "Culture",
+    "subcategory": "Festival",
+    "discoveryBoost": 6.0,
+    "onlyThisWeek": false
+  },
+  {
+    "id": "evt_roma_opera_1",
+    "cityId": "roma",
+    "title": "Opera at Caracalla",
+    "image": "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=400",
+    "startDate": "2026-07-01T20:30:00.000Z",
+    "endDate": "2026-07-01T23:00:00.000Z",
+    "category": "Art",
+    "subcategory": "Opera",
+    "discoveryBoost": 7.5,
+    "onlyThisWeek": false
+  },
+  {
+    "id": "evt_paris_bastille_1",
+    "cityId": "paris",
+    "title": "Bastille Day Fireworks",
+    "image": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=400",
+    "startDate": "2026-07-14T22:00:00.000Z",
+    "endDate": "2026-07-14T23:30:00.000Z",
+    "category": "Culture",
+    "subcategory": "Festival",
+    "discoveryBoost": 8.0,
+    "onlyThisWeek": false
+  },
+  {
+    "id": "evt_paris_museum_night_1",
+    "cityId": "paris",
+    "title": "Museum Night (Nuit des Musées)",
+    "image": "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=400",
+    "startDate": "2026-05-16T18:00:00.000Z",
+    "endDate": "2026-05-16T24:00:00.000Z",
+    "category": "Art",
+    "subcategory": "Exhibition",
+    "discoveryBoost": 7.0,
+    "onlyThisWeek": true
+  }
+]

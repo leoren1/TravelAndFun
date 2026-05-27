@@ -1,0 +1,102 @@
+[
+  {
+    "id": "istanbul",
+    "name": "Istanbul",
+    "countryId": "tr",
+    "heroImage": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800",
+    "latitude": 41.0082,
+    "longitude": 28.9784,
+    "categoryTargets": {
+      "historicalPlaces": 6,
+      "foodRestaurants": 5,
+      "cafes": 4,
+      "museumsArt": 4,
+      "routes": 3,
+      "nature": 3,
+      "nightlife": 3,
+      "localMarkets": 3,
+      "hiddenGems": 4,
+      "events": 3
+    }
+  },
+  {
+    "id": "izmir",
+    "name": "İzmir",
+    "countryId": "tr",
+    "heroImage": "https://images.unsplash.com/photo-1570457073443-1d57fdfceee3?w=800",
+    "latitude": 38.4192,
+    "longitude": 27.1287,
+    "categoryTargets": {
+      "historicalPlaces": 3,
+      "foodRestaurants": 2,
+      "cafes": 2,
+      "museumsArt": 2,
+      "routes": 2,
+      "nature": 2,
+      "nightlife": 2,
+      "localMarkets": 2,
+      "hiddenGems": 2,
+      "events": 2
+    }
+  },
+  {
+    "id": "antalya",
+    "name": "Antalya",
+    "countryId": "tr",
+    "heroImage": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+    "latitude": 36.8841,
+    "longitude": 30.7056,
+    "categoryTargets": {
+      "historicalPlaces": 4,
+      "foodRestaurants": 3,
+      "cafes": 2,
+      "museumsArt": 2,
+      "routes": 3,
+      "nature": 4,
+      "nightlife": 2,
+      "localMarkets": 2,
+      "hiddenGems": 3,
+      "events": 2
+    }
+  },
+  {
+    "id": "roma",
+    "name": "Roma",
+    "countryId": "it",
+    "heroImage": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800",
+    "latitude": 41.9028,
+    "longitude": 12.4964,
+    "categoryTargets": {
+      "historicalPlaces": 5,
+      "foodRestaurants": 4,
+      "cafes": 3,
+      "museumsArt": 4,
+      "routes": 2,
+      "nature": 2,
+      "nightlife": 2,
+      "localMarkets": 2,
+      "hiddenGems": 2,
+      "events": 2
+    }
+  },
+  {
+    "id": "paris",
+    "name": "Paris",
+    "countryId": "fr",
+    "heroImage": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800",
+    "latitude": 48.8566,
+    "longitude": 2.3522,
+    "categoryTargets": {
+      "historicalPlaces": 5,
+      "foodRestaurants": 4,
+      "cafes": 4,
+      "museumsArt": 4,
+      "routes": 3,
+      "nature": 2,
+      "nightlife": 3,
+      "localMarkets": 2,
+      "hiddenGems": 3,
+      "events": 3
+    }
+  }
+]

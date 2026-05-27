@@ -1,0 +1,11 @@
+{
+  "id": "user_1",
+  "name": "Eren Tazegül",
+  "title": "Urban Explorer",
+  "avatarPath": "assets/avatars/eren.png",
+  "level": 12,
+  "levelTitle": "City Soul Hunter",
+  "xp": 3450,
+  "xpForNextLevel": 5000,
+  "badgeIds": ["food_explorer", "museum_collector", "nightlife_seeker", "hidden_gem_finder"]
+}

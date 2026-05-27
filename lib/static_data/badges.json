@@ -1,0 +1,12 @@
+[
+  {"id": "food_explorer", "name": "Food Explorer", "icon": "🍽️", "description": "Verified 60% of Food & Restaurants in any city", "threshold": 60.0, "categoryKey": "foodRestaurants"},
+  {"id": "museum_collector", "name": "Museum Collector", "icon": "🎨", "description": "Verified 60% of Museums & Art in any city", "threshold": 60.0, "categoryKey": "museumsArt"},
+  {"id": "nightlife_seeker", "name": "Nightlife Seeker", "icon": "🌙", "description": "Verified 60% of Nightlife in any city", "threshold": 60.0, "categoryKey": "nightlife"},
+  {"id": "hidden_gem_finder", "name": "Hidden Gem Finder", "icon": "💎", "description": "Verified 50% of Hidden Gems in any city", "threshold": 50.0, "categoryKey": "hiddenGems"},
+  {"id": "history_buff", "name": "History Buff", "icon": "🏛️", "description": "Verified 70% of Historical Places in any city", "threshold": 70.0, "categoryKey": "historicalPlaces"},
+  {"id": "coffee_connoisseur", "name": "Coffee Connoisseur", "icon": "☕", "description": "Verified 70% of Cafes in any city", "threshold": 70.0, "categoryKey": "cafes"},
+  {"id": "nature_wanderer", "name": "Nature Wanderer", "icon": "🌿", "description": "Verified 60% of Nature in any city", "threshold": 60.0, "categoryKey": "nature"},
+  {"id": "market_hunter", "name": "Market Hunter", "icon": "🛍️", "description": "Verified 50% of Local Markets in any city", "threshold": 50.0, "categoryKey": "localMarkets"},
+  {"id": "city_completer", "name": "City Completer", "icon": "🏆", "description": "Reached 90% city discovery in any city", "threshold": 90.0, "categoryKey": "cityDiscovery"},
+  {"id": "globetrotter", "name": "Globetrotter", "icon": "🌍", "description": "Visited places in 3+ countries", "threshold": 3.0, "categoryKey": "countries"}
+]
