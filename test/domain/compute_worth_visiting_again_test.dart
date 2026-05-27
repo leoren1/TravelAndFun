@@ -72,7 +72,6 @@ Visit _makeVerifiedVisit(String placeId) => Visit(
 ({List<Place> places, List<Visit> visits}) _makeFullCategory(
   CategoryType cat, {
   int count = 10,
-  int targetPerCategory = 10,
 }) {
   final places =
       List.generate(count, (i) => _makePlace('${cat.jsonKey}_$i', cat));
