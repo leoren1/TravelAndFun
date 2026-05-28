@@ -1,12 +1,41 @@
 [
-  {"id": "food_explorer", "name": "Food Explorer", "icon": "🍽️", "description": "Verified 60% of Food & Restaurants in any city", "threshold": 60.0, "categoryKey": "foodRestaurants"},
-  {"id": "museum_collector", "name": "Museum Collector", "icon": "🎨", "description": "Verified 60% of Museums & Art in any city", "threshold": 60.0, "categoryKey": "museumsArt"},
-  {"id": "nightlife_seeker", "name": "Nightlife Seeker", "icon": "🌙", "description": "Verified 60% of Nightlife in any city", "threshold": 60.0, "categoryKey": "nightlife"},
-  {"id": "hidden_gem_finder", "name": "Hidden Gem Finder", "icon": "💎", "description": "Verified 50% of Hidden Gems in any city", "threshold": 50.0, "categoryKey": "hiddenGems"},
-  {"id": "history_buff", "name": "History Buff", "icon": "🏛️", "description": "Verified 70% of Historical Places in any city", "threshold": 70.0, "categoryKey": "historicalPlaces"},
-  {"id": "coffee_connoisseur", "name": "Coffee Connoisseur", "icon": "☕", "description": "Verified 70% of Cafes in any city", "threshold": 70.0, "categoryKey": "cafes"},
-  {"id": "nature_wanderer", "name": "Nature Wanderer", "icon": "🌿", "description": "Verified 60% of Nature in any city", "threshold": 60.0, "categoryKey": "nature"},
-  {"id": "market_hunter", "name": "Market Hunter", "icon": "🛍️", "description": "Verified 50% of Local Markets in any city", "threshold": 50.0, "categoryKey": "localMarkets"},
-  {"id": "city_completer", "name": "City Completer", "icon": "🏆", "description": "Reached 90% city discovery in any city", "threshold": 90.0, "categoryKey": "cityDiscovery"},
-  {"id": "globetrotter", "name": "Globetrotter", "icon": "🌍", "description": "Visited places in 3+ countries", "threshold": 3.0, "categoryKey": "countries"}
+  {"id":"history_t1","tier":1,"name":"Ruins Visitor","icon":"🥉","threshold":0.20,"categoryKey":"historicalPlaces","description":"Discovered 20% of historical places across visited cities."},
+  {"id":"history_t2","tier":2,"name":"History Explorer","icon":"🥈","threshold":0.40,"categoryKey":"historicalPlaces","description":"Discovered 40% of historical places across visited cities."},
+  {"id":"history_t3","tier":3,"name":"Heritage Guardian","icon":"🥇","threshold":0.65,"categoryKey":"historicalPlaces","description":"Discovered 65% of historical places across visited cities."},
+  {"id":"history_t4","tier":4,"name":"Living Chronicle","icon":"💎","threshold":0.85,"categoryKey":"historicalPlaces","description":"Mastered 85% of historical places — a true time traveler."},
+
+  {"id":"food_t1","tier":1,"name":"Fork Curious","icon":"🥉","threshold":0.20,"categoryKey":"foodRestaurants","description":"Tried 20% of local restaurants across visited cities."},
+  {"id":"food_t2","tier":2,"name":"Foodie","icon":"🥈","threshold":0.40,"categoryKey":"foodRestaurants","description":"Tried 40% of local restaurants across visited cities."},
+  {"id":"food_t3","tier":3,"name":"Culinary Traveler","icon":"🥇","threshold":0.65,"categoryKey":"foodRestaurants","description":"Tried 65% of local restaurants across visited cities."},
+  {"id":"food_t4","tier":4,"name":"Gastronomy Master","icon":"💎","threshold":0.85,"categoryKey":"foodRestaurants","description":"Mastered 85% of local restaurants — a culinary legend."},
+
+  {"id":"nature_t1","tier":1,"name":"Trail Walker","icon":"🥉","threshold":0.20,"categoryKey":"nature","description":"Visited 20% of natural landmarks across visited cities."},
+  {"id":"nature_t2","tier":2,"name":"Nature Lover","icon":"🥈","threshold":0.40,"categoryKey":"nature","description":"Visited 40% of natural landmarks across visited cities."},
+  {"id":"nature_t3","tier":3,"name":"Wilderness Seeker","icon":"🥇","threshold":0.65,"categoryKey":"nature","description":"Visited 65% of natural landmarks across visited cities."},
+  {"id":"nature_t4","tier":4,"name":"Earth Guardian","icon":"💎","threshold":0.85,"categoryKey":"nature","description":"Explored 85% of natural landmarks — at one with the earth."},
+
+  {"id":"events_t1","tier":1,"name":"Event Curious","icon":"🥉","threshold":0.20,"categoryKey":"events","description":"Attended 20% of local events across visited cities."},
+  {"id":"events_t2","tier":2,"name":"Event Goer","icon":"🥈","threshold":0.40,"categoryKey":"events","description":"Attended 40% of local events across visited cities."},
+  {"id":"events_t3","tier":3,"name":"Festival Chaser","icon":"🥇","threshold":0.65,"categoryKey":"events","description":"Attended 65% of local events across visited cities."},
+  {"id":"events_t4","tier":4,"name":"Culture Maven","icon":"💎","threshold":0.85,"categoryKey":"events","description":"Attended 85% of local events — you never miss a moment."},
+
+  {"id":"nightlife_t1","tier":1,"name":"Night Curious","icon":"🥉","threshold":0.20,"categoryKey":"nightlife","description":"Experienced 20% of nightlife spots across visited cities."},
+  {"id":"nightlife_t2","tier":2,"name":"Night Owl","icon":"🥈","threshold":0.40,"categoryKey":"nightlife","description":"Experienced 40% of nightlife spots across visited cities."},
+  {"id":"nightlife_t3","tier":3,"name":"Night Drifter","icon":"🥇","threshold":0.65,"categoryKey":"nightlife","description":"Experienced 65% of nightlife spots across visited cities."},
+  {"id":"nightlife_t4","tier":4,"name":"Neon Nomad","icon":"💎","threshold":0.85,"categoryKey":"nightlife","description":"Mastered 85% of nightlife spots — the city never sleeps on you."},
+
+  {"id":"localexp_t1","tier":1,"name":"Curious Local","icon":"🥉","threshold":0.20,"categoryKey":"hiddenGems","description":"Uncovered 20% of hidden gems across visited cities."},
+  {"id":"localexp_t2","tier":2,"name":"Gem Hunter","icon":"🥈","threshold":0.40,"categoryKey":"hiddenGems","description":"Uncovered 40% of hidden gems across visited cities."},
+  {"id":"localexp_t3","tier":3,"name":"Secret Keeper","icon":"🥇","threshold":0.65,"categoryKey":"hiddenGems","description":"Uncovered 65% of hidden gems across visited cities."},
+  {"id":"localexp_t4","tier":4,"name":"Local Legend","icon":"💎","threshold":0.85,"categoryKey":"hiddenGems","description":"Uncovered 85% of hidden gems — you know places others never find."},
+
+  {"id":"shopping_t1","tier":1,"name":"Market Visitor","icon":"🥉","threshold":0.20,"categoryKey":"localMarkets","description":"Explored 20% of local markets across visited cities."},
+  {"id":"shopping_t2","tier":2,"name":"Local Shopper","icon":"🥈","threshold":0.40,"categoryKey":"localMarkets","description":"Explored 40% of local markets across visited cities."},
+  {"id":"shopping_t3","tier":3,"name":"Bazaar Expert","icon":"🥇","threshold":0.65,"categoryKey":"localMarkets","description":"Explored 65% of local markets across visited cities."},
+  {"id":"shopping_t4","tier":4,"name":"Trade Master","icon":"💎","threshold":0.85,"categoryKey":"localMarkets","description":"Mastered 85% of local markets — you know every stall."},
+
+  {"id":"museums_t1","tier":1,"name":"Art Curious","icon":"🥉","threshold":0.20,"categoryKey":"museumsArt","description":"Visited 20% of museums and galleries across visited cities."},
+  {"id":"museums_t2","tier":2,"name":"Art Lover","icon":"🥈","threshold":0.40,"categoryKey":"museumsArt","description":"Visited 40% of museums and galleries across visited cities."},
+  {"id":"museums_t3","tier":3,"name":"Gallery Dweller","icon":"🥇","threshold":0.65,"categoryKey":"museumsArt","description":"Visited 65% of museums and galleries across visited cities."},
+  {"id":"museums_t4","tier":4,"name":"Curator's Peer","icon":"💎","threshold":0.85,"categoryKey":"museumsArt","description":"Visited 85% of museums and galleries — art speaks to you."}
 ]

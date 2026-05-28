@@ -6,6 +6,7 @@
 
 import 'dart:convert';
 
+import 'package:explore_index/core/utils/app_logger.dart';
 import 'package:explore_index/data/models/visit.dart';
 import 'package:explore_index/data/repositories/visit_repository.dart';
 import 'package:explore_index/data/services/local_storage_service.dart';
@@ -27,8 +28,8 @@ class VisitRepositoryImpl implements VisitRepository {
       if (raw != null) {
         try {
           visits.add(Visit.fromJson(json.decode(raw) as Map<String, dynamic>));
-        } catch (_) {
-          // Skip corrupt entries silently.
+        } catch (e) {
+          AppLogger.w('VisitRepository', 'Skipping corrupt visit entry for key $key', e);
         }
       }
     }
@@ -54,7 +55,8 @@ class VisitRepositoryImpl implements VisitRepository {
     if (raw == null) return null;
     try {
       return Visit.fromJson(json.decode(raw) as Map<String, dynamic>);
-    } catch (_) {
+    } catch (e) {
+      AppLogger.w('VisitRepository', 'Corrupt visit for id $id', e);
       return null;
     }
   }

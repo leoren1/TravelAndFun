@@ -6,7 +6,9 @@
     "image": "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=400",
     "cityId": "istanbul",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.0086,
     "longitude": 28.9802,
     "discoveryBoost": 8.0
@@ -18,7 +20,9 @@
     "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400",
     "cityId": "istanbul",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.0115,
     "longitude": 28.9833,
     "discoveryBoost": 8.0
@@ -30,7 +34,9 @@
     "image": "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=400",
     "cityId": "istanbul",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.0054,
     "longitude": 28.9768,
     "discoveryBoost": 8.0
@@ -42,7 +48,9 @@
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
     "cityId": "istanbul",
     "category": "historicalPlaces",
-    "tags": ["hidden"],
+    "tags": [
+      "hidden"
+    ],
     "latitude": 41.0083,
     "longitude": 28.9778,
     "discoveryBoost": 8.0
@@ -54,7 +62,9 @@
     "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400",
     "cityId": "istanbul",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.0256,
     "longitude": 28.9741,
     "discoveryBoost": 8.0
@@ -66,7 +76,9 @@
     "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400",
     "cityId": "istanbul",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.0393,
     "longitude": 29.0009,
     "discoveryBoost": 8.0
@@ -78,9 +90,11 @@
     "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400",
     "cityId": "istanbul",
     "category": "foodRestaurants",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 41.0166,
-    "longitude": 28.9720,
+    "longitude": 28.972,
     "discoveryBoost": 8.0
   },
   {
@@ -90,9 +104,11 @@
     "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400",
     "cityId": "istanbul",
     "category": "foodRestaurants",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 41.0077,
-    "longitude": 29.0200,
+    "longitude": 29.02,
     "discoveryBoost": 8.0
   },
   {
@@ -102,7 +118,9 @@
     "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400",
     "cityId": "istanbul",
     "category": "foodRestaurants",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.0225,
     "longitude": 28.9735,
     "discoveryBoost": 8.0
@@ -114,7 +132,9 @@
     "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=400",
     "cityId": "istanbul",
     "category": "foodRestaurants",
-    "tags": ["hidden"],
+    "tags": [
+      "hidden"
+    ],
     "latitude": 41.0174,
     "longitude": 28.9496,
     "discoveryBoost": 8.0
@@ -126,7 +146,9 @@
     "image": "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=400",
     "cityId": "istanbul",
     "category": "foodRestaurants",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.0114,
     "longitude": 28.9728,
     "discoveryBoost": 8.0
@@ -138,7 +160,9 @@
     "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400",
     "cityId": "istanbul",
     "category": "cafes",
-    "tags": ["hidden"],
+    "tags": [
+      "hidden"
+    ],
     "latitude": 41.0315,
     "longitude": 28.9763,
     "discoveryBoost": 8.0
@@ -150,7 +174,9 @@
     "image": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400",
     "cityId": "istanbul",
     "category": "cafes",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 41.0387,
     "longitude": 28.9874,
     "discoveryBoost": 8.0
@@ -162,7 +188,9 @@
     "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400",
     "cityId": "istanbul",
     "category": "cafes",
-    "tags": ["hidden"],
+    "tags": [
+      "hidden"
+    ],
     "latitude": 41.0087,
     "longitude": 29.0271,
     "discoveryBoost": 8.0
@@ -174,7 +202,9 @@
     "image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400",
     "cityId": "istanbul",
     "category": "cafes",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.0228,
     "longitude": 28.9737,
     "discoveryBoost": 8.0
@@ -186,7 +216,9 @@
     "image": "https://images.unsplash.com/photo-1565686894487-d9b3c9df8c0e?w=400",
     "cityId": "istanbul",
     "category": "museumsArt",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.0281,
     "longitude": 28.9802,
     "discoveryBoost": 8.0
@@ -198,9 +230,11 @@
     "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=400",
     "cityId": "istanbul",
     "category": "museumsArt",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.0339,
-    "longitude": 28.9770,
+    "longitude": 28.977,
     "discoveryBoost": 8.0
   },
   {
@@ -210,7 +244,9 @@
     "image": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
     "cityId": "istanbul",
     "category": "museumsArt",
-    "tags": ["hidden"],
+    "tags": [
+      "hidden"
+    ],
     "latitude": 41.0355,
     "longitude": 28.9479,
     "discoveryBoost": 8.0
@@ -222,7 +258,9 @@
     "image": "https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=400",
     "cityId": "istanbul",
     "category": "museumsArt",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 41.0068,
     "longitude": 28.9754,
     "discoveryBoost": 8.0
@@ -234,9 +272,11 @@
     "image": "https://images.unsplash.com/photo-1527838832700-5059252407fa?w=400",
     "cityId": "istanbul",
     "category": "localMarkets",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.0105,
-    "longitude": 28.9680,
+    "longitude": 28.968,
     "discoveryBoost": 8.0
   },
   {
@@ -246,7 +286,9 @@
     "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=400",
     "cityId": "istanbul",
     "category": "localMarkets",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.0165,
     "longitude": 28.9708,
     "discoveryBoost": 8.0
@@ -258,7 +300,9 @@
     "image": "https://images.unsplash.com/photo-1527838832700-5059252407fa?w=400",
     "cityId": "istanbul",
     "category": "localMarkets",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 41.0044,
     "longitude": 28.9784,
     "discoveryBoost": 8.0
@@ -270,7 +314,9 @@
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
     "cityId": "istanbul",
     "category": "hiddenGems",
-    "tags": ["hidden"],
+    "tags": [
+      "hidden"
+    ],
     "latitude": 41.0282,
     "longitude": 28.9456,
     "discoveryBoost": 8.0
@@ -282,7 +328,9 @@
     "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400",
     "cityId": "istanbul",
     "category": "hiddenGems",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 41.0367,
     "longitude": 29.0538,
     "discoveryBoost": 8.0
@@ -294,7 +342,9 @@
     "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400",
     "cityId": "istanbul",
     "category": "hiddenGems",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 41.0475,
     "longitude": 29.0277,
     "discoveryBoost": 8.0
@@ -306,7 +356,9 @@
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
     "cityId": "istanbul",
     "category": "hiddenGems",
-    "tags": ["hidden"],
+    "tags": [
+      "hidden"
+    ],
     "latitude": 41.0833,
     "longitude": 29.0558,
     "discoveryBoost": 8.0
@@ -318,7 +370,9 @@
     "image": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400",
     "cityId": "istanbul",
     "category": "routes",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.0434,
     "longitude": 29.0097,
     "discoveryBoost": 6.7
@@ -330,9 +384,11 @@
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
     "cityId": "istanbul",
     "category": "routes",
-    "tags": ["hidden"],
-    "latitude": 41.0310,
-    "longitude": 28.9490,
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 41.031,
+    "longitude": 28.949,
     "discoveryBoost": 6.7
   },
   {
@@ -342,7 +398,9 @@
     "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=400",
     "cityId": "istanbul",
     "category": "routes",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 40.8713,
     "longitude": 29.1222,
     "discoveryBoost": 6.7
@@ -354,7 +412,9 @@
     "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=400",
     "cityId": "istanbul",
     "category": "nature",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 41.1756,
     "longitude": 28.9785,
     "discoveryBoost": 5.3
@@ -366,7 +426,9 @@
     "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=400",
     "cityId": "istanbul",
     "category": "nature",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.0963,
     "longitude": 29.0557,
     "discoveryBoost": 5.3
@@ -378,7 +440,9 @@
     "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=400",
     "cityId": "istanbul",
     "category": "nature",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 40.8713,
     "longitude": 29.1222,
     "discoveryBoost": 5.3
@@ -390,7 +454,9 @@
     "image": "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400",
     "cityId": "istanbul",
     "category": "nightlife",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.0357,
     "longitude": 28.9859,
     "discoveryBoost": 6.7
@@ -402,7 +468,9 @@
     "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400",
     "cityId": "istanbul",
     "category": "nightlife",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 41.0232,
     "longitude": 28.9759,
     "discoveryBoost": 6.7
@@ -414,7 +482,9 @@
     "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400",
     "cityId": "istanbul",
     "category": "nightlife",
-    "tags": ["hidden"],
+    "tags": [
+      "hidden"
+    ],
     "latitude": 41.0045,
     "longitude": 29.0232,
     "discoveryBoost": 6.7
@@ -426,7 +496,9 @@
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
     "cityId": "izmir",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 38.4172,
     "longitude": 27.1389,
     "discoveryBoost": 6.7
@@ -438,7 +510,9 @@
     "image": "https://images.unsplash.com/photo-1527838832700-5059252407fa?w=400",
     "cityId": "izmir",
     "category": "localMarkets",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 38.4161,
     "longitude": 27.1371,
     "discoveryBoost": 5.3
@@ -450,7 +524,9 @@
     "image": "https://images.unsplash.com/photo-1570457073443-1d57fdfceee3?w=400",
     "cityId": "izmir",
     "category": "routes",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 38.4375,
     "longitude": 27.1454,
     "discoveryBoost": 5.3
@@ -462,8 +538,10 @@
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
     "cityId": "izmir",
     "category": "hiddenGems",
-    "tags": ["hidden"],
-    "latitude": 38.4080,
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 38.408,
     "longitude": 27.1467,
     "discoveryBoost": 8.0
   },
@@ -474,7 +552,9 @@
     "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400",
     "cityId": "izmir",
     "category": "foodRestaurants",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 38.4389,
     "longitude": 27.1444,
     "discoveryBoost": 8.0
@@ -486,9 +566,11 @@
     "image": "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=400",
     "cityId": "izmir",
     "category": "cafes",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 38.4202,
-    "longitude": 27.1310,
+    "longitude": 27.131,
     "discoveryBoost": 8.0
   },
   {
@@ -498,7 +580,9 @@
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
     "cityId": "izmir",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 37.9396,
     "longitude": 27.3415,
     "discoveryBoost": 6.7
@@ -510,7 +594,9 @@
     "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400",
     "cityId": "izmir",
     "category": "nature",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 38.3215,
     "longitude": 26.3011,
     "discoveryBoost": 8.0
@@ -522,7 +608,9 @@
     "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=400",
     "cityId": "izmir",
     "category": "museumsArt",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 38.4196,
     "longitude": 27.1424,
     "discoveryBoost": 5.3
@@ -534,7 +622,9 @@
     "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400",
     "cityId": "antalya",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 36.8869,
     "longitude": 30.7058,
     "discoveryBoost": 6.7
@@ -546,8 +636,10 @@
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
     "cityId": "antalya",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
-    "latitude": 36.8850,
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 36.885,
     "longitude": 30.7082,
     "discoveryBoost": 6.7
   },
@@ -558,9 +650,11 @@
     "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
     "cityId": "antalya",
     "category": "nature",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 36.9013,
-    "longitude": 30.7660,
+    "longitude": 30.766,
     "discoveryBoost": 8.0
   },
   {
@@ -570,8 +664,10 @@
     "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400",
     "cityId": "antalya",
     "category": "nature",
-    "tags": ["mustVisit"],
-    "latitude": 36.8700,
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 36.87,
     "longitude": 30.6588,
     "discoveryBoost": 8.0
   },
@@ -582,7 +678,9 @@
     "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=400",
     "cityId": "antalya",
     "category": "museumsArt",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 36.8753,
     "longitude": 30.6728,
     "discoveryBoost": 5.3
@@ -594,7 +692,9 @@
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
     "cityId": "antalya",
     "category": "historicalPlaces",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 36.9612,
     "longitude": 30.8538,
     "discoveryBoost": 6.7
@@ -606,7 +706,9 @@
     "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400",
     "cityId": "antalya",
     "category": "foodRestaurants",
-    "tags": ["hidden"],
+    "tags": [
+      "hidden"
+    ],
     "latitude": 36.8893,
     "longitude": 30.7065,
     "discoveryBoost": 8.0
@@ -618,7 +720,9 @@
     "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=400",
     "cityId": "antalya",
     "category": "routes",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 36.2667,
     "longitude": 29.4197,
     "discoveryBoost": 6.7
@@ -630,7 +734,9 @@
     "image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400",
     "cityId": "antalya",
     "category": "hiddenGems",
-    "tags": ["hidden"],
+    "tags": [
+      "hidden"
+    ],
     "latitude": 36.8844,
     "longitude": 30.7068,
     "discoveryBoost": 8.0
@@ -642,7 +748,9 @@
     "image": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=400",
     "cityId": "roma",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.8902,
     "longitude": 12.4922,
     "discoveryBoost": 8.0
@@ -654,7 +762,9 @@
     "image": "https://images.unsplash.com/photo-1563622885-8d3e4a6f4d5f?w=400",
     "cityId": "roma",
     "category": "museumsArt",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.9065,
     "longitude": 12.4536,
     "discoveryBoost": 8.0
@@ -666,7 +776,9 @@
     "image": "https://images.unsplash.com/photo-1541732648377-a0c3fe9aeef1?w=400",
     "cityId": "roma",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.9009,
     "longitude": 12.4833,
     "discoveryBoost": 8.0
@@ -678,7 +790,9 @@
     "image": "https://images.unsplash.com/photo-1515542622106-078bda9ef071?w=400",
     "cityId": "roma",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.8986,
     "longitude": 12.4768,
     "discoveryBoost": 8.0
@@ -690,7 +804,9 @@
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
     "cityId": "roma",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.8925,
     "longitude": 12.4853,
     "discoveryBoost": 8.0
@@ -702,7 +818,10 @@
     "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400",
     "cityId": "roma",
     "category": "foodRestaurants",
-    "tags": ["mustVisit", "local"],
+    "tags": [
+      "mustVisit",
+      "local"
+    ],
     "latitude": 41.8896,
     "longitude": 12.4686,
     "discoveryBoost": 8.0
@@ -714,7 +833,9 @@
     "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400",
     "cityId": "roma",
     "category": "foodRestaurants",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 41.8953,
     "longitude": 12.4745,
     "discoveryBoost": 8.0
@@ -726,7 +847,9 @@
     "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400",
     "cityId": "roma",
     "category": "cafes",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 41.8983,
     "longitude": 12.4762,
     "discoveryBoost": 8.0
@@ -738,7 +861,9 @@
     "image": "https://images.unsplash.com/photo-1527838832700-5059252407fa?w=400",
     "cityId": "roma",
     "category": "localMarkets",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 41.8793,
     "longitude": 12.4771,
     "discoveryBoost": 5.3
@@ -750,8 +875,10 @@
     "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=400",
     "cityId": "roma",
     "category": "museumsArt",
-    "tags": ["mustVisit"],
-    "latitude": 41.9140,
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 41.914,
     "longitude": 12.4924,
     "discoveryBoost": 8.0
   },
@@ -762,9 +889,11 @@
     "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=400",
     "cityId": "roma",
     "category": "routes",
-    "tags": ["hidden"],
+    "tags": [
+      "hidden"
+    ],
     "latitude": 41.8553,
-    "longitude": 12.5120,
+    "longitude": 12.512,
     "discoveryBoost": 5.0
   },
   {
@@ -774,9 +903,11 @@
     "image": "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400",
     "cityId": "roma",
     "category": "nightlife",
-    "tags": ["hidden"],
+    "tags": [
+      "hidden"
+    ],
     "latitude": 41.8861,
-    "longitude": 12.5360,
+    "longitude": 12.536,
     "discoveryBoost": 6.7
   },
   {
@@ -786,7 +917,9 @@
     "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=400",
     "cityId": "roma",
     "category": "nature",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 41.9138,
     "longitude": 12.4903,
     "discoveryBoost": 5.3
@@ -798,7 +931,9 @@
     "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=400",
     "cityId": "paris",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 48.8584,
     "longitude": 2.2945,
     "discoveryBoost": 8.0
@@ -810,7 +945,9 @@
     "image": "https://images.unsplash.com/photo-1520608759631-d2837b8b6bfd?w=400",
     "cityId": "paris",
     "category": "museumsArt",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 48.8606,
     "longitude": 2.3376,
     "discoveryBoost": 8.0
@@ -822,8 +959,10 @@
     "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400",
     "cityId": "paris",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
-    "latitude": 48.8530,
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 48.853,
     "longitude": 2.3499,
     "discoveryBoost": 8.0
   },
@@ -834,8 +973,10 @@
     "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=400",
     "cityId": "paris",
     "category": "museumsArt",
-    "tags": ["mustVisit"],
-    "latitude": 48.8600,
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 48.86,
     "longitude": 2.3266,
     "discoveryBoost": 8.0
   },
@@ -846,7 +987,9 @@
     "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=400",
     "cityId": "paris",
     "category": "historicalPlaces",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 48.8867,
     "longitude": 2.3431,
     "discoveryBoost": 8.0
@@ -858,7 +1001,9 @@
     "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400",
     "cityId": "paris",
     "category": "foodRestaurants",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 48.8519,
     "longitude": 2.3408,
     "discoveryBoost": 8.0
@@ -870,7 +1015,9 @@
     "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400",
     "cityId": "paris",
     "category": "foodRestaurants",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 48.8527,
     "longitude": 2.3744,
     "discoveryBoost": 8.0
@@ -882,9 +1029,11 @@
     "image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400",
     "cityId": "paris",
     "category": "cafes",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 48.8537,
-    "longitude": 2.3330,
+    "longitude": 2.333,
     "discoveryBoost": 8.0
   },
   {
@@ -894,7 +1043,9 @@
     "image": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=400",
     "cityId": "paris",
     "category": "cafes",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 48.8707,
     "longitude": 2.3634,
     "discoveryBoost": 8.0
@@ -906,7 +1057,9 @@
     "image": "https://images.unsplash.com/photo-1527838832700-5059252407fa?w=400",
     "cityId": "paris",
     "category": "localMarkets",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 48.8533,
     "longitude": 2.3694,
     "discoveryBoost": 5.3
@@ -918,7 +1071,9 @@
     "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=400",
     "cityId": "paris",
     "category": "routes",
-    "tags": ["local"],
+    "tags": [
+      "local"
+    ],
     "latitude": 48.8707,
     "longitude": 2.3634,
     "discoveryBoost": 5.0
@@ -930,8 +1085,10 @@
     "image": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=400",
     "cityId": "paris",
     "category": "nature",
-    "tags": ["local"],
-    "latitude": 48.8640,
+    "tags": [
+      "local"
+    ],
+    "latitude": 48.864,
     "longitude": 2.2405,
     "discoveryBoost": 5.3
   },
@@ -942,7 +1099,9 @@
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
     "cityId": "paris",
     "category": "hiddenGems",
-    "tags": ["hidden"],
+    "tags": [
+      "hidden"
+    ],
     "latitude": 48.8719,
     "longitude": 2.3452,
     "discoveryBoost": 8.0
@@ -954,9 +1113,2390 @@
     "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400",
     "cityId": "paris",
     "category": "nightlife",
-    "tags": ["mustVisit"],
+    "tags": [
+      "mustVisit"
+    ],
     "latitude": 48.8683,
     "longitude": 2.3493,
     "discoveryBoost": 6.7
+  },
+  {
+    "id": "tokyo_sensoji",
+    "name": "Senso-ji Temple",
+    "description": "Tokyo's oldest and most iconic Buddhist temple, founded in 628 AD in Asakusa. The Kaminarimon Thunder Gate and Nakamise shopping street lead to a complex of stunning pagodas and incense smoke.",
+    "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=400",
+    "cityId": "tokyo",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.7148,
+    "longitude": 139.7967,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "tokyo_meiji_shrine",
+    "name": "Meiji Jingu Shrine",
+    "description": "A vast Shinto shrine in a dense 70-hectare forest dedicated to Emperor Meiji and Empress Shoken. The towering torii gate marks the transition from the city's noise to forest silence.",
+    "image": "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400",
+    "cityId": "tokyo",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.6763,
+    "longitude": 139.6993,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "tokyo_imperial_palace",
+    "name": "Imperial Palace East Gardens",
+    "description": "The former innermost enclosure of Edo Castle, home of the Tokugawa Shoguns. Immaculately kept traditional gardens with stone tower ruins and viewing pavilions set among seasonal plum and cherry blossoms.",
+    "image": "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=400",
+    "cityId": "tokyo",
+    "category": "historicalPlaces",
+    "tags": [
+      "local"
+    ],
+    "latitude": 35.6852,
+    "longitude": 139.7528,
+    "discoveryBoost": 6.5
+  },
+  {
+    "id": "tokyo_nikko_toshogu",
+    "name": "Ueno Toshogu Shrine",
+    "description": "A lavishly gilded Edo-period shrine inside Ueno Park, one of the few original structures surviving from the 1600s. Its golden lacquer facade and stone lanterns are extraordinary.",
+    "image": "https://images.unsplash.com/photo-1578353022142-09264fd64295?w=400",
+    "cityId": "tokyo",
+    "category": "historicalPlaces",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 35.7157,
+    "longitude": 139.7736,
+    "discoveryBoost": 6.0
+  },
+  {
+    "id": "tokyo_tsukiji_market",
+    "name": "Tsukiji Outer Market",
+    "description": "The outer ring of Tokyo's legendary fish market still thrives with sushi bars, fresh seafood stands, and tamagoyaki egg vendors. Arriving at 7am for the freshest omakase is a rite of passage.",
+    "image": "https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=400",
+    "cityId": "tokyo",
+    "category": "foodRestaurants",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.6654,
+    "longitude": 139.7707,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "tokyo_ichiran",
+    "name": "Ichiran Ramen",
+    "description": "Japan's most celebrated solo dining experience — individual booth partitions, no eye contact, a personal order form, and a perfect bowl of tonkotsu ramen adjusted exactly to your preferences.",
+    "image": "https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400",
+    "cityId": "tokyo",
+    "category": "foodRestaurants",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.6938,
+    "longitude": 139.7034,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "tokyo_jiro",
+    "name": "Sukiyabashi Jiro",
+    "description": "Three Michelin stars in a Ginza subway concourse. Jiro Ono, born 1925, crafts each piece with lifelong precision. Obama ate here. The 20-course omakase takes 30 minutes and costs 40,000 yen.",
+    "image": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400",
+    "cityId": "tokyo",
+    "category": "foodRestaurants",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.6736,
+    "longitude": 139.7635,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "tokyo_tempura_kondo",
+    "name": "Tempura Kondo",
+    "description": "Fumio Kondo's two-Michelin-star Ginza restaurant where vegetable tempura is elevated to high art. His carrot and sweet potato pieces have the lightest batter in the world.",
+    "image": "https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=400",
+    "cityId": "tokyo",
+    "category": "foodRestaurants",
+    "tags": [
+      "local"
+    ],
+    "latitude": 35.6699,
+    "longitude": 139.7582,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "tokyo_national_museum",
+    "name": "Tokyo National Museum",
+    "description": "Japan's largest and oldest museum in Ueno Park, holding 110,000 objects including the world's largest collection of Japanese art — samurai armour, ukiyo-e prints, Buddhist sculpture, and national treasures.",
+    "image": "https://images.unsplash.com/photo-1554797589-7241bb691973?w=400",
+    "cityId": "tokyo",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.7188,
+    "longitude": 139.7766,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "tokyo_teamlab",
+    "name": "teamLab Planets",
+    "description": "An immersive digital art museum in Toyosu where you wade through knee-deep water reflecting infinite flower projections. Four giant rooms dissolve the boundary between your body and the artwork.",
+    "image": "https://images.unsplash.com/photo-1554244933-d876deb6b2ff?w=400",
+    "cityId": "tokyo",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.648,
+    "longitude": 139.7875,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "tokyo_mori_art",
+    "name": "Mori Art Museum",
+    "description": "A world-class contemporary art museum on the 53rd floor of Roppongi Hills Tower with floor-to-ceiling city views. Rotating exhibitions of top global and Japanese contemporary artists.",
+    "image": "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=400",
+    "cityId": "tokyo",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.6605,
+    "longitude": 139.729,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "tokyo_golden_gai",
+    "name": "Golden Gai",
+    "description": "A labyrinth of 200 tiny wooden bars crammed into six narrow alleys in Shinjuku. Each bar has room for 5-8 people and a distinct personality. This is Tokyo's most atmospheric drinking neighborhood.",
+    "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=400",
+    "cityId": "tokyo",
+    "category": "nightlife",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.6939,
+    "longitude": 139.7028,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "tokyo_bar_high_five",
+    "name": "Bar High Five",
+    "description": "Hidetsugu Ueno's legendary Ginza cocktail bar ranked among Asia's 50 Best. No menu — describe a mood or flavor and the bartender crafts a bespoke cocktail of extraordinary precision.",
+    "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=400",
+    "cityId": "tokyo",
+    "category": "nightlife",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 35.6729,
+    "longitude": 139.7619,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "tokyo_robot_restaurant",
+    "name": "Robot Restaurant",
+    "description": "A gloriously absurd neon-lit show in Shinjuku featuring giant robots, lasers, taiko drummers, and dancers in a basement that cost 10 billion yen to decorate. Pure Tokyo spectacle.",
+    "image": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400",
+    "cityId": "tokyo",
+    "category": "nightlife",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.6952,
+    "longitude": 139.7024,
+    "discoveryBoost": 6.5
+  },
+  {
+    "id": "tokyo_shinjuku_gyoen",
+    "name": "Shinjuku Gyoen National Garden",
+    "description": "Tokyo's finest garden spanning 58 hectares with French formal, English landscape, and Japanese traditional sections. The 1,100 cherry trees draw enormous crowds each March and April.",
+    "image": "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=400",
+    "cityId": "tokyo",
+    "category": "nature",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.6851,
+    "longitude": 139.71,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "tokyo_mount_takao",
+    "name": "Mount Takao",
+    "description": "A sacred 599m mountain an hour from Shinjuku with cedar forests, free-roaming monkeys, and ancient Yakuoin temple. One of the world's most-climbed mountains yet always feels serene.",
+    "image": "https://images.unsplash.com/photo-1590077428593-a55aa07c4a27?w=400",
+    "cityId": "tokyo",
+    "category": "nature",
+    "tags": [
+      "local"
+    ],
+    "latitude": 35.6268,
+    "longitude": 139.2437,
+    "discoveryBoost": 6.5
+  },
+  {
+    "id": "tokyo_yoyogi_park",
+    "name": "Yoyogi Park",
+    "description": "A vast green oasis next to Harajuku where Tokyoites practice parkour, strum guitars, do tai chi, and walk dogs on Sunday mornings. The adjacent Meiji Shrine forest makes this feel far from the city.",
+    "image": "https://images.unsplash.com/photo-1559511260-66a654ae982a?w=400",
+    "cityId": "tokyo",
+    "category": "nature",
+    "tags": [
+      "local"
+    ],
+    "latitude": 35.6715,
+    "longitude": 139.6953,
+    "discoveryBoost": 5.5
+  },
+  {
+    "id": "tokyo_arabica",
+    "name": "% Arabica Roppongi",
+    "description": "The Tokyo outpost of Kyoto's minimalist specialty coffee brand. White walls, an immaculate La Marzocca machine, and some of the cleanest espresso in Asia. The matcha latte is a ritual.",
+    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400",
+    "cityId": "tokyo",
+    "category": "cafes",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.6631,
+    "longitude": 139.7317,
+    "discoveryBoost": 6.5
+  },
+  {
+    "id": "tokyo_fuglen",
+    "name": "Fuglen Tokyo",
+    "description": "An Oslo café transplanted to Tomigaya with vintage 1960s Scandinavian furniture. Coffee by day, natural wine and cocktails by night. The specialty pour-overs attract Tokyo's coffee cognoscenti.",
+    "image": "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400",
+    "cityId": "tokyo",
+    "category": "cafes",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 35.6617,
+    "longitude": 139.6878,
+    "discoveryBoost": 6.0
+  },
+  {
+    "id": "tokyo_koffee_mameya",
+    "name": "Koffee Mameya",
+    "description": "A hushed consultation coffee shop in Omotesando where white-coated baristas guide you through bean selections like sommeliers. Only 8 stools, no espresso machine — pour-over only.",
+    "image": "https://images.unsplash.com/photo-1611918852020-b25c00e6b2fa?w=400",
+    "cityId": "tokyo",
+    "category": "cafes",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 35.6641,
+    "longitude": 139.709,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "tokyo_nakameguro",
+    "name": "Nakameguro Canal Walk",
+    "description": "A 2km canalside promenade lined with cherry trees, indie boutiques, and cafés beneath. In spring, the overhanging sakura form a pink tunnel over the water that attracts the entire city.",
+    "image": "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=400",
+    "cityId": "tokyo",
+    "category": "routes",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.6449,
+    "longitude": 139.6983,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "tokyo_yanaka",
+    "name": "Yanaka Ginza",
+    "description": "A preserved old shopping street where Tokyo's Shitamachi spirit survives: tofu shops, grilled skewer stalls, and cats sleeping in the sun. One of the few neighborhoods untouched by WWII bombs.",
+    "image": "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=400",
+    "cityId": "tokyo",
+    "category": "routes",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 35.7261,
+    "longitude": 139.771,
+    "discoveryBoost": 6.0
+  },
+  {
+    "id": "tokyo_ameyoko",
+    "name": "Ameyoko Market",
+    "description": "A chaotic open-air market under the Ueno elevated train tracks that began as a black market after WWII. Today: dried seafood, cosmetics, street food, and vendors shouting prices at full volume.",
+    "image": "https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=400",
+    "cityId": "tokyo",
+    "category": "localMarkets",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.709,
+    "longitude": 139.775,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "tokyo_shimokitazawa",
+    "name": "Shimokitazawa",
+    "description": "Tokyo's hippest neighborhood with hundreds of vintage clothing stores, small live music venues, indie theaters, and zero chain stores. The antithesis of Shibuya, and far more interesting.",
+    "image": "https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=400",
+    "cityId": "tokyo",
+    "category": "hiddenGems",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 35.6617,
+    "longitude": 139.6688,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "tokyo_kagurazaka",
+    "name": "Kagurazaka",
+    "description": "A cobblestone hillside with French-Japanese fusion identity — geisha alleys alongside French bakeries, a Michelin-starred French restaurant next to a Buddhist temple. One of Tokyo's most elegant surprises.",
+    "image": "https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=400",
+    "cityId": "tokyo",
+    "category": "hiddenGems",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 35.7008,
+    "longitude": 139.7432,
+    "discoveryBoost": 6.5
+  },
+  {
+    "id": "bcn_sagrada_familia",
+    "name": "Sagrada Família",
+    "description": "Gaudí's unfinished basilica and the world's most visited construction site. Under continuous construction since 1882, its organic stone towers and kaleidoscopic stained glass windows are unlike any building on earth.",
+    "image": "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=400",
+    "cityId": "barcelona",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 41.4036,
+    "longitude": 2.1744,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "bcn_gothic_quarter",
+    "name": "Barri Gòtic",
+    "description": "Barcelona's medieval labyrinth built over Roman ruins — a 2,000-year-old Temple of Augustus stands in a courtyard most tourists walk past. Every narrow alley reveals Roman columns, Gothic archways, and gargoyles.",
+    "image": "https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=400",
+    "cityId": "barcelona",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 41.3833,
+    "longitude": 2.1762,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "bcn_park_guell",
+    "name": "Park Güell",
+    "description": "Gaudí's mosaic-covered hillside garden with the famous dragon staircase, serpentine bench with city views, and the Monumental Zone where no straight line exists. Built 1900–1914 for a housing estate that never happened.",
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400",
+    "cityId": "barcelona",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 41.4145,
+    "longitude": 2.1527,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "bcn_palau_musica",
+    "name": "Palau de la Música Catalana",
+    "description": "Domènech i Montaner's staggering UNESCO concert hall built 1905–08. The interior is a forest of stained glass, ceramic roses, and a centrepiece skylight that floods the stage in color. Still hosts concerts weekly.",
+    "image": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400",
+    "cityId": "barcelona",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 41.3875,
+    "longitude": 2.1752,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "bcn_boqueria",
+    "name": "La Boqueria",
+    "description": "Barcelona's legendary covered market since 1840, crammed with jamón legs, whole octopus, fruit stalls, and overflowing seafood counters. The counter bar at Pinotxo has served breakfast to locals since 1940.",
+    "image": "https://images.unsplash.com/photo-1527838832700-5059252407fa?w=400",
+    "cityId": "barcelona",
+    "category": "foodRestaurants",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 41.3817,
+    "longitude": 2.1724,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "bcn_bodega_1900",
+    "name": "Bodega 1900",
+    "description": "Albert Adrià's (El Bulli) love letter to the old-fashioned Barcelona bodega. Vermouth on tap, modernist canned food elevated to haute cuisine, and the finest patatas bravas in the city.",
+    "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400",
+    "cityId": "barcelona",
+    "category": "foodRestaurants",
+    "tags": [
+      "local"
+    ],
+    "latitude": 41.3743,
+    "longitude": 2.1687,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "bcn_bar_del_pla",
+    "name": "Bar del Pla",
+    "description": "A neighbourhood institution in El Born with legendary croquetas de jamón, escalivada, and an extensive sherry list. Marble tables, a zinc bar, and a mix of locals and those in the know.",
+    "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400",
+    "cityId": "barcelona",
+    "category": "foodRestaurants",
+    "tags": [
+      "local"
+    ],
+    "latitude": 41.3853,
+    "longitude": 2.1807,
+    "discoveryBoost": 6.5
+  },
+  {
+    "id": "bcn_picasso_museum",
+    "name": "Museu Picasso",
+    "description": "Over 4,000 Picasso works in five interconnected medieval palaces in El Born. The collection's strength is his early formative years in Barcelona — long before Cubism — revealing the prodigy behind the genius.",
+    "image": "https://images.unsplash.com/photo-1573521193826-58c7dc2e13e3?w=400",
+    "cityId": "barcelona",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 41.3851,
+    "longitude": 2.181,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "bcn_mnac",
+    "name": "MNAC – Museu Nacional d'Art de Catalunya",
+    "description": "A Romanesque art collection without equal, housed in the hilltop Palau Nacional. The medieval frescoes rescued from Pyrenean churches are staggering; the rooftop offers the best panorama of Barcelona.",
+    "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe2e2?w=400",
+    "cityId": "barcelona",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 41.3685,
+    "longitude": 2.1537,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "bcn_miro",
+    "name": "Fundació Joan Miró",
+    "description": "Sert's brilliant white building on Montjuïc holds 10,000 Miró works — paintings, sculptures, and tapestries in primary colors that feel joyful even in their abstraction. His studio is preserved as he left it.",
+    "image": "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400",
+    "cityId": "barcelona",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 41.3684,
+    "longitude": 2.1597,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "bcn_razzmatazz",
+    "name": "Razzmatazz",
+    "description": "Five rooms, five different musical styles from indie to techno in a former industrial warehouse in Poblenou. Headline acts play the main Razz Club while ravers fill the smaller rooms until 6am.",
+    "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400",
+    "cityId": "barcelona",
+    "category": "nightlife",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 41.399,
+    "longitude": 2.1965,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "bcn_bar_marsella",
+    "name": "Bar Marsella",
+    "description": "Barcelona's oldest bar, open since 1820 in El Raval. Dusty bottles of absinthe hang from a ceiling unchanged for two centuries. Hemingway drank here. The absinthe is still served with a lump of sugar and a flame.",
+    "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400",
+    "cityId": "barcelona",
+    "category": "nightlife",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 41.3804,
+    "longitude": 2.1754,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "bcn_el_born_night",
+    "name": "El Born Cocktail Strip",
+    "description": "The trendiest cocktail corridor in the old quarter — El Xampanyet, Bar del Convent, and a dozen craft bars on Carrer del Rec and Passeig del Born. An outdoor terrace culture fueled by natural wine and vermouth.",
+    "image": "https://images.unsplash.com/photo-1578836537282-3171d77f8632?w=400",
+    "cityId": "barcelona",
+    "category": "nightlife",
+    "tags": [
+      "local"
+    ],
+    "latitude": 41.3854,
+    "longitude": 2.1838,
+    "discoveryBoost": 6.5
+  },
+  {
+    "id": "bcn_montjuic",
+    "name": "Montjuïc Hill",
+    "description": "A forested hill rising 184m above the port with botanical gardens, a castle, the 1992 Olympic stadium, and Miró foundation. The cable car from Barceloneta gives a dramatic arrival over the sea.",
+    "image": "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=400",
+    "cityId": "barcelona",
+    "category": "nature",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 41.3637,
+    "longitude": 2.1551,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "bcn_tibidabo",
+    "name": "Tibidabo Mountain",
+    "description": "Barcelona's highest point at 512m, crowned with a century-old amusement park and the Sacred Heart basilica whose spire is visible from anywhere in the city. On clear days you can see Mallorca.",
+    "image": "https://images.unsplash.com/photo-1510519138101-570d1dca3d66?w=400",
+    "cityId": "barcelona",
+    "category": "nature",
+    "tags": [
+      "local"
+    ],
+    "latitude": 41.4219,
+    "longitude": 2.1185,
+    "discoveryBoost": 6.5
+  },
+  {
+    "id": "bcn_barceloneta",
+    "name": "Barceloneta Beach",
+    "description": "The city's main urban beach where locals swim, play pétanque, and feast on seafood in the chiringuitos. The waterfront from Port Olímpic to Barceloneta is a 4km stretch of Mediterranean leisure.",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400",
+    "cityId": "barcelona",
+    "category": "nature",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 41.3791,
+    "longitude": 2.1921,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "bcn_ramblas",
+    "name": "Las Ramblas",
+    "description": "Barcelona's legendary tree-lined boulevard running 1.2km from Plaça de Catalunya to the sea, past the Boqueria, living statues, flower stalls, and the Columbus Monument at its southern end.",
+    "image": "https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=400",
+    "cityId": "barcelona",
+    "category": "routes",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 41.3751,
+    "longitude": 2.1736,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "bcn_eixample",
+    "name": "Eixample Modernisme Walk",
+    "description": "A self-guided walk through Ildefons Cerdà's 19th-century grid to spot Gaudí's Casa Batlló, Casa Milà, Domènech's Casa Lleó Morera, and Puig's Casa Terrades — five Modernisme masterpieces in six city blocks.",
+    "image": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400",
+    "cityId": "barcelona",
+    "category": "routes",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 41.3925,
+    "longitude": 2.1636,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "bcn_bunkers",
+    "name": "Bunkers del Carmel",
+    "description": "The ruins of a Civil War anti-aircraft battery on a hilltop in Gràcia with the best 360-degree panorama in Barcelona. Locals bring wine, blankets, and guitars for sunset. Completely free and never crowded.",
+    "image": "https://images.unsplash.com/photo-1515542622106-078bda9ef071?w=400",
+    "cityId": "barcelona",
+    "category": "hiddenGems",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 41.4227,
+    "longitude": 2.1582,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "bcn_poblenou",
+    "name": "Rambla del Poblenou",
+    "description": "A quiet local Rambla in Barcelona's former industrial district, now filled with art studios, craft beer bars, and ceramics workshops. The opposite of the tourist Ramblas — where Barcelona actually lives.",
+    "image": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=400",
+    "cityId": "barcelona",
+    "category": "hiddenGems",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 41.4,
+    "longitude": 2.1971,
+    "discoveryBoost": 6.0
+  },
+  {
+    "id": "bcn_mercat_abaceria",
+    "name": "Mercat de l'Abaceria",
+    "description": "Gràcia's beloved 1892 iron-frame market selling organic produce, spices, vintage clothes, and antiques alongside food stalls serving vermouth and croquetas to local families on Saturday mornings.",
+    "image": "https://images.unsplash.com/photo-1527838832700-5059252407fa?w=400",
+    "cityId": "barcelona",
+    "category": "localMarkets",
+    "tags": [
+      "local"
+    ],
+    "latitude": 41.401,
+    "longitude": 2.1566,
+    "discoveryBoost": 6.0
+  },
+  {
+    "id": "bcn_encants",
+    "name": "Encants Barcelona",
+    "description": "Europe's oldest flea market, now under a spectacular mirrored steel canopy near Glòries. Second-hand furniture, vinyl records, antique ceramics, and used books spread over 8,000 square metres.",
+    "image": "https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=400",
+    "cityId": "barcelona",
+    "category": "localMarkets",
+    "tags": [
+      "local"
+    ],
+    "latitude": 41.4024,
+    "longitude": 2.188,
+    "discoveryBoost": 5.5
+  },
+  {
+    "id": "berlin_Brandenburg_gate",
+    "name": "Brandenburg Gate",
+    "description": "An 18th-century neoclassical triumphal arch and the enduring symbol of German reunification. Napoleon marched through it, the Wall was built beside it, and half a million people gathered here in 1989.",
+    "image": "https://images.unsplash.com/photo-1560969184-10fe8719e047?w=400",
+    "cityId": "berlin",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 52.5163,
+    "longitude": 13.3777,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "berlin_wall_memorial",
+    "name": "Berlin Wall Memorial",
+    "description": "A preserved 80m section of the Wall on Bernauer Strasse with a documentation center, outdoor exhibition, and the ghost of the death strip between the two parallel walls that ran through a city for 28 years.",
+    "image": "https://images.unsplash.com/photo-1587459591958-a7d7b7b4c5f9?w=400",
+    "cityId": "berlin",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 52.535,
+    "longitude": 13.389,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "berlin_reichstag",
+    "name": "Reichstag & Glass Dome",
+    "description": "The German parliament topped by Norman Foster's iconic glass cupola that visitors walk through for free. Panoramic city views, ramps spiraling to the apex, and the powerful symbolism of transparency in democracy.",
+    "image": "https://images.unsplash.com/photo-1597932783018-44a0cc7e32e5?w=400",
+    "cityId": "berlin",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 52.5186,
+    "longitude": 13.3762,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "berlin_holocaust_memorial",
+    "name": "Holocaust Memorial",
+    "description": "Peter Eisenman's field of 2,711 concrete stelae of varying heights creating a labyrinthine space where daylight and disorientation converge. Below lies an information center with individual stories of victims.",
+    "image": "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=400",
+    "cityId": "berlin",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 52.5138,
+    "longitude": 13.3784,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "berlin_pergamon",
+    "name": "Pergamon Museum",
+    "description": "Germany's most-visited museum on Museum Island holding the massive Pergamon Altar (180 BC) and the Ishtar Gate of Babylon (575 BC). Entire ancient facades were dismantled and rebuilt inside these halls.",
+    "image": "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400",
+    "cityId": "berlin",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 52.5212,
+    "longitude": 13.3964,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "berlin_neues_museum",
+    "name": "Neues Museum",
+    "description": "David Chipperfield's masterful restoration of a WWII-bombed 1855 museum now holds the Egyptian collection including the famous Nefertiti bust. The deliberately preserved bomb damage makes history visible in the walls.",
+    "image": "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=400",
+    "cityId": "berlin",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 52.5206,
+    "longitude": 13.3986,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "berlin_east_side_gallery",
+    "name": "East Side Gallery",
+    "description": "The longest surviving stretch of the Berlin Wall — 1.3km covered in murals by 105 artists from 21 countries immediately after reunification in 1990. Dmitri Vrubel's Fraternal Kiss is the most photographed image.",
+    "image": "https://images.unsplash.com/photo-1580136579312-94d7c898f5ed?w=400",
+    "cityId": "berlin",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 52.5053,
+    "longitude": 13.4399,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "berlin_gemaeldegalerie",
+    "name": "Gemäldegalerie",
+    "description": "One of the world's great collections of Old Masters — 72 rooms of Raphael, Rembrandt, Vermeer, Caravaggio, and Botticelli. Unlike Paris or London, there are rarely queues. The Raffael hall alone is worth the visit.",
+    "image": "https://images.unsplash.com/photo-1601121141461-9d6647bef0e3?w=400",
+    "cityId": "berlin",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 52.508,
+    "longitude": 13.3658,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "berlin_berghain",
+    "name": "Berghain",
+    "description": "The world's most famous techno club in a former East Berlin power plant. The door policy is a ritual of rejection that makes entry feel like an achievement. No phones allowed. The music doesn't stop for 48 hours.",
+    "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400",
+    "cityId": "berlin",
+    "category": "nightlife",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 52.5109,
+    "longitude": 13.444,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "berlin_tresor",
+    "name": "Tresor Club",
+    "description": "Berlin's original techno institution since 1991, first in a bank vault, now in a former power plant near Potsdamer Platz. Three floors, relentless industrial techno, and the iconic low-ceiling vault room.",
+    "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400",
+    "cityId": "berlin",
+    "category": "nightlife",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 52.5103,
+    "longitude": 13.4083,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "berlin_watergate",
+    "name": "Watergate",
+    "description": "A Kreuzberg club floating over the Spree with floor-to-ceiling water-view windows and a terrace directly above the river. Hosts the finest house and techno lineups with an intimate crowd.",
+    "image": "https://images.unsplash.com/photo-1578836537282-3171d77f8632?w=400",
+    "cityId": "berlin",
+    "category": "nightlife",
+    "tags": [
+      "local"
+    ],
+    "latitude": 52.5009,
+    "longitude": 13.4476,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "berlin_curry36",
+    "name": "Curry 36",
+    "description": "The Kreuzberg currywurst institution since 1980 where construction workers and politicians line up together at the outdoor counter. Grilled pork sausage, a Heinz ketchup and curry powder sauce, and a bread roll.",
+    "image": "https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=400",
+    "cityId": "berlin",
+    "category": "foodRestaurants",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 52.4986,
+    "longitude": 13.3924,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "berlin_mustafa",
+    "name": "Mustafa's Gemüse Kebab",
+    "description": "A legendary Kreuzberg döner stand with a permanent queue. The Gemüse Kebab is Berlin's greatest contribution to street food — grilled halloumi, roasted vegetables, and herb sauces stuffed into lavash bread.",
+    "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=400",
+    "cityId": "berlin",
+    "category": "foodRestaurants",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 52.4987,
+    "longitude": 13.3877,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "berlin_nobelhart",
+    "name": "Nobelhart & Schmutzig",
+    "description": "Berlin's most radical restaurant: a 28-seat counter where only ingredients from Brandenburg state are used. A political act disguised as a tasting menu. No imports, no olive oil. Only what grows here.",
+    "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400",
+    "cityId": "berlin",
+    "category": "foodRestaurants",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 52.5099,
+    "longitude": 13.4003,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "berlin_unter_den_linden",
+    "name": "Unter den Linden",
+    "description": "Berlin's grand ceremonial boulevard lined with linden trees, running from Brandenburg Gate to the palace bridge and Museum Island. Prussian grandeur, state opera, Humboldt university, and the heart of old Berlin.",
+    "image": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400",
+    "cityId": "berlin",
+    "category": "routes",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 52.5162,
+    "longitude": 13.39,
+    "discoveryBoost": 6.5
+  },
+  {
+    "id": "berlin_mauerpark",
+    "name": "Mauerpark Flea Market",
+    "description": "A vast Sunday flea market on the former Wall strip in Prenzlauer Berg. 200+ vendors selling vintage clothes, vinyl, antique furniture, Soviet memorabilia, and street food. The Sunday karaoke amphitheater is mandatory.",
+    "image": "https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=400",
+    "cityId": "berlin",
+    "category": "localMarkets",
+    "tags": [
+      "local"
+    ],
+    "latitude": 52.5418,
+    "longitude": 13.4014,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "berlin_box_hagener",
+    "name": "Boxhagener Platz Market",
+    "description": "Friedrichshain's neighborhood Saturday market where organic vegetables, artisan bread, and coffee from local roasters fill the square. The Sunday flea market with vintage books and furniture attracts the entire Kiez.",
+    "image": "https://images.unsplash.com/photo-1527838832700-5059252407fa?w=400",
+    "cityId": "berlin",
+    "category": "localMarkets",
+    "tags": [
+      "local"
+    ],
+    "latitude": 52.5131,
+    "longitude": 13.4534,
+    "discoveryBoost": 5.5
+  },
+  {
+    "id": "berlin_tempelhof",
+    "name": "Tempelhofer Feld",
+    "description": "A decommissioned airport runway turned into an enormous urban park where Berliners cycle, rollerblade, fly kites, grow community gardens, and watch sunset over the flat horizon. A city that turned an airport into freedom.",
+    "image": "https://images.unsplash.com/photo-1484100356142-db6ab6244067?w=400",
+    "cityId": "berlin",
+    "category": "hiddenGems",
+    "tags": [
+      "local"
+    ],
+    "latitude": 52.473,
+    "longitude": 13.4007,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "berlin_klunkerkranich",
+    "name": "Klunkerkranich",
+    "description": "A rooftop bar on top of a Neukölln shopping centre that has grown into a wild urban garden with climbing plants, wooden decks, and panoramic views. Free entry before 6pm. Come for the sunset, stay for the DJs.",
+    "image": "https://images.unsplash.com/photo-1510519138101-570d1dca3d66?w=400",
+    "cityId": "berlin",
+    "category": "hiddenGems",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 52.4798,
+    "longitude": 13.441,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "berlin_tiergarten",
+    "name": "Tiergarten Park",
+    "description": "Berlin's vast central park — 210 hectares of forest, meadows, and canals in the heart of the city. Former royal hunting ground, now a place where Berliners grill, sunbathe nude, and boat on Sunday afternoons.",
+    "image": "https://images.unsplash.com/photo-1559511260-66a654ae982a?w=400",
+    "cityId": "berlin",
+    "category": "nature",
+    "tags": [
+      "local"
+    ],
+    "latitude": 52.5145,
+    "longitude": 13.3501,
+    "discoveryBoost": 6.0
+  },
+  {
+    "id": "berlin_grunewald",
+    "name": "Grunewald Forest & Teufelsberg",
+    "description": "A 3,000-hectare forest on Berlin's western edge with lakes for swimming and Teufelsberg — a Cold War NSA spy station built on rubble, now covered in street art and open for guided tours.",
+    "image": "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=400",
+    "cityId": "berlin",
+    "category": "nature",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 52.4693,
+    "longitude": 13.2264,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "cappadocia_goreme_open_air",
+    "name": "Göreme Open Air Museum",
+    "description": "A UNESCO World Heritage site containing rock-cut churches adorned with Byzantine frescoes dating back to the 10th century. The Karanlık Kilise (Dark Church) has the best-preserved paintings.",
+    "image": "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=400",
+    "cityId": "cappadocia",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 38.6431,
+    "longitude": 34.8289,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "cappadocia_uchisar_castle",
+    "name": "Uçhisar Castle",
+    "description": "The highest point in Cappadocia, this massive volcanic rock was hollowed out by ancient inhabitants to create a fortress-city. The views across fairy chimneys at sunset are unmatched.",
+    "image": "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=400",
+    "cityId": "cappadocia",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 38.631,
+    "longitude": 34.8094,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "cappadocia_derinkuyu",
+    "name": "Derinkuyu Underground City",
+    "description": "An ancient multi-level underground city extending 85 meters deep, capable of sheltering tens of thousands of people. One of the most remarkable archaeological discoveries in the region.",
+    "image": "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=400",
+    "cityId": "cappadocia",
+    "category": "historicalPlaces",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 38.374,
+    "longitude": 34.735,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "cappadocia_fairy_chimneys",
+    "name": "Fairy Chimneys Valley",
+    "description": "The iconic volcanic rock formations of Cappadocia, sculpted over millions of years into mushroom-like pillars. Pasabag Valley has the most photogenic specimens with unique multi-headed caps.",
+    "image": "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=400",
+    "cityId": "cappadocia",
+    "category": "nature",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 38.6747,
+    "longitude": 34.8507,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "cappadocia_red_valley",
+    "name": "Red Valley Hike",
+    "description": "A breathtaking hike through red and rose-hued valleys carved by volcanic activity. The trail winds past carved chapels, pigeon houses, and vineyards with dramatic views of the landscape.",
+    "image": "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=400",
+    "cityId": "cappadocia",
+    "category": "nature",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 38.662,
+    "longitude": 34.866,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "cappadocia_sunrise_balloon",
+    "name": "Hot Air Balloon Sunrise",
+    "description": "Drifting over the lunar landscape of Cappadocia at sunrise in a hot air balloon is one of the world's most extraordinary travel experiences. The golden light on the fairy chimneys is magical.",
+    "image": "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=400",
+    "cityId": "cappadocia",
+    "category": "nature",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 38.66,
+    "longitude": 34.84,
+    "discoveryBoost": 10.0
+  },
+  {
+    "id": "cappadocia_rose_valley_trail",
+    "name": "Rose Valley Trail",
+    "description": "A 3-hour scenic walking route connecting Cavusin to Goreme through pink-tinted rock formations, cave churches, and ancient orchards. Best done in the late afternoon light.",
+    "image": "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=400",
+    "cityId": "cappadocia",
+    "category": "routes",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 38.67,
+    "longitude": 34.86,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "cappadocia_avanos_pottery",
+    "name": "Avanos Pottery Workshops",
+    "description": "Avanos has been a center of pottery-making for over 3,000 years, using clay from the Red River. You can watch master craftspeople throw pots and take hands-on workshops.",
+    "image": "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=400",
+    "cityId": "cappadocia",
+    "category": "localMarkets",
+    "tags": [
+      "local"
+    ],
+    "latitude": 38.718,
+    "longitude": 34.8475,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "cappadocia_local_wine",
+    "name": "Cappadocian Wine Tasting",
+    "description": "The volcanic soil of Cappadocia produces exceptional wines — particularly Emir white and Okuzgozu red. Many local estates offer cave-cellar tastings among ancient carved chambers.",
+    "image": "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=400",
+    "cityId": "cappadocia",
+    "category": "foodRestaurants",
+    "tags": [
+      "local"
+    ],
+    "latitude": 38.64,
+    "longitude": 34.83,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "cappadocia_kaymakli",
+    "name": "Kaymakli Underground City",
+    "description": "Another vast underground settlement carved into volcanic tuff, featuring 8 excavated levels used as stables, churches, wineries, and living quarters by early Christians fleeing persecution.",
+    "image": "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=400",
+    "cityId": "cappadocia",
+    "category": "hiddenGems",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 38.2583,
+    "longitude": 34.6917,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "cappadocia_zelve",
+    "name": "Zelve Open Air Museum",
+    "description": "A fascinating abandoned village where three valleys meet, featuring cave dwellings, churches, and monasteries carved into the rock. More rustic and less visited than Goreme.",
+    "image": "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=400",
+    "cityId": "cappadocia",
+    "category": "hiddenGems",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 38.68,
+    "longitude": 34.86,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "bodrum_castle_st_peter",
+    "name": "Bodrum Castle (St. Peter)",
+    "description": "A magnificent 15th-century Crusader castle built using stones from the Mausoleum at Halicarnassus. It houses the world's greatest underwater archaeology museum with ancient shipwrecks.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+    "cityId": "bodrum",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 37.0344,
+    "longitude": 27.4305,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "bodrum_mausoleum",
+    "name": "Mausoleum at Halicarnassus",
+    "description": "The ruins of one of the Seven Wonders of the Ancient World, built for King Mausolus in the 4th century BC. The site museum contains recovered sculptures and architectural fragments.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+    "cityId": "bodrum",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 37.0381,
+    "longitude": 27.4247,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "bodrum_bitez_beach",
+    "name": "Bitez Beach",
+    "description": "A relaxed, palm-fringed bay popular with windsurfers thanks to consistent Meltemi winds. The clear turquoise water and laid-back atmosphere make it the best family beach near Bodrum.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+    "cityId": "bodrum",
+    "category": "nature",
+    "tags": [
+      "local"
+    ],
+    "latitude": 37.0028,
+    "longitude": 27.3847,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "bodrum_camel_beach",
+    "name": "Camel Beach",
+    "description": "Yakaköy Cove, better known as Camel Beach, is a hidden pebble bay accessible only by boat or a steep hike. The crystal-clear water and the absence of crowds make it a paradise.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+    "cityId": "bodrum",
+    "category": "nature",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 37.08,
+    "longitude": 27.53,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "bodrum_gumbet_nightlife",
+    "name": "Gümbet Nightlife Strip",
+    "description": "Bodrum's liveliest nightlife area, with beach clubs, rooftop bars, and open-air venues drawing crowds from across Turkey. The party runs from sunset to sunrise.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+    "cityId": "bodrum",
+    "category": "nightlife",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 37.028,
+    "longitude": 27.4,
+    "discoveryBoost": 6.5
+  },
+  {
+    "id": "bodrum_marina_restaurant",
+    "name": "Marina Yacht Club",
+    "description": "Dining along the Bodrum marina with hundreds of gleaming yachts as your backdrop. The seafood mezze and fresh fish restaurants here set the standard for Aegean cuisine.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+    "cityId": "bodrum",
+    "category": "foodRestaurants",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 37.035,
+    "longitude": 27.43,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "bodrum_greek_village_yalikavak",
+    "name": "Yalıkavak Village",
+    "description": "An upscale fishing village on the peninsula's north tip, transformed into Bodrum's most elegant destination. The Friday market, boutique marinas, and restaurant row are unmissable.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+    "cityId": "bodrum",
+    "category": "hiddenGems",
+    "tags": [
+      "local"
+    ],
+    "latitude": 37.1031,
+    "longitude": 27.2806,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "bodrum_gumusluk",
+    "name": "Gümüşlük Village & Taverns",
+    "description": "A protected archaeological zone where ancient Myndos lies beneath the sea. Walk across the sunken causeway to Rabbit Island, then dine at the fish taverns as the sun sets over Greece.",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+    "cityId": "bodrum",
+    "category": "hiddenGems",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 37.06,
+    "longitude": 27.26,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "venice_st_marks",
+    "name": "St. Mark's Basilica",
+    "description": "One of the finest examples of Italo-Byzantine architecture, adorned with thousands of square meters of golden mosaics. The Pala d'Oro altar screen alone contains 1,927 precious stones.",
+    "image": "https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?w=400",
+    "cityId": "venice",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 45.4345,
+    "longitude": 12.3388,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "venice_doges_palace",
+    "name": "Doge's Palace",
+    "description": "The Gothic masterpiece that served as the seat of Venetian power for over 500 years. The Bridge of Sighs, the Great Council Chamber with its enormous Tintoretto, and the dungeons are unmissable.",
+    "image": "https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?w=400",
+    "cityId": "venice",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 45.4337,
+    "longitude": 12.34,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "venice_rialto_bridge",
+    "name": "Rialto Bridge & Market",
+    "description": "The oldest and most iconic of Venice's four bridges over the Grand Canal, flanked by covered walkways of goldsmiths and jewelers. The adjacent Rialto Market has supplied Venetian kitchens for 1,000 years.",
+    "image": "https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?w=400",
+    "cityId": "venice",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 45.438,
+    "longitude": 12.3358,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "venice_accademia",
+    "name": "Gallerie dell'Accademia",
+    "description": "The greatest collection of Venetian art anywhere, spanning eight centuries of painting from Bellini to Titian, Tintoretto, and Veronese. The Leonardo Vitruvian Man is displayed here.",
+    "image": "https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?w=400",
+    "cityId": "venice",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 45.4313,
+    "longitude": 12.3279,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "venice_guggenheim",
+    "name": "Peggy Guggenheim Collection",
+    "description": "One of Europe's most important modern art collections, housed in Peggy Guggenheim's palazzo on the Grand Canal. Works by Pollock, Picasso, Dalí, and Calder overlook the water.",
+    "image": "https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?w=400",
+    "cityId": "venice",
+    "category": "museumsArt",
+    "tags": [
+      "local"
+    ],
+    "latitude": 45.4307,
+    "longitude": 12.3316,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "venice_grand_canal_gondola",
+    "name": "Grand Canal by Gondola",
+    "description": "Gliding silently through the Grand Canal on a gondola while a gondolier sings is the quintessential Venetian experience. Best at dusk when the palazzos are illuminated.",
+    "image": "https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?w=400",
+    "cityId": "venice",
+    "category": "routes",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 45.437,
+    "longitude": 12.335,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "venice_dorsoduro_walk",
+    "name": "Dorsoduro Neighbourhood Walk",
+    "description": "Venice's most liveable sestiere, home to Ca' Rezzonico, Campo Santa Margherita (the city's liveliest square), and the Zattere promenade with views to the Giudecca island.",
+    "image": "https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?w=400",
+    "cityId": "venice",
+    "category": "routes",
+    "tags": [
+      "local"
+    ],
+    "latitude": 45.4283,
+    "longitude": 12.3225,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "venice_cicchetti_bar_hop",
+    "name": "Cicchetti Bar-Hopping",
+    "description": "Venice's answer to tapas — bite-sized snacks eaten standing at bacaro wine bars. Sarde in saor, baccalà mantecato on white polenta, and tiny fried artichokes washed down with Aperol spritz.",
+    "image": "https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?w=400",
+    "cityId": "venice",
+    "category": "foodRestaurants",
+    "tags": [
+      "local",
+      "mustVisit"
+    ],
+    "latitude": 45.436,
+    "longitude": 12.335,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "venice_florian_caffe",
+    "name": "Caffè Florian",
+    "description": "The world's oldest continuously operating coffee house, founded in 1720 on St. Mark's Square. The frescoed rooms and live chamber music make a single espresso an unforgettable event.",
+    "image": "https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?w=400",
+    "cityId": "venice",
+    "category": "cafes",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 45.434,
+    "longitude": 12.3384,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "venice_burano_island",
+    "name": "Burano Island",
+    "description": "A 40-minute vaporetto ride from Venice, Burano is famous for its candy-coloured fishermen's houses and delicate needle-lace tradition. The leaning campanile and quiet canals feel worlds away.",
+    "image": "https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?w=400",
+    "cityId": "venice",
+    "category": "hiddenGems",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 45.4851,
+    "longitude": 12.4167,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "venice_rialto_market_early",
+    "name": "Rialto Market at Dawn",
+    "description": "The wholesale fish and vegetable market that opens at 5am when Venetian chefs shop for the day's ingredients. The spectacle of cuttlefish, lagoon crabs, and razor clams is extraordinary.",
+    "image": "https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?w=400",
+    "cityId": "venice",
+    "category": "localMarkets",
+    "tags": [
+      "local"
+    ],
+    "latitude": 45.4393,
+    "longitude": 12.335,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "florence_uffizi",
+    "name": "Uffizi Gallery",
+    "description": "One of the world's most important art museums, housing masterpieces from Botticelli's Birth of Venus and Primavera to Leonardo, Michelangelo, Raphael, and Caravaggio. Advance booking is essential.",
+    "image": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400",
+    "cityId": "florence",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 43.7678,
+    "longitude": 11.2553,
+    "discoveryBoost": 9.5
+  },
+  {
+    "id": "florence_accademia_david",
+    "name": "Accademia & Michelangelo's David",
+    "description": "The original David stands 5.17 meters tall in a specially designed rotunda. Seeing it in person — the determined expression, the perfect proportions — is a defining cultural experience.",
+    "image": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400",
+    "cityId": "florence",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 43.7764,
+    "longitude": 11.2585,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "florence_duomo",
+    "name": "Florence Cathedral & Dome",
+    "description": "Brunelleschi's dome was the engineering marvel of the Renaissance — still the largest brick dome ever built. Climbing to the top offers unparalleled views over the red terracotta roofscape.",
+    "image": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400",
+    "cityId": "florence",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 43.7731,
+    "longitude": 11.256,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "florence_pitti_palace",
+    "name": "Pitti Palace",
+    "description": "The largest palazzo in Florence, once the Medici family residence, now housing seven museums including the Palatine Gallery with its extraordinary concentration of Raphael and Titian paintings.",
+    "image": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400",
+    "cityId": "florence",
+    "category": "historicalPlaces",
+    "tags": [
+      "local"
+    ],
+    "latitude": 43.765,
+    "longitude": 11.2503,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "florence_boboli_gardens",
+    "name": "Boboli Gardens",
+    "description": "The Renaissance garden behind Pitti Palace is one of Italy's finest examples of the art form, featuring grottos, fountains, sculptures, and an amphitheatre with panoramic views over Florence.",
+    "image": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400",
+    "cityId": "florence",
+    "category": "nature",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 43.763,
+    "longitude": 11.2483,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "florence_ponte_vecchio",
+    "name": "Ponte Vecchio at Dusk",
+    "description": "The only Florentine bridge to survive WWII, lined with goldsmiths and jewellers since the 16th century. The view from the Arno at dusk — with the bridge lit gold — is Florence's most romantic image.",
+    "image": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400",
+    "cityId": "florence",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 43.768,
+    "longitude": 11.2531,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "florence_oltrarno_trattoria",
+    "name": "Oltrarno Trattorias",
+    "description": "The artisan quarter across the Arno preserves old Florence: leather workshops, antique restorers, and trattorias serving ribollita, lampredotto (tripe sandwich), and bistecca Fiorentina.",
+    "image": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400",
+    "cityId": "florence",
+    "category": "foodRestaurants",
+    "tags": [
+      "local"
+    ],
+    "latitude": 43.766,
+    "longitude": 11.249,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "florence_sant_ambrogio_market",
+    "name": "Sant'Ambrogio Market",
+    "description": "Florence's most authentic neighbourhood market, far less touristy than the central market. Local housewives shop for seasonal produce, aged cheeses, and fresh pasta alongside the restaurants.",
+    "image": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400",
+    "cityId": "florence",
+    "category": "localMarkets",
+    "tags": [
+      "local"
+    ],
+    "latitude": 43.771,
+    "longitude": 11.265,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "florence_gilli_caffe",
+    "name": "Caffè Gilli",
+    "description": "The oldest café in Florence, operating on Piazza della Repubblica since 1733. The Art Nouveau interior, exquisite pastries, and standing-room espresso bar make it a Florentine institution.",
+    "image": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400",
+    "cityId": "florence",
+    "category": "cafes",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 43.7719,
+    "longitude": 11.2548,
+    "discoveryBoost": 7.0
+  },
+  {
+    "id": "florence_michelangelo_piazzale",
+    "name": "Piazzale Michelangelo",
+    "description": "The hilltop terrace offering the most celebrated panorama of Florence — the Duomo, Palazzo Vecchio, and Arno river all in a single sweep. Iconic at golden hour.",
+    "image": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400",
+    "cityId": "florence",
+    "category": "hiddenGems",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 43.7629,
+    "longitude": 11.2647,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "florence_bardini_gardens",
+    "name": "Bardini Gardens",
+    "description": "Less visited than Boboli, these terraced gardens offer arguably better views of Florence's skyline through wisteria tunnels and beneath centuries-old cedar trees.",
+    "image": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400",
+    "cityId": "florence",
+    "category": "hiddenGems",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 43.7617,
+    "longitude": 11.2565,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "florence_san_miniato",
+    "name": "San Miniato al Monte",
+    "description": "A stunning Romanesque church perched above the Arno, older than the Duomo and far more serene. The monks chant vespers at 5:30pm — hearing Gregorian chant in this 1,000-year-old space is unforgettable.",
+    "image": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=400",
+    "cityId": "florence",
+    "category": "routes",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 43.7589,
+    "longitude": 11.2655,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "nice_promenade_anglais",
+    "name": "Promenade des Anglais",
+    "description": "The legendary 7km seafront promenade where Nice's Belle Époque elegance meets the azure Mediterranean. The pebble beaches, painted parasols, and Baroque facades create an irresistible scene.",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "cityId": "nice",
+    "category": "routes",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 43.6947,
+    "longitude": 7.2658,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "nice_vieux_nice",
+    "name": "Vieux-Nice (Old Town)",
+    "description": "A labyrinth of narrow Baroque streets painted in ochre, sienna, and russet. The morning flower market on Cours Saleya, baroque churches, and Niçoise cuisine make it the soul of the city.",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "cityId": "nice",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 43.696,
+    "longitude": 7.2783,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "nice_colline_du_chateau",
+    "name": "Colline du Château",
+    "description": "The promontory between Nice's two ports offers the most spectacular viewpoint over the Baie des Anges and the rooftops of the old town. The 92m climb (or lift) is absolutely worth it.",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "cityId": "nice",
+    "category": "nature",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 43.6947,
+    "longitude": 7.2844,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "nice_cours_saleya_market",
+    "name": "Cours Saleya Flower Market",
+    "description": "One of France's most famous markets, held every morning except Monday. Stalls overflow with Provençal flowers, socca, local olives, and the freshest produce from the surrounding hills.",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "cityId": "nice",
+    "category": "localMarkets",
+    "tags": [
+      "local"
+    ],
+    "latitude": 43.6956,
+    "longitude": 7.2768,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "nice_musee_matisse",
+    "name": "Musée Matisse",
+    "description": "Henri Matisse spent much of his life in Nice — this beautiful Genoese villa in the olive groves of Cimiez houses the world's finest collection of his paintings, drawings, and sculptures.",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "cityId": "nice",
+    "category": "museumsArt",
+    "tags": [
+      "local"
+    ],
+    "latitude": 43.7196,
+    "longitude": 7.2745,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "nice_chagall_museum",
+    "name": "Musée National Chagall",
+    "description": "A purpose-built museum designed by Chagall himself to display his monumental Biblical Message series — 17 huge canvases in vivid blues and golds in a garden setting.",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "cityId": "nice",
+    "category": "museumsArt",
+    "tags": [
+      "local"
+    ],
+    "latitude": 43.7131,
+    "longitude": 7.2705,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "nice_socca_lou_pilha_leva",
+    "name": "Socca at Lou Pilha Leva",
+    "description": "Socca — a thick chickpea flour pancake cooked in a wood-fired oven — is Nice's defining street food. Lou Pilha Leva in the old town has served the best version for generations.",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "cityId": "nice",
+    "category": "foodRestaurants",
+    "tags": [
+      "local",
+      "mustVisit"
+    ],
+    "latitude": 43.6961,
+    "longitude": 7.2773,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "nice_villefranche_sur_mer",
+    "name": "Villefranche-sur-Mer",
+    "description": "A perfect fishing village 6km from Nice with a deep natural harbour and a citadel protecting colourful houses stacked above the sea. The Chapel of St. Peter, decorated by Jean Cocteau, is a gem.",
+    "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400",
+    "cityId": "nice",
+    "category": "hiddenGems",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 43.7044,
+    "longitude": 7.3147,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "lyon_vieux_lyon",
+    "name": "Vieux Lyon (Old Town)",
+    "description": "The largest Renaissance district in France, a UNESCO World Heritage site. The maze of traboules (secret passageways through buildings) once used by silk merchants is the city's greatest adventure.",
+    "image": "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400",
+    "cityId": "lyon",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 45.7601,
+    "longitude": 4.8277,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "lyon_basilique_fourviere",
+    "name": "Basilique Notre-Dame de Fourvière",
+    "description": "The ornate white basilica crowning Lyon's hill of prayer, built after the Franco-Prussian War. The interior mosaics are breathtaking, and the terrace offers the finest view over both rivers.",
+    "image": "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400",
+    "cityId": "lyon",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 45.7625,
+    "longitude": 4.8222,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "lyon_paul_bocuse_les_halles",
+    "name": "Les Halles de Lyon Paul Bocuse",
+    "description": "The sacred temple of Lyonnaise gastronomy — 48 stalls of cheese, charcuterie, praline tarts, and quenelles that represent the best of France's greatest food city. Named after the godfather of modern French cuisine.",
+    "image": "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400",
+    "cityId": "lyon",
+    "category": "foodRestaurants",
+    "tags": [
+      "mustVisit",
+      "local"
+    ],
+    "latitude": 45.7636,
+    "longitude": 4.8597,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "lyon_bouchon",
+    "name": "Lyonnaise Bouchon Dinner",
+    "description": "A bouchon is Lyon's answer to a local tavern — rustic, convivial, and dedicated to traditional dishes: tablier de sapeur (breaded tripe), quenelles de brochet, and tarte aux pralines. Book ahead.",
+    "image": "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400",
+    "cityId": "lyon",
+    "category": "foodRestaurants",
+    "tags": [
+      "local",
+      "mustVisit"
+    ],
+    "latitude": 45.7615,
+    "longitude": 4.831,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "lyon_musee_des_confluences",
+    "name": "Musée des Confluences",
+    "description": "A stunning contemporary museum at the confluence of the Rhône and Saône rivers, housed in a spectacular deconstructivist steel-and-glass building. Natural history, civilisations, and society all under one roof.",
+    "image": "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=400",
+    "cityId": "lyon",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 45.7334,
+    "longitude": 4.8174,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "kyoto_fushimi_inari",
+    "name": "Fushimi Inari Shrine",
+    "description": "Thousands of vermilion torii gates wind up the forested mountain above Kyoto, creating one of Japan's most iconic and atmospheric experiences. Go at dusk or dawn to avoid the crowds.",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400",
+    "cityId": "kyoto",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 34.9671,
+    "longitude": 135.7727,
+    "discoveryBoost": 9.5
+  },
+  {
+    "id": "kyoto_kinkakuji",
+    "name": "Kinkaku-ji (Golden Pavilion)",
+    "description": "The three-storey Zen temple pavilion covered in gold leaf, reflected perfectly in Mirror Pond. The Japanese garden surrounding it is a masterpiece of Muromachi-period design.",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400",
+    "cityId": "kyoto",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.0394,
+    "longitude": 135.7292,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "kyoto_arashiyama_bamboo",
+    "name": "Arashiyama Bamboo Grove",
+    "description": "A towering forest of Moso bamboo that creates an otherworldly green tunnel of sound and light. Combine with the Tenryu-ji Zen garden and a boat ride on the Hozu River.",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400",
+    "cityId": "kyoto",
+    "category": "nature",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.0094,
+    "longitude": 135.6722,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "kyoto_higashiyama_walk",
+    "name": "Higashiyama Historic District",
+    "description": "The best-preserved historic streetscape in Japan — stone-paved lanes lined with wooden machiya townhouses, temples, and craft shops lead through Gion to Kiyomizu-dera temple.",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400",
+    "cityId": "kyoto",
+    "category": "routes",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.0035,
+    "longitude": 135.7784,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "kyoto_philosopher_path",
+    "name": "Philosopher's Path",
+    "description": "A 2km canal-side walk through Higashiyama lined with hundreds of cherry trees. Named after philosopher Nishida Kitaro who meditated here daily. In spring the sakura tunnel is incomparable.",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400",
+    "cityId": "kyoto",
+    "category": "routes",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.017,
+    "longitude": 135.7938,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "kyoto_nishiki_market",
+    "name": "Nishiki Market",
+    "description": "Kyoto's 'Kitchen' — a covered arcade with over 100 stalls selling tofu, tsukemono pickles, matcha confections, fresh fish, and Kyoto-style obanzai cuisine. Essential for understanding local food culture.",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400",
+    "cityId": "kyoto",
+    "category": "localMarkets",
+    "tags": [
+      "local",
+      "mustVisit"
+    ],
+    "latitude": 35.0049,
+    "longitude": 135.7658,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "kyoto_gion_district",
+    "name": "Gion Geisha District",
+    "description": "Kyoto's most famous geisha district, where maiko (apprentice geishas) hurry between ochaya teahouses in the evening. Hanamikoji Street is the most atmospheric, lined with traditional ochaya.",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400",
+    "cityId": "kyoto",
+    "category": "hiddenGems",
+    "tags": [
+      "local",
+      "mustVisit"
+    ],
+    "latitude": 35.0037,
+    "longitude": 135.7754,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "kyoto_tea_ceremony",
+    "name": "Traditional Tea Ceremony",
+    "description": "Participating in a formal chado tea ceremony in an old machiya gives profound insight into Japanese aesthetics — the precise choreography, the wabi-sabi ceramics, the bowl of bitter matcha.",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400",
+    "cityId": "kyoto",
+    "category": "hiddenGems",
+    "tags": [
+      "local"
+    ],
+    "latitude": 35.004,
+    "longitude": 135.768,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "kyoto_kikunoi",
+    "name": "Kaiseki at Kikunoi",
+    "description": "A three-Michelin-star kaiseki restaurant presenting Kyoto cuisine across a dozen courses tied to the season. Each dish is a work of art — edible proof that Japanese cooking is the world's most refined.",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400",
+    "cityId": "kyoto",
+    "category": "foodRestaurants",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 35.0004,
+    "longitude": 135.7801,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "kyoto_kissa_coffee",
+    "name": "Kyoto Kissaten Coffee Culture",
+    "description": "Kyoto is famous for its old-fashioned kissaten (coffee shops) that have survived since the 1950s — dark wood interiors, siphon brewing, buttered toast, and absolute silence. Omotesando Koffee is the modern heir.",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400",
+    "cityId": "kyoto",
+    "category": "cafes",
+    "tags": [
+      "local"
+    ],
+    "latitude": 35.013,
+    "longitude": 135.779,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "kyoto_kurama_onsen",
+    "name": "Kurama Onsen",
+    "description": "A mountain hot-spring bath 45 minutes from Kyoto centre, reached through cedar forests. The outdoor rotenburo bath allows you to soak while looking up at the mountain canopy — transformative.",
+    "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400",
+    "cityId": "kyoto",
+    "category": "hiddenGems",
+    "tags": [
+      "hidden"
+    ],
+    "latitude": 35.117,
+    "longitude": 135.758,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "osaka_dotonbori",
+    "name": "Dotonbori Canal & Glico Man",
+    "description": "Osaka's neon-lit entertainment district, centred on a canal whose banks are lined with restaurants, takoyaki stalls, and the iconic Glico Running Man LED billboard. The city's energy distilled into one street.",
+    "image": "https://images.unsplash.com/photo-1589452271712-64b8a66d4be7?w=400",
+    "cityId": "osaka",
+    "category": "nightlife",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 34.6687,
+    "longitude": 135.5011,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "osaka_osaka_castle",
+    "name": "Osaka Castle",
+    "description": "The magnificent 16th-century castle of Toyotomi Hideyoshi, surrounded by a vast park. The interior museum traces the castle's turbulent history, while the top floor commands views across the city.",
+    "image": "https://images.unsplash.com/photo-1589452271712-64b8a66d4be7?w=400",
+    "cityId": "osaka",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 34.6873,
+    "longitude": 135.5262,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "osaka_kuromon_market",
+    "name": "Kuromon Ichiba Market",
+    "description": "Osaka's 'Kitchen' — a covered market with over 180 stalls of fresh fish, Wagyu beef, Osaka street food, and produce. Eating while walking is mandatory; try the fugu sashimi and live oysters.",
+    "image": "https://images.unsplash.com/photo-1589452271712-64b8a66d4be7?w=400",
+    "cityId": "osaka",
+    "category": "localMarkets",
+    "tags": [
+      "mustVisit",
+      "local"
+    ],
+    "latitude": 34.668,
+    "longitude": 135.5077,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "osaka_takoyaki_fugetsu",
+    "name": "Takoyaki & Okonomiyaki",
+    "description": "Osaka is the home of takoyaki (octopus balls in a dashi batter) and okonomiyaki (savoury pancake). Fugetsu in Namba is the definitive address — the batter recipe hasn't changed in 70 years.",
+    "image": "https://images.unsplash.com/photo-1589452271712-64b8a66d4be7?w=400",
+    "cityId": "osaka",
+    "category": "foodRestaurants",
+    "tags": [
+      "local",
+      "mustVisit"
+    ],
+    "latitude": 34.6686,
+    "longitude": 135.5014,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "osaka_shinsekai",
+    "name": "Shinsekai Retro District",
+    "description": "A nostalgic neighbourhood built in 1912 modelled on Paris and New York, now famous for kushikatsu (skewered, breaded meats and vegetables) restaurants and the Tsutenkaku Tower.",
+    "image": "https://images.unsplash.com/photo-1589452271712-64b8a66d4be7?w=400",
+    "cityId": "osaka",
+    "category": "hiddenGems",
+    "tags": [
+      "local"
+    ],
+    "latitude": 34.6516,
+    "longitude": 135.5064,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "osaka_spa_world",
+    "name": "Spa World",
+    "description": "A vast 11-storey spa resort in Shinsekai with European and Asian bathing zones, outdoor rotenburo baths, and a water park. An authentic slice of Japanese bath culture.",
+    "image": "https://images.unsplash.com/photo-1589452271712-64b8a66d4be7?w=400",
+    "cityId": "osaka",
+    "category": "hiddenGems",
+    "tags": [
+      "local"
+    ],
+    "latitude": 34.6495,
+    "longitude": 135.5047,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "madrid_prado",
+    "name": "Museo del Prado",
+    "description": "Spain's national museum is among the world's greatest — Velázquez's Las Meninas, Goya's dark paintings, Bosch's Garden of Earthly Delights, and El Greco all in a single building. Plan for half a day.",
+    "image": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=400",
+    "cityId": "madrid",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 40.4138,
+    "longitude": -3.6921,
+    "discoveryBoost": 9.5
+  },
+  {
+    "id": "madrid_reina_sofia",
+    "name": "Museo Reina Sofía",
+    "description": "Spain's national modern art museum, home to Picasso's Guernica — a painting so powerful it can stop you in your tracks. Dalí and Miró are also exceptionally well represented.",
+    "image": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=400",
+    "cityId": "madrid",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 40.408,
+    "longitude": -3.6943,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "madrid_thyssen",
+    "name": "Museo Thyssen-Bornemisza",
+    "description": "The third vertex of Madrid's Golden Triangle of Art, tracing Western painting from the 13th century to Pop Art. The concentration of masterworks per square meter is extraordinary.",
+    "image": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=400",
+    "cityId": "madrid",
+    "category": "museumsArt",
+    "tags": [
+      "local"
+    ],
+    "latitude": 40.4157,
+    "longitude": -3.6941,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "madrid_royal_palace",
+    "name": "Palacio Real",
+    "description": "The official residence of the Spanish Royal Family, with 3,418 rooms it is the largest royal palace in Western Europe by floor area. The Royal Armory and Banquet Hall are the highlights.",
+    "image": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=400",
+    "cityId": "madrid",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 40.4179,
+    "longitude": -3.7143,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "madrid_retiro_park",
+    "name": "Parque del Retiro",
+    "description": "Madrid's great green lung — 350 acres of formal gardens, a boating lake, the Crystal Palace, and the Velázquez Palace. Sunday mornings here are quintessentially Madrileño.",
+    "image": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=400",
+    "cityId": "madrid",
+    "category": "nature",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 40.4153,
+    "longitude": -3.6844,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "madrid_mercado_san_miguel",
+    "name": "Mercado de San Miguel",
+    "description": "A beautiful 1916 iron-and-glass market offering some of Madrid's finest pintxos, jamón ibérico, oysters, and vermouth. Standing and grazing is the correct approach.",
+    "image": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=400",
+    "cityId": "madrid",
+    "category": "foodRestaurants",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 40.4151,
+    "longitude": -3.7089,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "madrid_malasana_nightlife",
+    "name": "Malasaña & Chueca Nightlife",
+    "description": "Madrid's nightlife is legendary — dinner at 10pm, clubs at 2am, closing at 6am. Malasaña is bohemian indie bars, Chueca is LGBTQ+ friendly chic, La Latina is flamenco and old Madrid.",
+    "image": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=400",
+    "cityId": "madrid",
+    "category": "nightlife",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 40.4244,
+    "longitude": -3.7033,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "madrid_rastro_market",
+    "name": "El Rastro Sunday Market",
+    "description": "Spain's most famous flea market, held every Sunday in La Latina. Over 3,500 stalls sell antiques, vintage clothing, art, and curiosities across streets that fill with half of Madrid.",
+    "image": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=400",
+    "cityId": "madrid",
+    "category": "localMarkets",
+    "tags": [
+      "local"
+    ],
+    "latitude": 40.4073,
+    "longitude": -3.7085,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "madrid_gran_via_walk",
+    "name": "Gran Vía Walk",
+    "description": "Madrid's Broadway — the grand early 20th-century boulevard lined with Beaux-Arts buildings, cinemas, shops, and cafés. The Telefónica Building and Metropolis Building are architectural highlights.",
+    "image": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=400",
+    "cityId": "madrid",
+    "category": "routes",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 40.4201,
+    "longitude": -3.7057,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "seville_real_alcazar",
+    "name": "Real Alcázar de Sevilla",
+    "description": "The oldest royal palace still in use in Europe, a masterpiece of Mudéjar architecture with intricately tiled halls, horseshoe arches, and gardens modelled on Islamic paradise gardens. Filmed as Dorne in Game of Thrones.",
+    "image": "https://images.unsplash.com/photo-1555993539-1732b0258235?w=400",
+    "cityId": "seville",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 37.3833,
+    "longitude": -5.9931,
+    "discoveryBoost": 9.5
+  },
+  {
+    "id": "seville_cathedral_giralda",
+    "name": "Seville Cathedral & La Giralda",
+    "description": "The world's largest Gothic cathedral, built on the site of a Moorish mosque — the Giralda minaret was converted into a bell tower. Columbus is buried here in an elaborate tomb.",
+    "image": "https://images.unsplash.com/photo-1555993539-1732b0258235?w=400",
+    "cityId": "seville",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 37.3858,
+    "longitude": -5.9929,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "seville_triana_barrio",
+    "name": "Triana Barrio",
+    "description": "The flamenco heartland across the Guadalquivir from central Seville — birthplace of flamenco legends, home to bullfighting craftsmen, and lined with ceramic-tiled tapas bars. Authentic Seville lives here.",
+    "image": "https://images.unsplash.com/photo-1555993539-1732b0258235?w=400",
+    "cityId": "seville",
+    "category": "hiddenGems",
+    "tags": [
+      "local"
+    ],
+    "latitude": 37.382,
+    "longitude": -6.002,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "seville_flamenco_show",
+    "name": "Live Flamenco Show",
+    "description": "Seville is the birthplace of flamenco — seeing a genuine tablao performance, with the percussive footwork, wailing cante jondo, and fierce guitar, is among Spain's most visceral cultural experiences.",
+    "image": "https://images.unsplash.com/photo-1555993539-1732b0258235?w=400",
+    "cityId": "seville",
+    "category": "nightlife",
+    "tags": [
+      "local",
+      "mustVisit"
+    ],
+    "latitude": 37.384,
+    "longitude": -5.991,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "seville_tapas_el_rinconcillo",
+    "name": "Tapas at El Rinconcillo",
+    "description": "Spain's oldest tapas bar, continuously open since 1670. The chalked-up tabs, hanging jamones, and century-old tiles create the most authentic tapas experience in Seville — order spinach with chickpeas.",
+    "image": "https://images.unsplash.com/photo-1555993539-1732b0258235?w=400",
+    "cityId": "seville",
+    "category": "foodRestaurants",
+    "tags": [
+      "mustVisit",
+      "local"
+    ],
+    "latitude": 37.3934,
+    "longitude": -5.9916,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "munich_marienplatz",
+    "name": "Marienplatz & Rathaus-Glockenspiel",
+    "description": "The heart of Munich since 1158, flanked by the neo-Gothic Neues Rathaus with its famous Glockenspiel carillon that performs daily. The Frauenkirche's twin towers are the city's defining skyline.",
+    "image": "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=400",
+    "cityId": "munich",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 48.1374,
+    "longitude": 11.5755,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "munich_english_garden",
+    "name": "Englischer Garten",
+    "description": "Larger than Central Park, Munich's green heart has a river wave where surfers ride year-round, a Japanese tea house, beer gardens, and the Chinesischer Turm pagoda tower.",
+    "image": "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=400",
+    "cityId": "munich",
+    "category": "nature",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 48.1648,
+    "longitude": 11.6059,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "munich_deutsches_museum",
+    "name": "Deutsches Museum",
+    "description": "The world's largest science and technology museum with 73,000 objects across 80 departments. The planetarium, chemistry lab, and underground mining section are standouts among its 17km of corridors.",
+    "image": "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=400",
+    "cityId": "munich",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 48.13,
+    "longitude": 11.5832,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "munich_hofbrauhaus",
+    "name": "Hofbräuhaus am Platzl",
+    "description": "The world's most famous beer hall, founded in 1589 as the Royal Court Brewery. Sitting at long communal tables in the vaulted hall, drinking from litre Masskrug steins to oompah music, is Munich in a nutshell.",
+    "image": "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=400",
+    "cityId": "munich",
+    "category": "foodRestaurants",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 48.1377,
+    "longitude": 11.5799,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "munich_viktualienmarkt",
+    "name": "Viktualienmarkt",
+    "description": "A 200-year-old daily farmers' market in the city centre, with 140 stalls of Bavarian cheeses, sausages, Obatzda, and seasonal produce. The central beer garden under maypole is perfect for lunch.",
+    "image": "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=400",
+    "cityId": "munich",
+    "category": "localMarkets",
+    "tags": [
+      "local",
+      "mustVisit"
+    ],
+    "latitude": 48.1352,
+    "longitude": 11.5762,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "munich_nymphenburg_palace",
+    "name": "Nymphenburg Palace",
+    "description": "The summer residence of Bavarian royalty, set in formal French gardens with canals, cascades, and hunting lodges. The Gallery of Beauties — 36 portraits commissioned by Ludwig I — is the highlight indoors.",
+    "image": "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=400",
+    "cityId": "munich",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 48.1583,
+    "longitude": 11.5033,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "munich_alte_pinakothek",
+    "name": "Alte Pinakothek",
+    "description": "One of the oldest and most important art galleries in the world, with a collection covering European painting from the 14th to 18th centuries — Rubens, Dürer, Rembrandt, and Raphael all in one building.",
+    "image": "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=400",
+    "cityId": "munich",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 48.1487,
+    "longitude": 11.57,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "munich_oktoberfest_grounds",
+    "name": "Theresienwiese (Oktoberfest Grounds)",
+    "description": "Even outside October, the Theresienwiese meadow is a pilgrimage site for beer culture enthusiasts. Visit the bronze statue of Bavaria and the small permanent fairground that remains year-round.",
+    "image": "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=400",
+    "cityId": "munich",
+    "category": "hiddenGems",
+    "tags": [
+      "local"
+    ],
+    "latitude": 48.1309,
+    "longitude": 11.5494,
+    "discoveryBoost": 7.5
+  },
+  {
+    "id": "hamburg_speicherstadt",
+    "name": "Speicherstadt Warehouse District",
+    "description": "A UNESCO World Heritage site — the world's largest warehouse complex, built on oak piles in the Elbe harbour from 1883. The brick neo-Gothic architecture, canals, and converted cultural spaces are extraordinary.",
+    "image": "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=400",
+    "cityId": "hamburg",
+    "category": "historicalPlaces",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 53.5425,
+    "longitude": 9.9942,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "hamburg_elbphilharmonie",
+    "name": "Elbphilharmonie",
+    "description": "Herzog & de Meuron's glass wave atop an old warehouse is the world's most celebrated new concert hall. Even if you don't attend a concert, the free public Plaza on the 8th floor has Hamburg's best panorama.",
+    "image": "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=400",
+    "cityId": "hamburg",
+    "category": "museumsArt",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 53.5413,
+    "longitude": 9.9842,
+    "discoveryBoost": 9.0
+  },
+  {
+    "id": "hamburg_reeperbahn",
+    "name": "Reeperbahn & St. Pauli",
+    "description": "Hamburg's legendary red-light and entertainment district, where the Beatles played their first gigs in 1960. Today it's the heart of Hamburg's nightlife — music venues, bars, and clubs that never close.",
+    "image": "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=400",
+    "cityId": "hamburg",
+    "category": "nightlife",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 53.5499,
+    "longitude": 9.963,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "hamburg_fischmarkt",
+    "name": "Sunday Fischmarkt",
+    "description": "Every Sunday from 5am (7am in winter), Hamburg's most famous institution — the fish market by the Elbe with auctioneers bellowing at the stalls, live music, and the smell of smoked eel and fresh buns.",
+    "image": "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=400",
+    "cityId": "hamburg",
+    "category": "localMarkets",
+    "tags": [
+      "local",
+      "mustVisit"
+    ],
+    "latitude": 53.545,
+    "longitude": 9.9523,
+    "discoveryBoost": 8.5
+  },
+  {
+    "id": "hamburg_alster_lake",
+    "name": "Alster Lakes",
+    "description": "The inner and outer Alster lakes in the city centre create a remarkable urban water landscape. Hire a kayak, take a steamboat, or simply walk the 7km promenade as Hamburgers do on weekends.",
+    "image": "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=400",
+    "cityId": "hamburg",
+    "category": "nature",
+    "tags": [
+      "mustVisit"
+    ],
+    "latitude": 53.5596,
+    "longitude": 10.0011,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "hamburg_miniatur_wunderland",
+    "name": "Miniatur Wunderland",
+    "description": "The world's largest model railway exhibition, with 16km of track and 10,000 trains in meticulously detailed scenes from Hamburg, Scandinavia, the USA, and the airport — with a real functioning mini-airport.",
+    "image": "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=400",
+    "cityId": "hamburg",
+    "category": "hiddenGems",
+    "tags": [
+      "hidden",
+      "local"
+    ],
+    "latitude": 53.544,
+    "longitude": 9.993,
+    "discoveryBoost": 8.0
+  },
+  {
+    "id": "hamburg_schanzenviertel",
+    "name": "Schanzenviertel",
+    "description": "Hamburg's most creative neighbourhood — independent boutiques, concept stores, vegetarian cafés, and street art fill the streets between Schulterblatt and the Rote Flora squat. The city's Brooklyn.",
+    "image": "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=400",
+    "cityId": "hamburg",
+    "category": "routes",
+    "tags": [
+      "local"
+    ],
+    "latitude": 53.564,
+    "longitude": 9.9633,
+    "discoveryBoost": 7.5
   }
 ]

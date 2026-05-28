@@ -4,6 +4,7 @@
 
 import 'dart:convert';
 
+import 'package:explore_index/core/utils/app_logger.dart';
 import 'package:explore_index/data/models/badge.dart';
 import 'package:explore_index/data/models/discovery_dna.dart';
 import 'package:explore_index/data/models/user_profile.dart';
@@ -61,8 +62,8 @@ class UserRepositoryImpl implements UserRepository {
       try {
         return UserProfile.fromJson(
             json.decode(cached) as Map<String, dynamic>);
-      } catch (_) {
-        // Corrupt cache — fall through to asset.
+      } catch (e) {
+        AppLogger.w('UserRepository', 'Corrupt profile cache — falling back to asset', e);
       }
     }
 
@@ -78,9 +79,9 @@ class UserRepositoryImpl implements UserRepository {
 
   // ── Badges ─────────────────────────────────────────────────────────────────
 
-  /// Badges are defined statically in code; extend with asset loading if needed.
+  /// Loads badge definitions from the bundled JSON asset.
   @override
-  Future<List<Badge>> getAllBadges() async => _defaultBadges;
+  Future<List<Badge>> getAllBadges() => _static.getBadges();
 
   @override
   Future<List<Badge>> getBadgesByUser(String userId) async {
@@ -98,7 +99,8 @@ class UserRepositoryImpl implements UserRepository {
       try {
         return DiscoveryDna.fromJson(
             json.decode(cached) as Map<String, dynamic>);
-      } catch (_) {
+      } catch (e) {
+        AppLogger.w('UserRepository', 'Corrupt DNA cache for $userId', e);
         return null;
       }
     }
@@ -113,88 +115,4 @@ class UserRepositoryImpl implements UserRepository {
     );
   }
 
-  // ── Default badges ─────────────────────────────────────────────────────────
-
-  static const List<Badge> _defaultBadges = [
-    Badge(
-      id: 'history_explorer',
-      name: 'History Explorer',
-      icon: '🏛️',
-      description: 'Visited 10 or more historical places.',
-      threshold: 0.5,
-      categoryKey: 'historicalPlaces',
-    ),
-    Badge(
-      id: 'foodie',
-      name: 'Foodie',
-      icon: '🍽️',
-      description: 'Discovered 10 or more restaurants.',
-      threshold: 0.5,
-      categoryKey: 'foodRestaurants',
-    ),
-    Badge(
-      id: 'cafe_hopper',
-      name: 'Cafe Hopper',
-      icon: '☕',
-      description: 'Checked in at 5 or more cafes.',
-      threshold: 0.5,
-      categoryKey: 'cafes',
-    ),
-    Badge(
-      id: 'art_lover',
-      name: 'Art Lover',
-      icon: '🎨',
-      description: 'Explored 5 or more museums and galleries.',
-      threshold: 0.5,
-      categoryKey: 'museumsArt',
-    ),
-    Badge(
-      id: 'trail_blazer',
-      name: 'Trail Blazer',
-      icon: '🗺️',
-      description: 'Completed 3 or more routes.',
-      threshold: 0.5,
-      categoryKey: 'routes',
-    ),
-    Badge(
-      id: 'nature_lover',
-      name: 'Nature Lover',
-      icon: '🌿',
-      description: 'Visited 5 or more natural landmarks.',
-      threshold: 0.5,
-      categoryKey: 'nature',
-    ),
-    Badge(
-      id: 'night_owl',
-      name: 'Night Owl',
-      icon: '🌙',
-      description: 'Experienced 5 or more nightlife spots.',
-      threshold: 0.5,
-      categoryKey: 'nightlife',
-    ),
-    Badge(
-      id: 'local_shopper',
-      name: 'Local Shopper',
-      icon: '🛍️',
-      description: 'Visited 5 or more local markets.',
-      threshold: 0.5,
-      categoryKey: 'localMarkets',
-    ),
-    Badge(
-      id: 'gem_hunter',
-      name: 'Gem Hunter',
-      icon: '💎',
-      description: 'Uncovered 3 or more hidden gems.',
-      threshold: 0.3,
-      categoryKey: 'hiddenGems',
-    ),
-    Badge(
-      id: 'event_goer',
-      name: 'Event Goer',
-      icon: '🎭',
-      description: 'Attended 3 or more events.',
-      threshold: 0.3,
-      categoryKey: 'events',
-    ),
-  ];
 }

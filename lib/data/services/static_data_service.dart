@@ -4,6 +4,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:explore_index/data/models/badge.dart';
 import 'package:explore_index/data/models/category.dart';
 import 'package:explore_index/data/models/city.dart';
 import 'package:explore_index/data/models/country.dart';
@@ -18,6 +19,7 @@ class StaticDataService {
   List<City>? _cities;
   List<Place>? _places;
   List<Event>? _events;
+  List<Badge>? _badges;
   UserProfile? _userProfile;
 
   // ── Countries ─────────────────────────────────────────────────────────────
@@ -147,6 +149,19 @@ class StaticDataService {
     }
   }
 
+  // ── Badges ────────────────────────────────────────────────────────────────
+
+  /// Returns all badge definitions, loading from the asset bundle on first call.
+  Future<List<Badge>> getBadges() async {
+    if (_badges != null) return _badges!;
+    final raw = await _loadJson('lib/static_data/badges.json');
+    _badges = (raw as List<dynamic>)
+        .cast<Map<String, dynamic>>()
+        .map(Badge.fromJson)
+        .toList();
+    return _badges!;
+  }
+
   // ── User Profile ──────────────────────────────────────────────────────────
 
   /// Returns the bundled user profile, loading from the asset bundle on first call.
@@ -165,6 +180,7 @@ class StaticDataService {
     _cities = null;
     _places = null;
     _events = null;
+    _badges = null;
     _userProfile = null;
   }
 
