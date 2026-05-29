@@ -1,6 +1,8 @@
 // lib/data/models/city.dart
 // Plain Dart model — no code generation required.
 
+import 'package:explore_index/data/models/travel_mode.dart';
+
 class City {
   final String id;
   final String name;
@@ -10,6 +12,10 @@ class City {
   final double longitude;
   final Map<String, int> categoryTargets;
 
+  /// Tier classification used by the Travel Mode filter.
+  /// Bronze = globally iconic; Silver = regional/secondary; Gold = niche/local.
+  final CityTier tier;
+
   const City({
     required this.id,
     required this.name,
@@ -18,6 +24,7 @@ class City {
     required this.latitude,
     required this.longitude,
     required this.categoryTargets,
+    this.tier = CityTier.gold,
   });
 
   factory City.fromJson(Map<String, dynamic> json) => City(
@@ -30,6 +37,9 @@ class City {
         categoryTargets: (json['categoryTargets'] as Map<String, dynamic>).map(
           (k, v) => MapEntry(k, (v as num).toInt()),
         ),
+        tier: json['tier'] != null
+            ? CityTierX.fromJsonKey(json['tier'] as String)
+            : CityTier.gold,
       );
 
   Map<String, dynamic> toJson() => {
@@ -40,6 +50,7 @@ class City {
         'latitude': latitude,
         'longitude': longitude,
         'categoryTargets': categoryTargets,
+        'tier': tier.jsonKey,
       };
 
   City copyWith({
@@ -50,6 +61,7 @@ class City {
     double? latitude,
     double? longitude,
     Map<String, int>? categoryTargets,
+    CityTier? tier,
   }) {
     return City(
       id: id ?? this.id,
@@ -59,6 +71,7 @@ class City {
       latitude: latitude ?? this.latitude,
       longitude: longitude ?? this.longitude,
       categoryTargets: categoryTargets ?? this.categoryTargets,
+      tier: tier ?? this.tier,
     );
   }
 
@@ -71,5 +84,5 @@ class City {
   int get hashCode => id.hashCode;
 
   @override
-  String toString() => 'City(id: $id, name: $name, countryId: $countryId)';
+  String toString() => 'City(id: $id, name: $name, countryId: $countryId, tier: ${tier.jsonKey})';
 }

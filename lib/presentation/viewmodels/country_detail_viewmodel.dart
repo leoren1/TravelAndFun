@@ -2,8 +2,10 @@
 
 import 'package:explore_index/data/models/city.dart';
 import 'package:explore_index/data/models/country.dart';
+import 'package:explore_index/data/models/travel_mode.dart';
 import 'package:explore_index/data/providers.dart';
 import 'package:explore_index/domain/usecases/calculate_city_discovery.dart';
+import 'package:explore_index/domain/usecases/calculate_country_discovery.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // ---------------------------------------------------------------------------
@@ -12,17 +14,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CitySummary {
   final City city;
-
-  /// Discovery percentage 0.0–100.0 for this city.
   final double discoveryPercent;
-
-  /// Total number of verified visits (activities) recorded in this city.
   final int totalActivities;
-
-  /// Number of verified visits that have a photo.
   final int verifiedPhotos;
-
-  /// Average rating across all visits in this city (0.0 if none).
   final double averageRating;
 
   const CitySummary({
@@ -57,17 +51,9 @@ class CitySummary {
 class CountryDetailState {
   final Country country;
   final List<CitySummary> cities;
-
-  /// Overall discovery percentage for the country (average of its cities).
   final double countryDiscovery;
-
-  /// Total activities (verified visits) across all cities in the country.
   final int totalActivities;
-
-  /// Total verified photos across all cities.
   final int verifiedPhotos;
-
-  /// Average rating across all visits in all cities (0.0 if none).
   final double averageRating;
 
   const CountryDetailState({
@@ -106,27 +92,30 @@ class CountryDetailViewModel
     extends AutoDisposeFamilyAsyncNotifier<CountryDetailState, String> {
   @override
   Future<CountryDetailState> build(String countryId) async {
+    // Rebuild whenever the user switches travel mode.
+    final mode = ref.watch(travelModeProvider);
+
     final countryRepo = ref.read(countryRepositoryProvider);
-    final cityRepo = ref.read(cityRepositoryProvider);
-    final placeRepo = ref.read(placeRepositoryProvider);
-    final visitRepo = ref.read(visitRepositoryProvider);
+    final cityRepo    = ref.read(cityRepositoryProvider);
+    final placeRepo   = ref.read(placeRepositoryProvider);
+    final visitRepo   = ref.read(visitRepositoryProvider);
 
     final country = await countryRepo.getCountryById(countryId);
-    if (country == null) {
-      throw StateError('Country not found: $countryId');
-    }
+    if (country == null) throw StateError('Country not found: $countryId');
 
-    final allCities = await cityRepo.getAllCities();
-    final places = await placeRepo.getAllPlaces();
-    final allVisits = await visitRepo.getAllVisits();
+    final allCities  = await cityRepo.getAllCities();
+    final places     = await placeRepo.getAllPlaces();
+    final allVisits  = await visitRepo.getAllVisits();
 
+    // Show all cities of the country in the list (not just mode-filtered),
+    // but calculate discovery with the current mode filter.
     final countryCities =
         allCities.where((c) => country.cityIds.contains(c.id)).toList();
 
     int totalActivities = 0;
-    int verifiedPhotos = 0;
-    double ratingSum = 0;
-    int ratingCount = 0;
+    int verifiedPhotos  = 0;
+    double ratingSum    = 0;
+    int ratingCount     = 0;
 
     final citySummaries = countryCities.map((city) {
       final cityVisits = allVisits.where((v) {
@@ -138,6 +127,7 @@ class CountryDetailViewModel
         city: city,
         visits: cityVisits,
         places: places,
+        mode: mode,
       ).execute();
 
       final verified =
@@ -146,9 +136,9 @@ class CountryDetailViewModel
           cityVisits.fold<double>(0, (sum, v) => sum + v.rating);
 
       totalActivities += cityVisits.length;
-      verifiedPhotos += verified;
-      ratingSum += cityRatingSum;
-      ratingCount += cityVisits.length;
+      verifiedPhotos  += verified;
+      ratingSum       += cityRatingSum;
+      ratingCount     += cityVisits.length;
 
       return CitySummary(
         city: city,
@@ -161,12 +151,14 @@ class CountryDetailViewModel
       );
     }).toList();
 
-    final countryDiscovery = citySummaries.isEmpty
-        ? 0.0
-        : citySummaries
-                .map((s) => s.discoveryPercent)
-                .reduce((a, b) => a + b) /
-            citySummaries.length;
+    // Country-level discovery using the proper use-case.
+    final countryDiscovery = CalculateCountryDiscovery(
+      country: country,
+      cities: allCities,
+      visits: allVisits,
+      places: places,
+      mode: mode,
+    ).execute();
 
     return CountryDetailState(
       country: country,

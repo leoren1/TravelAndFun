@@ -1,4 +1,4 @@
-// lib/presentation/views/worth_it_again/worth_it_again_view.dart
+﻿// lib/presentation/views/worth_it_again/worth_it_again_view.dart
 
 import 'package:explore_index/core/constants/app_colors.dart';
 import 'package:explore_index/core/constants/app_spacing.dart';
@@ -8,6 +8,7 @@ import 'package:explore_index/presentation/viewmodels/worth_it_again_viewmodel.d
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:explore_index/core/utils/theme_extensions.dart';
 
 class WorthItAgainView extends ConsumerWidget {
   final String cityId;
@@ -18,18 +19,18 @@ class WorthItAgainView extends ConsumerWidget {
     final asyncState = ref.watch(worthItAgainViewModelProvider(cityId));
 
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: context.appColors.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
+        backgroundColor: context.appColors.background,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: AppColors.textPrimary),
+          icon: Icon(Icons.arrow_back, color: context.appColors.textPrimary),
           onPressed: () => context.pop(),
         ),
-        title: const Text('Worth It Again?', style: AppTextStyles.titleSmall),
+        title: Text('Worth It Again?', style: AppTextStyles.titleSmall),
         actions: [
           IconButton(
-            icon: const Icon(Icons.refresh, color: AppColors.textSecondary),
+            icon: Icon(Icons.refresh, color: context.appColors.textSecondary),
             onPressed: () => ref
                 .read(worthItAgainViewModelProvider(cityId).notifier)
                 .refresh(),
@@ -44,11 +45,14 @@ class WorthItAgainView extends ConsumerWidget {
         error: (err, _) => Center(
           child: Text(err.toString(), style: AppTextStyles.body),
         ),
-        data: (state) => ListView(
-          padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.pageHorizontal,
-            vertical: AppSpacing.lg,
-          ),
+        data: (state) => SafeArea(
+          top: false,
+          bottom: true,
+          child: ListView(
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppSpacing.pageHorizontal,
+              vertical: AppSpacing.lg,
+            ),
           children: [
             // ── Title ─────────────────────────────────────────────────────
             Text(
@@ -71,11 +75,11 @@ class WorthItAgainView extends ConsumerWidget {
                 ),
               ),
             ),
-            const SizedBox(height: AppSpacing.md),
+            SizedBox(height: AppSpacing.md),
             Center(
               child: Text(
                 state.reason,
-                style: AppTextStyles.body.copyWith(color: AppColors.textSecondary),
+                style: AppTextStyles.body.copyWith(color: context.appColors.textSecondary),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -83,11 +87,11 @@ class WorthItAgainView extends ConsumerWidget {
 
             // ── Undiscovered percentage ───────────────────────────────────
             Container(
-              padding: const EdgeInsets.all(AppSpacing.lg),
+              padding: EdgeInsets.all(AppSpacing.lg),
               decoration: BoxDecoration(
-                color: AppColors.surface,
+                color: context.appColors.surface,
                 borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
-                border: Border.all(color: AppColors.divider),
+                border: Border.all(color: context.appColors.divider),
               ),
               child: Column(
                 children: [
@@ -103,13 +107,13 @@ class WorthItAgainView extends ConsumerWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: AppSpacing.md),
+                  SizedBox(height: AppSpacing.md),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
                     child: LinearProgressIndicator(
                       value: state.discoveryPercent / 100,
                       minHeight: 8,
-                      backgroundColor: AppColors.divider,
+                      backgroundColor: context.appColors.divider,
                       valueColor:
                           const AlwaysStoppedAnimation<Color>(AppColors.primary),
                     ),
@@ -131,17 +135,21 @@ class WorthItAgainView extends ConsumerWidget {
             if (state.missingCategories.isNotEmpty) ...[
               Text('Missing Categories', style: AppTextStyles.titleSmall),
               const SizedBox(height: AppSpacing.lg),
-              ...state.missingCategories.map(
-                (cat) => Container(
+              ...state.missingCategories.map((cat) {
+                final pct = state.missingCategoryPcts[cat] ?? 0.0;
+                final progressColor = pct >= 50
+                    ? AppColors.warning
+                    : AppColors.danger;
+                return Container(
                   margin: const EdgeInsets.only(bottom: AppSpacing.sm),
-                  padding: const EdgeInsets.symmetric(
+                  padding: EdgeInsets.symmetric(
                     horizontal: AppSpacing.lg,
                     vertical: AppSpacing.md,
                   ),
                   decoration: BoxDecoration(
-                    color: AppColors.surface,
+                    color: context.appColors.surface,
                     borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
-                    border: Border.all(color: AppColors.divider),
+                    border: Border.all(color: context.appColors.divider),
                   ),
                   child: Row(
                     children: [
@@ -156,12 +164,12 @@ class WorthItAgainView extends ConsumerWidget {
                             ClipRRect(
                               borderRadius:
                                   BorderRadius.circular(AppSpacing.radiusSmall),
-                              child: const LinearProgressIndicator(
-                                value: 0,
+                              child: LinearProgressIndicator(
+                                value: pct / 100,
                                 minHeight: 4,
-                                backgroundColor: AppColors.divider,
+                                backgroundColor: context.appColors.divider,
                                 valueColor: AlwaysStoppedAnimation<Color>(
-                                    AppColors.danger),
+                                    progressColor),
                               ),
                             ),
                           ],
@@ -169,22 +177,22 @@ class WorthItAgainView extends ConsumerWidget {
                       ),
                       const SizedBox(width: AppSpacing.md),
                       Text(
-                        '0%',
+                        '${pct.toStringAsFixed(0)}%',
                         style: AppTextStyles.caption
-                            .copyWith(color: AppColors.danger),
+                            .copyWith(color: progressColor),
                       ),
                     ],
                   ),
-                ),
-              ),
+                );
+              }),
               const SizedBox(height: AppSpacing.sectionGap),
             ],
 
             // ── AI-style insight ──────────────────────────────────────────
             Container(
-              padding: const EdgeInsets.all(AppSpacing.lg),
+              padding: EdgeInsets.all(AppSpacing.lg),
               decoration: BoxDecoration(
-                color: AppColors.surfaceElevated,
+                color: context.appColors.surfaceElevated,
                 borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
                 border: Border.all(
                     color: AppColors.primary.withOpacity(0.3)),
@@ -233,6 +241,7 @@ class WorthItAgainView extends ConsumerWidget {
             const SizedBox(height: AppSpacing.xxxl),
           ],
         ),
+        ),
       ),
     );
   }
@@ -240,7 +249,7 @@ class WorthItAgainView extends ConsumerWidget {
   void _showTripPlanSheet(BuildContext context, WorthItAgainState state) {
     showModalBottomSheet<void>(
       context: context,
-      backgroundColor: AppColors.surface,
+      backgroundColor: context.appColors.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(AppSpacing.radiusHero),
@@ -257,7 +266,7 @@ class WorthItAgainView extends ConsumerWidget {
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: AppColors.divider,
+                  color: context.appColors.divider,
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -313,3 +322,5 @@ class WorthItAgainView extends ConsumerWidget {
     );
   }
 }
+
+

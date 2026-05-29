@@ -1,8 +1,12 @@
 // lib/presentation/viewmodels/world_map_viewmodel.dart
 
+import 'package:explore_index/data/models/city.dart';
 import 'package:explore_index/data/models/country.dart';
+import 'package:explore_index/data/models/travel_mode.dart';
 import 'package:explore_index/data/providers.dart';
+import 'package:explore_index/domain/usecases/calculate_city_discovery.dart';
 import 'package:explore_index/domain/usecases/calculate_country_discovery.dart';
+import 'package:explore_index/domain/usecases/calculate_world_discovery.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // ---------------------------------------------------------------------------
@@ -11,11 +15,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CountryDiscoverySummary {
   final Country country;
-
-  /// Discovery percentage 0.0–100.0.
   final double discoveryPercent;
-
-  /// Number of cities in this country that the user has visited at least once.
   final int citiesVisited;
 
   const CountryDiscoverySummary({
@@ -43,29 +43,41 @@ class CountryDiscoverySummary {
 
 class WorldMapState {
   final List<CountryDiscoverySummary> countries;
-
-  /// Overall world discovery percentage (average across all countries).
   final double worldDiscovery;
-
-  /// Total number of countries the user has visited at least one place in.
   final int totalCountriesVisited;
+  final Set<String> visitedCityIds;
+  final List<City> cities;
+  final Map<String, List<String>> cityVisitedPlaces;
+  final Map<String, double> cityDiscoveryPcts;
 
   const WorldMapState({
     required this.countries,
     required this.worldDiscovery,
     required this.totalCountriesVisited,
+    required this.visitedCityIds,
+    required this.cities,
+    required this.cityVisitedPlaces,
+    required this.cityDiscoveryPcts,
   });
 
   WorldMapState copyWith({
     List<CountryDiscoverySummary>? countries,
     double? worldDiscovery,
     int? totalCountriesVisited,
+    Set<String>? visitedCityIds,
+    List<City>? cities,
+    Map<String, List<String>>? cityVisitedPlaces,
+    Map<String, double>? cityDiscoveryPcts,
   }) {
     return WorldMapState(
       countries: countries ?? this.countries,
       worldDiscovery: worldDiscovery ?? this.worldDiscovery,
       totalCountriesVisited:
           totalCountriesVisited ?? this.totalCountriesVisited,
+      visitedCityIds: visitedCityIds ?? this.visitedCityIds,
+      cities: cities ?? this.cities,
+      cityVisitedPlaces: cityVisitedPlaces ?? this.cityVisitedPlaces,
+      cityDiscoveryPcts: cityDiscoveryPcts ?? this.cityDiscoveryPcts,
     );
   }
 }
@@ -77,32 +89,57 @@ class WorldMapState {
 class WorldMapViewModel extends AsyncNotifier<WorldMapState> {
   @override
   Future<WorldMapState> build() async {
-    final countries =
-        await ref.read(countryRepositoryProvider).getAllCountries();
-    final cities = await ref.read(cityRepositoryProvider).getAllCities();
-    final places = await ref.read(placeRepositoryProvider).getAllPlaces();
-    final visits = await ref.read(visitRepositoryProvider).getAllVisits();
+    // Rebuild whenever the user switches travel mode.
+    final mode = ref.watch(travelModeProvider);
 
-    // Build the set of city ids that have at least one verified visit.
-    final visitedCityIds = <String>{};
+    final countries = await ref.read(countryRepositoryProvider).getAllCountries();
+    final cities    = await ref.read(cityRepositoryProvider).getAllCities();
+    final places    = await ref.read(placeRepositoryProvider).getAllPlaces();
+    final visits    = await ref.read(visitRepositoryProvider).getAllVisits();
+
+    // Map layer shows mode-filtered cities only.
+    final modeCities = cities.where((c) => mode.includesCity(c.tier)).toList();
+
+    final visitedCityIds    = <String>{};
+    final cityVisitedPlaces = <String, List<String>>{};
+    final placeById         = {for (final p in places) p.id: p};
+
     for (final v in visits) {
-      final idx = places.indexWhere((p) => p.id == v.placeId);
-      if (idx >= 0) visitedCityIds.add(places[idx].cityId);
+      final place = placeById[v.placeId];
+      if (place == null) continue;
+      visitedCityIds.add(place.cityId);
+      final bucket = cityVisitedPlaces.putIfAbsent(place.cityId, () => []);
+      if (!bucket.contains(place.name)) bucket.add(place.name);
     }
 
+    // Per-city discovery (mode-filtered).
+    final cityDiscoveryPcts = <String, double>{};
+    for (final city in modeCities) {
+      final cityVisits = visits.where((v) {
+        final p = placeById[v.placeId];
+        return p != null && p.cityId == city.id;
+      }).toList();
+      cityDiscoveryPcts[city.id] = CalculateCityDiscovery(
+        city: city,
+        visits: cityVisits,
+        places: places,
+        mode: mode,
+      ).execute();
+    }
+
+    // Per-country summaries (mode-filtered).
     final summaries = countries.map((country) {
       final disc = CalculateCountryDiscovery(
         country: country,
         cities: cities,
         visits: visits,
         places: places,
+        mode: mode,
       ).execute();
 
-      final citiesVisited = cities
-          .where(
-            (c) =>
-                country.cityIds.contains(c.id) && visitedCityIds.contains(c.id),
-          )
+      final citiesVisited = modeCities
+          .where((c) =>
+              country.cityIds.contains(c.id) && visitedCityIds.contains(c.id))
           .length;
 
       return CountryDiscoverySummary(
@@ -112,18 +149,24 @@ class WorldMapViewModel extends AsyncNotifier<WorldMapState> {
       );
     }).toList();
 
-    final totalVisited =
-        summaries.where((s) => s.discoveryPercent > 0).length;
+    final totalVisited = summaries.where((s) => s.discoveryPercent > 0).length;
 
-    final worldDiscovery = summaries.isEmpty
-        ? 0.0
-        : summaries.map((s) => s.discoveryPercent).reduce((a, b) => a + b) /
-            summaries.length;
+    final worldDiscovery = CalculateWorldDiscovery(
+      countries: countries,
+      cities: cities,
+      visits: visits,
+      places: places,
+      mode: mode,
+    ).execute();
 
     return WorldMapState(
       countries: summaries,
       worldDiscovery: worldDiscovery,
       totalCountriesVisited: totalVisited,
+      visitedCityIds: visitedCityIds,
+      cities: modeCities,
+      cityVisitedPlaces: cityVisitedPlaces,
+      cityDiscoveryPcts: cityDiscoveryPcts,
     );
   }
 

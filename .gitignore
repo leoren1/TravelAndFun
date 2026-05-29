@@ -48,7 +48,15 @@ app.*.map.json
 flutter_pid.txt
 flutter_run.log
 flutter_run_err.log
-ui_dump.xml
-screenshots/
 android/local.properties
 android/key.properties
+
+# Debug / test artifacts generated during development
+*.xml
+*.png
+*.bin
+VISUAL_AUDIT_REPORT.md
+proxy_server.py
+strip_geo.py
+ne_110m.geojson
+lib/static_data/places.json.bak

@@ -6,8 +6,15 @@ class Badge {
   final String name;
   final String icon;
   final String description;
+
+  /// Threshold stored as a 0–1 fraction (multiply by 100 to get a percentage).
   final double threshold;
+
   final String categoryKey;
+
+  /// 1 = Bronze, 2 = Silver, 3 = Gold, 4 = Platinum.
+  /// Defaults to 1 for any legacy badges loaded from storage.
+  final int tier;
 
   const Badge({
     required this.id,
@@ -16,6 +23,7 @@ class Badge {
     required this.description,
     required this.threshold,
     required this.categoryKey,
+    this.tier = 1,
   });
 
   factory Badge.fromJson(Map<String, dynamic> json) => Badge(
@@ -25,6 +33,7 @@ class Badge {
         description: json['description'] as String,
         threshold: (json['threshold'] as num).toDouble(),
         categoryKey: json['categoryKey'] as String,
+        tier: (json['tier'] as num?)?.toInt() ?? 1,
       );
 
   Map<String, dynamic> toJson() => {
@@ -34,6 +43,7 @@ class Badge {
         'description': description,
         'threshold': threshold,
         'categoryKey': categoryKey,
+        'tier': tier,
       };
 
   Badge copyWith({
@@ -43,6 +53,7 @@ class Badge {
     String? description,
     double? threshold,
     String? categoryKey,
+    int? tier,
   }) {
     return Badge(
       id: id ?? this.id,
@@ -51,6 +62,7 @@ class Badge {
       description: description ?? this.description,
       threshold: threshold ?? this.threshold,
       categoryKey: categoryKey ?? this.categoryKey,
+      tier: tier ?? this.tier,
     );
   }
 
@@ -64,5 +76,5 @@ class Badge {
 
   @override
   String toString() =>
-      'Badge(id: $id, name: $name, categoryKey: $categoryKey, threshold: $threshold)';
+      'Badge(id: $id, name: $name, tier: $tier, categoryKey: $categoryKey, threshold: $threshold)';
 }

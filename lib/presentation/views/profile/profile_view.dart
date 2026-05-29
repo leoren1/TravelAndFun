@@ -1,13 +1,17 @@
-// lib/presentation/views/profile/profile_view.dart
+﻿// lib/presentation/views/profile/profile_view.dart
 
 import 'package:explore_index/core/constants/app_colors.dart';
 import 'package:explore_index/core/constants/app_spacing.dart';
 import 'package:explore_index/core/constants/app_text_styles.dart';
 import 'package:explore_index/core/router/app_routes.dart';
+import 'package:explore_index/core/theme/theme_provider.dart';
+import 'package:explore_index/data/models/travel_mode.dart';
 import 'package:explore_index/presentation/viewmodels/profile_viewmodel.dart';
+import 'package:explore_index/presentation/views/mode_selector/mode_selector_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:explore_index/core/utils/theme_extensions.dart';
 
 class ProfileView extends ConsumerWidget {
   const ProfileView({super.key});
@@ -17,15 +21,27 @@ class ProfileView extends ConsumerWidget {
     final asyncState = ref.watch(profileViewModelProvider);
 
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: context.appColors.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
+        backgroundColor: context.appColors.background,
         elevation: 0,
         titleSpacing: AppSpacing.lg,
         title: const Text('Profile', style: AppTextStyles.titleSmall),
         actions: [
+          // ── Theme toggle ──────────────────────────────────────────────────
+          Consumer(builder: (ctx, r, _) {
+            final isDark = r.watch(themeProvider) == ThemeMode.dark;
+            return IconButton(
+              tooltip: isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode',
+              icon: Icon(
+                isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
+                color: ctx.appColors.textSecondary,
+              ),
+              onPressed: () => r.read(themeProvider.notifier).toggle(),
+            );
+          }),
           IconButton(
-            icon: const Icon(Icons.refresh, color: AppColors.textSecondary),
+            icon: Icon(Icons.refresh, color: context.appColors.textSecondary),
             onPressed: () => ref.read(profileViewModelProvider.notifier).refresh(),
           ),
           const SizedBox(width: AppSpacing.sm),
@@ -52,6 +68,10 @@ class ProfileView extends ConsumerWidget {
             _LevelCard(state: state),
             const SizedBox(height: AppSpacing.sectionGap),
 
+            // ── Mode discovery stats ──────────────────────────────────────
+            _ModeDiscoveryCard(state: state),
+            const SizedBox(height: AppSpacing.sectionGap),
+
             // ── Badges grid ───────────────────────────────────────────────
             Text('Badges', style: AppTextStyles.titleSmall),
             const SizedBox(height: AppSpacing.lg),
@@ -62,12 +82,12 @@ class ProfileView extends ConsumerWidget {
             Text('Your Stats', style: AppTextStyles.titleSmall),
             const SizedBox(height: AppSpacing.lg),
             _StatsList(state: state),
-            const SizedBox(height: AppSpacing.sectionGap),
+            SizedBox(height: AppSpacing.sectionGap),
 
             // ── Discovery DNA button ──────────────────────────────────────
             FilledButton.icon(
               style: FilledButton.styleFrom(
-                backgroundColor: AppColors.surfaceElevated,
+                backgroundColor: context.appColors.surfaceElevated,
                 foregroundColor: AppColors.primary,
                 padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
                 shape: RoundedRectangleBorder(
@@ -75,7 +95,7 @@ class ProfileView extends ConsumerWidget {
                   side: const BorderSide(color: AppColors.primary),
                 ),
               ),
-              onPressed: () => context.push(AppRoutes.discoveryDna),
+              onPressed: () => context.go(AppRoutes.dna),
               icon: const Icon(Icons.auto_awesome, size: 18),
               label: const Text(
                 'Discovery DNA →',
@@ -108,7 +128,7 @@ class _AvatarSection extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 48,
-              backgroundColor: AppColors.surfaceElevated,
+              backgroundColor: context.appColors.surfaceElevated,
               backgroundImage: profile.avatarPath.isNotEmpty
                   ? AssetImage(profile.avatarPath)
                   : null,
@@ -130,7 +150,7 @@ class _AvatarSection extends StatelessWidget {
               child: Text(
                 '${profile.level}',
                 style: AppTextStyles.overline.copyWith(
-                  color: AppColors.textPrimary,
+                  color: context.appColors.textPrimary,
                   fontSize: 9,
                 ),
               ),
@@ -158,11 +178,11 @@ class _LevelCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final profile = state.profile;
     return Container(
-      padding: const EdgeInsets.all(AppSpacing.lg),
+      padding: EdgeInsets.all(AppSpacing.lg),
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: context.appColors.surface,
         borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
-        border: Border.all(color: AppColors.divider),
+        border: Border.all(color: context.appColors.divider),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,13 +197,13 @@ class _LevelCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: AppSpacing.md),
+          SizedBox(height: AppSpacing.md),
           ClipRRect(
             borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
             child: LinearProgressIndicator(
               value: profile.xpProgress,
               minHeight: 8,
-              backgroundColor: AppColors.divider,
+              backgroundColor: context.appColors.divider,
               valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
             ),
           ),
@@ -263,7 +283,7 @@ class _BadgeCell extends StatelessWidget {
               child: Container(
                 width: 56,
                 height: 56,
-                color: isLocked ? AppColors.surfaceElevated : AppColors.primary.withOpacity(0.15),
+                color: isLocked ? context.appColors.surfaceElevated : AppColors.primary.withOpacity(0.15),
                 alignment: Alignment.center,
                 child: Text(
                   entry.badge.icon,
@@ -275,11 +295,11 @@ class _BadgeCell extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: AppSpacing.xs),
+          SizedBox(height: AppSpacing.xs),
           Text(
             entry.badge.name,
             style: AppTextStyles.overline.copyWith(
-              color: isLocked ? AppColors.textMuted : AppColors.textSecondary,
+              color: isLocked ? context.appColors.textMuted : context.appColors.textSecondary,
             ),
             textAlign: TextAlign.center,
             maxLines: 2,
@@ -312,6 +332,131 @@ class _HexClipper extends CustomClipper<Path> {
 }
 
 // ---------------------------------------------------------------------------
+// Mode Discovery Card
+// ---------------------------------------------------------------------------
+
+class _ModeDiscoveryCard extends StatelessWidget {
+  final ProfileState state;
+  const _ModeDiscoveryCard({required this.state});
+
+  @override
+  Widget build(BuildContext context) {
+    final md = state.modeDiscovery;
+    final current = state.currentMode;
+
+    return GestureDetector(
+      onTap: () => showModeSelectorSheet(context),
+      child: Container(
+        padding: EdgeInsets.all(AppSpacing.lg),
+        decoration: BoxDecoration(
+          color: context.appColors.surface,
+          borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
+          border: Border.all(color: context.appColors.divider),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                const Icon(Icons.tune_outlined,
+                    color: AppColors.primary, size: 18),
+                const SizedBox(width: AppSpacing.sm),
+                Text('World Discovery by Mode',
+                    style: AppTextStyles.bodyMedium),
+                Spacer(),
+                Icon(Icons.chevron_right,
+                    color: context.appColors.textMuted, size: 18),
+              ],
+            ),
+            const SizedBox(height: AppSpacing.lg),
+            _ModeBar(
+              mode: TravelMode.bronze,
+              pct: md.bronze,
+              isActive: current == TravelMode.bronze,
+            ),
+            const SizedBox(height: AppSpacing.md),
+            _ModeBar(
+              mode: TravelMode.silver,
+              pct: md.silver,
+              isActive: current == TravelMode.silver,
+            ),
+            const SizedBox(height: AppSpacing.md),
+            _ModeBar(
+              mode: TravelMode.gold,
+              pct: md.gold,
+              isActive: current == TravelMode.gold,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ModeBar extends StatelessWidget {
+  final TravelMode mode;
+  final double pct;
+  final bool isActive;
+
+  const _ModeBar({
+    required this.mode,
+    required this.pct,
+    required this.isActive,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final color = mode.color;
+    final clamped = pct.clamp(0.0, 100.0);
+
+    return Row(
+      children: [
+        Text(mode.emoji, style: const TextStyle(fontSize: 16)),
+        SizedBox(width: AppSpacing.sm),
+        SizedBox(
+          width: 52,
+          child: Text(
+            mode.shortName,
+            style: AppTextStyles.caption.copyWith(
+              color: isActive ? color : context.appColors.textSecondary,
+              fontWeight:
+                  isActive ? FontWeight.w700 : FontWeight.w400,
+            ),
+          ),
+        ),
+        Expanded(
+          child: ClipRRect(
+            borderRadius:
+                BorderRadius.circular(AppSpacing.radiusSmall),
+            child: LinearProgressIndicator(
+              value: clamped / 100,
+              minHeight: isActive ? 8 : 5,
+              backgroundColor: context.appColors.divider,
+              valueColor: AlwaysStoppedAnimation<Color>(
+                isActive ? color : color.withOpacity(0.5),
+              ),
+            ),
+          ),
+        ),
+        SizedBox(width: AppSpacing.md),
+        SizedBox(
+          width: 44,
+          child: Text(
+            '${clamped.toStringAsFixed(1)}%',
+            style: AppTextStyles.caption.copyWith(
+              color: isActive ? color : context.appColors.textMuted,
+              fontWeight:
+                  isActive ? FontWeight.w700 : FontWeight.w400,
+            ),
+            textAlign: TextAlign.end,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Stats List
 // ---------------------------------------------------------------------------
 
@@ -324,9 +469,9 @@ class _StatsList extends StatelessWidget {
     final stats = state.stats;
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: context.appColors.surface,
         borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
-        border: Border.all(color: AppColors.divider),
+        border: Border.all(color: context.appColors.divider),
       ),
       child: Column(
         children: [
@@ -335,25 +480,25 @@ class _StatsList extends StatelessWidget {
             label: 'Countries Visited',
             value: '${stats.countriesVisited}',
           ),
-          const Divider(height: 1, color: AppColors.divider),
+          Divider(height: 1, color: context.appColors.divider),
           _StatsListItem(
             icon: Icons.location_city_outlined,
             label: 'Cities Visited',
             value: '${stats.citiesVisited}',
           ),
-          const Divider(height: 1, color: AppColors.divider),
+          Divider(height: 1, color: context.appColors.divider),
           _StatsListItem(
             icon: Icons.place_outlined,
             label: 'Unique Places',
             value: '${stats.uniquePlacesVisited}',
           ),
-          const Divider(height: 1, color: AppColors.divider),
+          Divider(height: 1, color: context.appColors.divider),
           _StatsListItem(
             icon: Icons.check_circle_outline,
             label: 'Total Visits',
             value: '${stats.totalVisits}',
           ),
-          const Divider(height: 1, color: AppColors.divider),
+          Divider(height: 1, color: context.appColors.divider),
           _StatsListItem(
             icon: Icons.star_border,
             label: 'Average Rating',
@@ -393,3 +538,5 @@ class _StatsListItem extends StatelessWidget {
     );
   }
 }
+
+

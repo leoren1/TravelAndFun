@@ -1,7 +1,8 @@
-import 'package:explore_index/core/constants/app_colors.dart';
+﻿import 'package:explore_index/core/constants/app_colors.dart';
 import 'package:explore_index/core/constants/app_spacing.dart';
 import 'package:explore_index/core/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:explore_index/core/utils/theme_extensions.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String label;
@@ -26,7 +27,7 @@ class PrimaryButton extends StatelessWidget {
         onPressed: isLoading ? null : onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,
-          foregroundColor: AppColors.textPrimary,
+          foregroundColor: context.appColors.textPrimary,
           disabledBackgroundColor: AppColors.primary.withOpacity(0.4),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
@@ -102,3 +103,4 @@ class GhostButton extends StatelessWidget {
     );
   }
 }
+

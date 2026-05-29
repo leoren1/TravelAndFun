@@ -52,5 +52,6 @@ flutter:
     - lib/static_data/
     - assets/avatars/
     - assets/images/
+    - assets/geo/
 
   # Fonts are loaded via google_fonts package — no local font assets needed

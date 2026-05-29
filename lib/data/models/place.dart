@@ -2,6 +2,7 @@
 // Plain Dart model — no code generation required.
 
 import 'package:explore_index/data/models/category.dart';
+import 'package:explore_index/data/models/travel_mode.dart';
 
 enum PlaceTag { mustVisit, hidden, local }
 
@@ -48,6 +49,19 @@ class Place {
     required this.longitude,
     required this.discoveryBoost,
   });
+
+  /// Derived tier from [tags] — no extra JSON field needed.
+  ///
+  /// - `mustVisit` tag  → [PlaceTier.bronze]  (globally iconic landmark)
+  /// - `hidden`/`local` → [PlaceTier.gold]    (hidden gem / local favourite)
+  /// - anything else    → [PlaceTier.silver]  (standard touristic place)
+  PlaceTier get tier {
+    if (tags.contains(PlaceTag.mustVisit)) return PlaceTier.bronze;
+    if (tags.contains(PlaceTag.hidden) || tags.contains(PlaceTag.local)) {
+      return PlaceTier.gold;
+    }
+    return PlaceTier.silver;
+  }
 
   factory Place.fromJson(Map<String, dynamic> json) => Place(
         id: json['id'] as String,
@@ -114,5 +128,5 @@ class Place {
 
   @override
   String toString() =>
-      'Place(id: $id, name: $name, cityId: $cityId, category: ${category.jsonKey})';
+      'Place(id: $id, name: $name, cityId: $cityId, category: ${category.jsonKey}, tier: ${tier.jsonKey})';
 }

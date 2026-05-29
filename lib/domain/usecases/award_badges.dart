@@ -1,98 +1,104 @@
 // lib/domain/usecases/award_badges.dart
+//
+// Awards tier badges to a user based on their computed DiscoveryDna values.
+// Each of the 8 DNA dimensions has 4 tiers (Bronze/Silver/Gold/Platinum).
+// Thresholds mirror those in UserRepositoryImpl._defaultBadges exactly.
+//
+// NOTE: The DNA viewmodel auto-computes earned status from thresholds so this
+// usecase is only needed when you want to persist earned badge IDs to the user
+// profile (e.g. to show unlocked state even before DNA is recomputed).
 
-import 'package:explore_index/data/models/category.dart';
-import 'package:explore_index/data/models/city.dart';
-import 'package:explore_index/data/models/place.dart';
-import 'package:explore_index/data/models/visit.dart';
-import 'package:explore_index/domain/usecases/calculate_category_discovery.dart';
-import 'package:explore_index/domain/usecases/calculate_city_discovery.dart';
+import 'package:explore_index/data/models/discovery_dna.dart';
 
-class _BadgeDef {
+class _TierBadge {
   final String id;
-  final CategoryType category;
-  final double threshold;
+  final String categoryKey; // DNA category key
+  final double threshold;   // 0–1 fraction (same unit as badge.threshold)
 
-  const _BadgeDef(this.id, this.category, this.threshold);
+  const _TierBadge(this.id, this.categoryKey, this.threshold);
 }
 
 class AwardBadges {
-  static final List<_BadgeDef> _definitions = [
-    _BadgeDef('food_explorer', CategoryType.foodRestaurants, 60),
-    _BadgeDef('museum_collector', CategoryType.museumsArt, 60),
-    _BadgeDef('nightlife_seeker', CategoryType.nightlife, 60),
-    _BadgeDef('hidden_gem_finder', CategoryType.hiddenGems, 50),
-    _BadgeDef('history_buff', CategoryType.historicalPlaces, 70),
-    _BadgeDef('coffee_connoisseur', CategoryType.cafes, 70),
-    _BadgeDef('nature_wanderer', CategoryType.nature, 60),
-    _BadgeDef('market_hunter', CategoryType.localMarkets, 50),
+  /// All 32 tier badge definitions (8 dimensions × 4 tiers).
+  /// Must stay in sync with UserRepositoryImpl._defaultBadges.
+  static const List<_TierBadge> _definitions = [
+    // History
+    _TierBadge('history_t1',  'historicalPlaces', 0.20),
+    _TierBadge('history_t2',  'historicalPlaces', 0.40),
+    _TierBadge('history_t3',  'historicalPlaces', 0.65),
+    _TierBadge('history_t4',  'historicalPlaces', 0.85),
+    // Food
+    _TierBadge('food_t1',     'foodRestaurants',  0.20),
+    _TierBadge('food_t2',     'foodRestaurants',  0.40),
+    _TierBadge('food_t3',     'foodRestaurants',  0.65),
+    _TierBadge('food_t4',     'foodRestaurants',  0.85),
+    // Nature
+    _TierBadge('nature_t1',   'nature',           0.20),
+    _TierBadge('nature_t2',   'nature',           0.40),
+    _TierBadge('nature_t3',   'nature',           0.65),
+    _TierBadge('nature_t4',   'nature',           0.85),
+    // Events
+    _TierBadge('events_t1',   'events',           0.20),
+    _TierBadge('events_t2',   'events',           0.40),
+    _TierBadge('events_t3',   'events',           0.65),
+    _TierBadge('events_t4',   'events',           0.85),
+    // Nightlife
+    _TierBadge('nightlife_t1','nightlife',        0.20),
+    _TierBadge('nightlife_t2','nightlife',        0.40),
+    _TierBadge('nightlife_t3','nightlife',        0.65),
+    _TierBadge('nightlife_t4','nightlife',        0.85),
+    // Local Exp
+    _TierBadge('localexp_t1', 'hiddenGems',       0.20),
+    _TierBadge('localexp_t2', 'hiddenGems',       0.40),
+    _TierBadge('localexp_t3', 'hiddenGems',       0.65),
+    _TierBadge('localexp_t4', 'hiddenGems',       0.85),
+    // Shopping
+    _TierBadge('shopping_t1', 'localMarkets',     0.20),
+    _TierBadge('shopping_t2', 'localMarkets',     0.40),
+    _TierBadge('shopping_t3', 'localMarkets',     0.65),
+    _TierBadge('shopping_t4', 'localMarkets',     0.85),
+    // Museums
+    _TierBadge('museums_t1',  'museumsArt',       0.20),
+    _TierBadge('museums_t2',  'museumsArt',       0.40),
+    _TierBadge('museums_t3',  'museumsArt',       0.65),
+    _TierBadge('museums_t4',  'museumsArt',       0.85),
   ];
 
-  final List<City> cities;
-  final List<Visit> visits;
-  final List<Place> places;
+  final DiscoveryDna dna;
   final List<String> alreadyAwarded;
 
   const AwardBadges({
-    required this.cities,
-    required this.visits,
-    required this.places,
+    required this.dna,
     required this.alreadyAwarded,
   });
 
+  /// Returns badge IDs that should now be added to the user profile.
   List<String> execute() {
+    final awarded = alreadyAwarded.toSet();
     final newBadges = <String>[];
 
-    for (final city in cities) {
-      final cityVisits = visits.where((v) {
-        final match =
-            places.where((p) => p.id == v.placeId && p.cityId == city.id);
-        return match.isNotEmpty;
-      }).toList();
-
-      final calc = CalculateCategoryDiscovery(
-        city: city,
-        visits: cityVisits,
-        places: places,
-      );
-
-      for (final def in _definitions) {
-        if (!alreadyAwarded.contains(def.id)) {
-          final pct = calc.execute(def.category);
-          if (pct >= def.threshold) {
-            newBadges.add(def.id);
-          }
-        }
-      }
-
-      // City completer badge — awarded when a city is 90%+ discovered.
-      if (!alreadyAwarded.contains('city_completer')) {
-        final cityDisc = CalculateCityDiscovery(
-          city: city,
-          visits: cityVisits,
-          places: places,
-        ).execute();
-        if (cityDisc >= 90) newBadges.add('city_completer');
+    for (final def in _definitions) {
+      if (awarded.contains(def.id)) continue;
+      final dimensionValue = _dnaValue(def.categoryKey);
+      if (dimensionValue >= def.threshold * 100) {
+        newBadges.add(def.id);
       }
     }
 
-    // Globetrotter — visited places in 3 or more distinct countries.
-    if (!alreadyAwarded.contains('globetrotter')) {
-      final visitedCityIds = visits.map((v) {
-        final place = places.firstWhere(
-          (p) => p.id == v.placeId,
-          orElse: () => places.first,
-        );
-        return place.cityId;
-      }).toSet();
-
-      final visitedCountryIds = cities
-          .where((c) => visitedCityIds.contains(c.id))
-          .map((c) => c.countryId)
-          .toSet();
-
-      if (visitedCountryIds.length >= 3) newBadges.add('globetrotter');
-    }
-
-    return newBadges.toSet().difference(alreadyAwarded.toSet()).toList();
+    return newBadges;
   }
+
+  /// Returns the current DNA percentage (0–100) for a given category key.
+  /// Must match [DiscoveryDnaViewModel._dnaForCategory] exactly.
+  double _dnaValue(String key) => switch (key) {
+        'historicalPlaces' => dna.history,
+        'foodRestaurants'  => dna.food,
+        'nature'           => dna.nature,
+        'events'           => dna.events,
+        'nightlife'        => dna.nightlife,
+        'hiddenGems'       => dna.localExp,
+        'localMarkets'     => dna.shopping,
+        'museumsArt'       => dna.museums,
+        _                  => 0.0,
+      };
 }

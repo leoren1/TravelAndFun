@@ -1,9 +1,10 @@
-import 'package:cached_network_image/cached_network_image.dart';
+﻿import 'package:cached_network_image/cached_network_image.dart';
 import 'package:explore_index/core/constants/app_colors.dart';
 import 'package:explore_index/core/constants/app_spacing.dart';
 import 'package:explore_index/core/constants/app_text_styles.dart';
 import 'package:explore_index/data/models/place.dart';
 import 'package:flutter/material.dart';
+import 'package:explore_index/core/utils/theme_extensions.dart';
 
 class PlaceCard extends StatelessWidget {
   final Place place;
@@ -25,11 +26,11 @@ class PlaceCard extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
       child: Container(
-        padding: const EdgeInsets.all(AppSpacing.cardPadding),
+        padding: EdgeInsets.all(AppSpacing.cardPadding),
         decoration: BoxDecoration(
-          color: AppColors.surface,
+          color: context.appColors.surface,
           borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
-          border: Border.all(color: AppColors.divider),
+          border: Border.all(color: context.appColors.divider),
         ),
         child: Row(
           children: [
@@ -43,10 +44,10 @@ class PlaceCard extends StatelessWidget {
                 errorWidget: (_, __, ___) => Container(
                   width: 64,
                   height: 64,
-                  color: AppColors.surfaceElevated,
-                  child: const Icon(
+                  color: context.appColors.surfaceElevated,
+                  child: Icon(
                     Icons.image_outlined,
-                    color: AppColors.textMuted,
+                    color: context.appColors.textMuted,
                   ),
                 ),
               ),
@@ -126,22 +127,22 @@ class _VerificationBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+      padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
       decoration: BoxDecoration(
         color: isVerified
             ? AppColors.success.withOpacity(0.15)
-            : AppColors.surfaceElevated,
+            : context.appColors.surfaceElevated,
         borderRadius: BorderRadius.circular(6),
         border: Border.all(
           color: isVerified
               ? AppColors.success.withOpacity(0.5)
-              : AppColors.divider,
+              : context.appColors.divider,
         ),
       ),
       child: Text(
         isVerified ? 'Verified' : 'Not Verified',
         style: AppTextStyles.captionMuted.copyWith(
-          color: isVerified ? AppColors.success : AppColors.textMuted,
+          color: isVerified ? AppColors.success : context.appColors.textMuted,
           fontSize: 10,
         ),
       ),
@@ -179,3 +180,4 @@ class _TagChip extends StatelessWidget {
     );
   }
 }
+

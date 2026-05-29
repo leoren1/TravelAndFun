@@ -1,4 +1,4 @@
-// lib/presentation/views/events/events_view.dart
+﻿// lib/presentation/views/events/events_view.dart
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:explore_index/core/constants/app_colors.dart';
@@ -9,6 +9,7 @@ import 'package:explore_index/presentation/viewmodels/events_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:explore_index/core/utils/theme_extensions.dart';
 
 class EventsView extends ConsumerStatefulWidget {
   final String cityId;
@@ -43,21 +44,21 @@ class _EventsViewState extends ConsumerState<EventsView> {
     final asyncState = ref.watch(eventsViewModelProvider(widget.cityId));
 
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: context.appColors.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
+        backgroundColor: context.appColors.background,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: AppColors.textPrimary),
+          icon: Icon(Icons.arrow_back, color: context.appColors.textPrimary),
           onPressed: () => context.pop(),
         ),
         title: asyncState.whenOrNull(
           data: (s) => Text('Events in ${s.city.name}', style: AppTextStyles.titleSmall),
         ) ??
-            const Text('Events', style: AppTextStyles.titleSmall),
+            Text('Events', style: AppTextStyles.titleSmall),
         actions: [
           IconButton(
-            icon: const Icon(Icons.refresh, color: AppColors.textSecondary),
+            icon: Icon(Icons.refresh, color: context.appColors.textSecondary),
             onPressed: () => ref
                 .read(eventsViewModelProvider(widget.cityId).notifier)
                 .refresh(),
@@ -85,11 +86,14 @@ class _EventsViewState extends ConsumerState<EventsView> {
           final monthYear =
               '${_monthName(_selectedDay.month)} ${_selectedDay.year}';
 
-          return Column(
+          return SafeArea(
+            top: false,
+            bottom: true,
+            child: Column(
             children: [
               // ── Month/year + week strip ─────────────────────────────────
               Container(
-                color: AppColors.surface,
+                color: context.appColors.surface,
                 padding: const EdgeInsets.only(
                   top: AppSpacing.sm,
                   bottom: AppSpacing.md,
@@ -110,8 +114,8 @@ class _EventsViewState extends ConsumerState<EventsView> {
                               () => _selectedDay = _selectedDay
                                   .subtract(const Duration(days: 7)),
                             ),
-                            child: const Icon(Icons.chevron_left,
-                                color: AppColors.textSecondary),
+                            child: Icon(Icons.chevron_left,
+                                color: context.appColors.textSecondary),
                           ),
                           const SizedBox(width: AppSpacing.sm),
                           GestureDetector(
@@ -119,8 +123,8 @@ class _EventsViewState extends ConsumerState<EventsView> {
                               () => _selectedDay = _selectedDay
                                   .add(const Duration(days: 7)),
                             ),
-                            child: const Icon(Icons.chevron_right,
-                                color: AppColors.textSecondary),
+                            child: Icon(Icons.chevron_right,
+                                color: context.appColors.textSecondary),
                           ),
                         ],
                       ),
@@ -151,7 +155,7 @@ class _EventsViewState extends ConsumerState<EventsView> {
                                   style: AppTextStyles.overline.copyWith(
                                     color: isSelected
                                         ? AppColors.primary
-                                        : AppColors.textMuted,
+                                        : context.appColors.textMuted,
                                   ),
                                 ),
                                 const SizedBox(height: AppSpacing.xs),
@@ -172,10 +176,10 @@ class _EventsViewState extends ConsumerState<EventsView> {
                                     '${day.day}',
                                     style: AppTextStyles.caption.copyWith(
                                       color: isSelected
-                                          ? AppColors.textPrimary
+                                          ? context.appColors.textPrimary
                                           : isToday
                                               ? AppColors.primary
-                                              : AppColors.textSecondary,
+                                              : context.appColors.textSecondary,
                                       fontWeight: isSelected || isToday
                                           ? FontWeight.w600
                                           : FontWeight.w400,
@@ -191,7 +195,7 @@ class _EventsViewState extends ConsumerState<EventsView> {
                   ],
                 ),
               ),
-              const Divider(height: 1, color: AppColors.divider),
+              Divider(height: 1, color: context.appColors.divider),
 
               // ── Event list ────────────────────────────────────────────
               Expanded(
@@ -200,8 +204,8 @@ class _EventsViewState extends ConsumerState<EventsView> {
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            const Icon(Icons.event_busy,
-                                color: AppColors.textMuted, size: 48),
+                            Icon(Icons.event_busy,
+                                color: context.appColors.textMuted, size: 48),
                             const SizedBox(height: AppSpacing.md),
                             Text(
                               'No events on this day',
@@ -247,6 +251,7 @@ class _EventsViewState extends ConsumerState<EventsView> {
                       ),
               ),
             ],
+            ),
           );
         },
       ),
@@ -275,11 +280,11 @@ class _EventCard extends StatelessWidget {
     final timeRange = '${_formatTime(event.startDate)} – ${_formatTime(event.endDate)}';
 
     return Container(
-      margin: const EdgeInsets.only(bottom: AppSpacing.md),
+      margin: EdgeInsets.only(bottom: AppSpacing.md),
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: context.appColors.surface,
         borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
-        border: Border.all(color: AppColors.divider),
+        border: Border.all(color: context.appColors.divider),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -296,13 +301,13 @@ class _EventCard extends StatelessWidget {
               height: 110,
               fit: BoxFit.cover,
               placeholder: (_, __) =>
-                  Container(width: 90, height: 110, color: AppColors.surfaceElevated),
+                  Container(width: 90, height: 110, color: context.appColors.surfaceElevated),
               errorWidget: (_, __, ___) => Container(
                 width: 90,
                 height: 110,
-                color: AppColors.surfaceElevated,
+                color: context.appColors.surfaceElevated,
                 alignment: Alignment.center,
-                child: const Icon(Icons.event, color: AppColors.textMuted, size: 28),
+                child: Icon(Icons.event, color: context.appColors.textMuted, size: 28),
               ),
             ),
           ),
@@ -324,10 +329,17 @@ class _EventCard extends StatelessWidget {
                   // Time
                   Row(
                     children: [
-                      const Icon(Icons.access_time_outlined,
-                          color: AppColors.textMuted, size: 13),
+                      Icon(Icons.access_time_outlined,
+                          color: context.appColors.textMuted, size: 13),
                       const SizedBox(width: 4),
-                      Text(timeRange, style: AppTextStyles.captionMuted),
+                      Flexible(
+                        child: Text(
+                          timeRange,
+                          style: AppTextStyles.captionMuted,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(height: AppSpacing.xs),
@@ -406,12 +418,14 @@ class _CategoryPill extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sm, vertical: 2),
+      padding: EdgeInsets.symmetric(horizontal: AppSpacing.sm, vertical: 2),
       decoration: BoxDecoration(
-        color: AppColors.surfaceElevated,
+        color: context.appColors.surfaceElevated,
         borderRadius: BorderRadius.circular(AppSpacing.radiusChip),
       ),
       child: Text(label, style: AppTextStyles.overline),
     );
   }
 }
+
+

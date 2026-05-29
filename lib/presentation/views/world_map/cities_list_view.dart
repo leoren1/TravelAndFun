@@ -1,4 +1,4 @@
-// lib/presentation/views/world_map/cities_list_view.dart
+﻿// lib/presentation/views/world_map/cities_list_view.dart
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:explore_index/core/constants/app_colors.dart';
@@ -9,6 +9,7 @@ import 'package:explore_index/presentation/viewmodels/world_map_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:explore_index/core/utils/theme_extensions.dart';
 
 /// Cities tab — shows all cities derived from worldMapViewModelProvider,
 /// each tapping to CityDashboard.
@@ -20,15 +21,15 @@ class CitiesListView extends ConsumerWidget {
     final asyncState = ref.watch(worldMapViewModelProvider);
 
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: context.appColors.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
+        backgroundColor: context.appColors.background,
         elevation: 0,
         titleSpacing: AppSpacing.lg,
-        title: const Text('Cities', style: AppTextStyles.titleSmall),
+        title: Text('Cities', style: AppTextStyles.titleSmall),
         actions: [
           IconButton(
-            icon: const Icon(Icons.refresh, color: AppColors.textSecondary),
+            icon: Icon(Icons.refresh, color: context.appColors.textSecondary),
             onPressed: () =>
                 ref.read(worldMapViewModelProvider.notifier).refresh(),
           ),
@@ -109,12 +110,12 @@ class _CityListTile extends StatelessWidget {
     return GestureDetector(
       onTap: () => context.push(AppRoutes.cityDashboardPath(entry.cityId)),
       child: Container(
-        margin: const EdgeInsets.only(bottom: AppSpacing.sm),
-        padding: const EdgeInsets.all(AppSpacing.md),
+        margin: EdgeInsets.only(bottom: AppSpacing.sm),
+        padding: EdgeInsets.all(AppSpacing.md),
         decoration: BoxDecoration(
-          color: AppColors.surface,
+          color: context.appColors.surface,
           borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
-          border: Border.all(color: AppColors.divider),
+          border: Border.all(color: context.appColors.divider),
         ),
         child: Row(
           children: [
@@ -129,15 +130,15 @@ class _CityListTile extends StatelessWidget {
                 placeholder: (_, __) => Container(
                   width: 52,
                   height: 52,
-                  color: AppColors.surfaceElevated,
+                  color: context.appColors.surfaceElevated,
                 ),
                 errorWidget: (_, __, ___) => Container(
                   width: 52,
                   height: 52,
-                  color: AppColors.surfaceElevated,
+                  color: context.appColors.surfaceElevated,
                   alignment: Alignment.center,
-                  child: const Icon(Icons.location_city_outlined,
-                      color: AppColors.textMuted, size: 24),
+                  child: Icon(Icons.location_city_outlined,
+                      color: context.appColors.textMuted, size: 24),
                 ),
               ),
             ),
@@ -166,7 +167,7 @@ class _CityListTile extends StatelessWidget {
                 ],
               ),
             ),
-            const Icon(Icons.chevron_right, color: AppColors.textMuted, size: 18),
+            Icon(Icons.chevron_right, color: context.appColors.textMuted, size: 18),
           ],
         ),
       ),
@@ -180,3 +181,5 @@ class _CityListTile extends StatelessWidget {
     return String.fromCharCodes([base + chars[0], base + chars[1]]);
   }
 }
+
+

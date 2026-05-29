@@ -154,7 +154,6 @@ class VerifyVisitViewModel extends Notifier<VerifyVisitState> {
 
     try {
       final useCase = VerifyVisitUseCase(
-        verificationService: ref.read(photoVerificationServiceProvider),
         exifService: ref.read(exifServiceProvider),
         visitRepository: ref.read(visitRepositoryProvider),
       );

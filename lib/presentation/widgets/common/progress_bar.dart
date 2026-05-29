@@ -1,5 +1,6 @@
-import 'package:explore_index/core/constants/app_colors.dart';
+﻿import 'package:explore_index/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:explore_index/core/utils/theme_extensions.dart';
 
 class ProgressBar extends StatelessWidget {
   final double percentage;
@@ -23,7 +24,7 @@ class ProgressBar extends StatelessWidget {
       child: LinearProgressIndicator(
         value: (percentage / 100).clamp(0.0, 1.0),
         minHeight: height,
-        backgroundColor: backgroundColor ?? AppColors.divider,
+        backgroundColor: backgroundColor ?? context.appColors.divider,
         valueColor: AlwaysStoppedAnimation<Color>(c),
       ),
     );
@@ -35,3 +36,4 @@ class ProgressBar extends StatelessWidget {
     return AppColors.danger;
   }
 }
+

@@ -1,6 +1,7 @@
-import 'package:explore_index/core/constants/app_colors.dart';
+﻿import 'package:explore_index/core/constants/app_colors.dart';
 import 'package:explore_index/core/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:explore_index/core/utils/theme_extensions.dart';
 
 class FilterChipGroup extends StatelessWidget {
   final List<String> options;
@@ -33,18 +34,18 @@ class FilterChipGroup extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: isSelected
                       ? AppColors.primary
-                      : AppColors.surfaceElevated,
+                      : context.appColors.surfaceElevated,
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
-                    color: isSelected ? AppColors.primary : AppColors.divider,
+                    color: isSelected ? AppColors.primary : context.appColors.divider,
                   ),
                 ),
                 child: Text(
                   opt,
                   style: AppTextStyles.caption.copyWith(
                     color: isSelected
-                        ? AppColors.textPrimary
-                        : AppColors.textSecondary,
+                        ? context.appColors.textPrimary
+                        : context.appColors.textSecondary,
                     fontWeight: isSelected
                         ? FontWeight.w600
                         : FontWeight.w400,
@@ -58,3 +59,4 @@ class FilterChipGroup extends StatelessWidget {
     );
   }
 }
+

@@ -1,4 +1,6 @@
-// lib/presentation/views/category_detail/category_detail_view.dart
+﻿// lib/presentation/views/category_detail/category_detail_view.dart
+
+import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:explore_index/core/constants/app_colors.dart';
@@ -11,6 +13,7 @@ import 'package:explore_index/presentation/viewmodels/category_detail_viewmodel.
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:explore_index/core/utils/theme_extensions.dart';
 
 // Filter options for place list.
 enum _PlaceFilter { all, mustVisit, hidden, local, completed }
@@ -56,21 +59,21 @@ class _CategoryDetailViewState extends ConsumerState<CategoryDetailView> {
     final asyncState = ref.watch(categoryDetailViewModelProvider(params));
 
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: context.appColors.background,
       body: asyncState.when(
-        loading: () => const Center(
+        loading: () => Center(
           child: CircularProgressIndicator(color: AppColors.primary),
         ),
         error: (err, _) => Scaffold(
           appBar: AppBar(
-            backgroundColor: AppColors.background,
+            backgroundColor: context.appColors.background,
             elevation: 0,
             leading: IconButton(
-              icon: const Icon(Icons.arrow_back, color: AppColors.textPrimary),
+              icon: Icon(Icons.arrow_back, color: context.appColors.textPrimary),
               onPressed: () => context.pop(),
             ),
           ),
-          backgroundColor: AppColors.background,
+          backgroundColor: context.appColors.background,
           body: Center(child: Text(err.toString(), style: AppTextStyles.body)),
         ),
         data: (state) {
@@ -81,13 +84,16 @@ class _CategoryDetailViewState extends ConsumerState<CategoryDetailView> {
               .map((e) => e.place.image)
               .toList();
 
-          return CustomScrollView(
-            slivers: [
+          return SafeArea(
+            top: false,
+            bottom: true,
+            child: CustomScrollView(
+              slivers: [
               // ── Hero image carousel ───────────────────────────────────
               SliverAppBar(
                 expandedHeight: 240,
                 pinned: true,
-                backgroundColor: AppColors.background,
+                backgroundColor: context.appColors.background,
                 elevation: 0,
                 automaticallyImplyLeading: false,
                 leading: Padding(
@@ -98,12 +104,12 @@ class _CategoryDetailViewState extends ConsumerState<CategoryDetailView> {
                       width: 36,
                       height: 36,
                       decoration: BoxDecoration(
-                        color: AppColors.background.withOpacity(0.75),
+                        color: context.appColors.background.withOpacity(0.75),
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(
+                      child: Icon(
                         Icons.arrow_back,
-                        color: AppColors.textPrimary,
+                        color: context.appColors.textPrimary,
                         size: 20,
                       ),
                     ),
@@ -113,7 +119,7 @@ class _CategoryDetailViewState extends ConsumerState<CategoryDetailView> {
                   background: heroImages.isNotEmpty
                       ? _HeroCarousel(images: heroImages)
                       : Container(
-                          color: AppColors.surfaceElevated,
+                          color: context.appColors.surfaceElevated,
                           alignment: Alignment.center,
                           child: Text(
                             state.category.icon,
@@ -154,13 +160,13 @@ class _CategoryDetailViewState extends ConsumerState<CategoryDetailView> {
                         '· ${state.discoveryPercent.toStringAsFixed(0)}%',
                         style: AppTextStyles.captionMuted,
                       ),
-                      const SizedBox(height: AppSpacing.md),
+                      SizedBox(height: AppSpacing.md),
                       ClipRRect(
                         borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
                         child: LinearProgressIndicator(
                           value: state.discoveryPercent / 100,
                           minHeight: 6,
-                          backgroundColor: AppColors.divider,
+                          backgroundColor: context.appColors.divider,
                           valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
                         ),
                       ),
@@ -200,7 +206,7 @@ class _CategoryDetailViewState extends ConsumerState<CategoryDetailView> {
                       (context, index) => _PlaceCard(
                         entry: filtered[index],
                         onTap: filtered[index].isVerified
-                            ? null
+                            ? () => _showVisitDetailSheet(context, filtered[index])
                             : () => context.push(
                                   AppRoutes.verifyVisitPath(filtered[index].place.id),
                                 ),
@@ -211,10 +217,211 @@ class _CategoryDetailViewState extends ConsumerState<CategoryDetailView> {
                 ),
               const SliverToBoxAdapter(child: SizedBox(height: AppSpacing.xxxl)),
             ],
+            ),
           );
         },
       ),
     );
+  }
+
+  // ---------------------------------------------------------------------------
+  // Verified-place detail bottom sheet
+  // ---------------------------------------------------------------------------
+
+  void _showVisitDetailSheet(BuildContext context, PlaceDiscoveryEntry entry) {
+    final visit = entry.latestVisit;
+    final place = entry.place;
+    final hasUserPhoto = visit != null &&
+        visit.photoPath.isNotEmpty &&
+        !visit.photoPath.startsWith('/demo/');
+
+    showModalBottomSheet<void>(
+      context: context,
+      backgroundColor: context.appColors.surface,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius:
+            BorderRadius.vertical(top: Radius.circular(AppSpacing.radiusCard)),
+      ),
+      builder: (_) {
+        return DraggableScrollableSheet(
+          expand: false,
+          initialChildSize: 0.7,
+          minChildSize: 0.4,
+          maxChildSize: 0.95,
+          builder: (_, scrollController) => SingleChildScrollView(
+            controller: scrollController,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Drag handle
+                Center(
+                  child: Container(
+                    margin: EdgeInsets.only(top: AppSpacing.md),
+                    width: 36,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: context.appColors.divider,
+                      borderRadius: BorderRadius.circular(2),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: AppSpacing.md),
+
+                // Photo
+                AspectRatio(
+                  aspectRatio: 16 / 9,
+                  child: hasUserPhoto
+                      ? Image.file(
+                          File(visit!.photoPath),
+                          fit: BoxFit.cover,
+                          errorBuilder: (_, __, ___) => _stockImage(place.image),
+                        )
+                      : _stockImage(place.image),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.all(AppSpacing.lg),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Place name + verified badge
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(place.name, style: AppTextStyles.title),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: AppSpacing.sm, vertical: 4),
+                            decoration: BoxDecoration(
+                              color: AppColors.success.withValues(alpha: 0.15),
+                              borderRadius: BorderRadius.circular(
+                                  AppSpacing.radiusChip),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Icon(Icons.verified,
+                                    color: AppColors.success, size: 14),
+                                const SizedBox(width: 4),
+                                Text(
+                                  'Verified',
+                                  style: AppTextStyles.overline.copyWith(
+                                      color: AppColors.success),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      if (place.description.isNotEmpty) ...[
+                        const SizedBox(height: AppSpacing.sm),
+                        Text(place.description, style: AppTextStyles.captionMuted),
+                      ],
+
+                      if (visit != null) ...[
+                        const SizedBox(height: AppSpacing.lg),
+                        const Divider(),
+                        const SizedBox(height: AppSpacing.md),
+
+                        // Visit metadata
+                        Row(
+                          children: [
+                            Icon(Icons.calendar_today_outlined,
+                                color: context.appColors.textMuted, size: 14),
+                            const SizedBox(width: AppSpacing.xs),
+                            Text(
+                              _formatDate(visit.visitedAt),
+                              style: AppTextStyles.captionMuted,
+                            ),
+                            const Spacer(),
+                            // Stars
+                            ...List.generate(
+                              5,
+                              (i) => Icon(
+                                i < visit.rating
+                                    ? Icons.star
+                                    : Icons.star_border,
+                                color: i < visit.rating
+                                    ? AppColors.warning
+                                    : context.appColors.textMuted,
+                                size: 16,
+                              ),
+                            ),
+                          ],
+                        ),
+
+                        if (visit.note != null && visit.note!.isNotEmpty) ...[
+                          const SizedBox(height: AppSpacing.md),
+                          Container(
+                            width: double.infinity,
+                            padding: EdgeInsets.all(AppSpacing.md),
+                            decoration: BoxDecoration(
+                              color: context.appColors.surfaceElevated,
+                              borderRadius: BorderRadius.circular(
+                                  AppSpacing.radiusSmall),
+                            ),
+                            child: Text(
+                              '"${visit.note!}"',
+                              style: AppTextStyles.body.copyWith(
+                                fontStyle: FontStyle.italic,
+                              ),
+                            ),
+                          ),
+                        ],
+
+                        if (hasUserPhoto) ...[
+                          const SizedBox(height: AppSpacing.md),
+                          Row(
+                            children: [
+                              const Icon(Icons.camera_alt,
+                                  color: AppColors.primary, size: 14),
+                              const SizedBox(width: AppSpacing.xs),
+                              Text(
+                                'Your verified photo',
+                                style: AppTextStyles.captionMuted.copyWith(
+                                  color: AppColors.primary,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ],
+                      const SizedBox(height: AppSpacing.xl),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _stockImage(String url) {
+    return CachedNetworkImage(
+      imageUrl: url,
+      fit: BoxFit.cover,
+      width: double.infinity,
+      placeholder: (_, __) =>
+          Container(color: context.appColors.surfaceElevated),
+      errorWidget: (_, __, ___) => Container(
+        color: context.appColors.surfaceElevated,
+        alignment: Alignment.center,
+        child: Icon(Icons.image_not_supported_outlined,
+            color: context.appColors.textMuted, size: 48),
+      ),
+    );
+  }
+
+  String _formatDate(DateTime date) {
+    const months = [
+      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+      'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+    ];
+    return '${date.day.toString().padLeft(2, '0')} ${months[date.month - 1]} ${date.year}';
   }
 }
 
@@ -251,11 +458,11 @@ class _HeroCarouselState extends State<_HeroCarousel> {
           itemBuilder: (context, index) => CachedNetworkImage(
             imageUrl: widget.images[index],
             fit: BoxFit.cover,
-            placeholder: (_, __) => Container(color: AppColors.surfaceElevated),
+            placeholder: (_, __) => Container(color: context.appColors.surfaceElevated),
             errorWidget: (_, __, ___) => Container(
-              color: AppColors.surfaceElevated,
-              child: const Icon(Icons.image_not_supported_outlined,
-                  color: AppColors.textMuted, size: 48),
+              color: context.appColors.surfaceElevated,
+              child: Icon(Icons.image_not_supported_outlined,
+                  color: context.appColors.textMuted, size: 48),
             ),
           ),
         ),
@@ -270,13 +477,13 @@ class _HeroCarouselState extends State<_HeroCarousel> {
                 widget.images.length,
                 (i) => AnimatedContainer(
                   duration: const Duration(milliseconds: 200),
-                  margin: const EdgeInsets.symmetric(horizontal: 3),
+                  margin: EdgeInsets.symmetric(horizontal: 3),
                   width: _current == i ? 16 : 6,
                   height: 6,
                   decoration: BoxDecoration(
                     color: _current == i
                         ? AppColors.primary
-                        : AppColors.textMuted,
+                        : context.appColors.textMuted,
                     borderRadius: BorderRadius.circular(3),
                   ),
                 ),
@@ -326,18 +533,18 @@ class _FilterChipGroup extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: isSelected
                       ? AppColors.primary
-                      : AppColors.surfaceElevated,
+                      : context.appColors.surfaceElevated,
                   borderRadius: BorderRadius.circular(AppSpacing.radiusChip),
                   border: Border.all(
-                    color: isSelected ? AppColors.primary : AppColors.divider,
+                    color: isSelected ? AppColors.primary : context.appColors.divider,
                   ),
                 ),
                 child: Text(
                   label,
                   style: AppTextStyles.caption.copyWith(
                     color: isSelected
-                        ? AppColors.textPrimary
-                        : AppColors.textSecondary,
+                        ? context.appColors.textPrimary
+                        : context.appColors.textSecondary,
                   ),
                 ),
               ),
@@ -361,41 +568,97 @@ class _PlaceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final place = entry.place;
+    final hasUserPhoto = entry.isVerified &&
+        entry.latestVisit?.photoPath != null &&
+        entry.latestVisit!.photoPath.isNotEmpty &&
+        !entry.latestVisit!.photoPath.startsWith('/demo/');
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.only(bottom: AppSpacing.sm),
+        margin: EdgeInsets.only(bottom: AppSpacing.sm),
         decoration: BoxDecoration(
-          color: AppColors.surface,
+          color: context.appColors.surface,
           borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
-          border: Border.all(color: AppColors.divider),
+          border: Border.all(color: context.appColors.divider),
         ),
         child: Row(
           children: [
-            // Image
+            // Image — shows user's real photo if available, else place stock image
             ClipRRect(
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(AppSpacing.radiusCard),
                 bottomLeft: Radius.circular(AppSpacing.radiusCard),
               ),
-              child: CachedNetworkImage(
-                imageUrl: place.image,
-                width: 88,
-                height: 88,
-                fit: BoxFit.cover,
-                placeholder: (_, __) => Container(
-                  width: 88,
-                  height: 88,
-                  color: AppColors.surfaceElevated,
-                ),
-                errorWidget: (_, __, ___) => Container(
-                  width: 88,
-                  height: 88,
-                  color: AppColors.surfaceElevated,
-                  alignment: Alignment.center,
-                  child: const Icon(Icons.image_not_supported_outlined,
-                      color: AppColors.textMuted, size: 28),
-                ),
+              child: Stack(
+                children: [
+                  if (hasUserPhoto)
+                    Image.file(
+                      File(entry.latestVisit!.photoPath),
+                      width: 88,
+                      height: 88,
+                      fit: BoxFit.cover,
+                      errorBuilder: (_, __, ___) => CachedNetworkImage(
+                        imageUrl: place.image,
+                        width: 88,
+                        height: 88,
+                        fit: BoxFit.cover,
+                        placeholder: (_, __) => Container(
+                          width: 88,
+                          height: 88,
+                          color: context.appColors.surfaceElevated,
+                        ),
+                        errorWidget: (_, __, ___) => Container(
+                          width: 88,
+                          height: 88,
+                          color: context.appColors.surfaceElevated,
+                          alignment: Alignment.center,
+                          child: Icon(Icons.image_not_supported_outlined,
+                              color: context.appColors.textMuted, size: 28),
+                        ),
+                      ),
+                    )
+                  else
+                    CachedNetworkImage(
+                      imageUrl: place.image,
+                      width: 88,
+                      height: 88,
+                      fit: BoxFit.cover,
+                      placeholder: (_, __) => Container(
+                        width: 88,
+                        height: 88,
+                        color: context.appColors.surfaceElevated,
+                      ),
+                      errorWidget: (_, __, ___) => Container(
+                        width: 88,
+                        height: 88,
+                        color: context.appColors.surfaceElevated,
+                        alignment: Alignment.center,
+                        child: Icon(Icons.image_not_supported_outlined,
+                            color: context.appColors.textMuted, size: 28),
+                      ),
+                    ),
+                  // Camera icon badge for user photos
+                  if (hasUserPhoto)
+                    Positioned(
+                      bottom: 4,
+                      right: 4,
+                      child: Container(
+                        width: 20,
+                        height: 20,
+                        decoration: BoxDecoration(
+                          color: AppColors.primary,
+                          shape: BoxShape.circle,
+                        ),
+                        alignment: Alignment.center,
+                        child: Icon(
+                          Icons.camera_alt,
+                          color: context.appColors.textPrimary,
+                          size: 11,
+                        ),
+                      ),
+                    ),
+                ],
               ),
             ),
             // Content
@@ -460,12 +723,12 @@ class _PlaceCard extends StatelessWidget {
                           PlaceTag.local => '🏠 Local',
                         };
                         return Container(
-                          padding: const EdgeInsets.symmetric(
+                          padding: EdgeInsets.symmetric(
                             horizontal: AppSpacing.sm,
                             vertical: 2,
                           ),
                           decoration: BoxDecoration(
-                            color: AppColors.surfaceElevated,
+                            color: context.appColors.surfaceElevated,
                             borderRadius:
                                 BorderRadius.circular(AppSpacing.radiusChip),
                           ),
@@ -483,3 +746,5 @@ class _PlaceCard extends StatelessWidget {
     );
   }
 }
+
+

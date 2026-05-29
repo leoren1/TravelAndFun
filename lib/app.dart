@@ -1,5 +1,6 @@
 import 'package:explore_index/core/router/app_router.dart';
 import 'package:explore_index/core/theme/app_theme.dart';
+import 'package:explore_index/core/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,12 +11,13 @@ class ExploreIndexApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final router = ref.watch(appRouterProvider);
+    final router    = ref.watch(appRouterProvider);
+    final themeMode = ref.watch(themeProvider);
     return MaterialApp.router(
       title: 'Explore Index',
-      theme: AppTheme.dark,
+      theme:     AppTheme.light,
       darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.dark,
+      themeMode: themeMode,
       routerConfig: router,
       localizationsDelegates: const [
         AppLocalizations.delegate,

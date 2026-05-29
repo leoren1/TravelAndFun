@@ -4,7 +4,7 @@
     "name": "Türkiye",
     "countryCode": "TR",
     "heroImage": "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=800",
-    "cityIds": ["istanbul", "izmir", "antalya"],
+    "cityIds": ["istanbul", "izmir", "antalya", "cappadocia", "bodrum"],
     "totalCitiesInCountry": 81
   },
   {
@@ -12,7 +12,7 @@
     "name": "İtalya",
     "countryCode": "IT",
     "heroImage": "https://images.unsplash.com/photo-1515542622106-078bda9ef071?w=800",
-    "cityIds": ["roma"],
+    "cityIds": ["roma", "venice", "florence"],
     "totalCitiesInCountry": 20
   },
   {
@@ -20,7 +20,31 @@
     "name": "Fransa",
     "countryCode": "FR",
     "heroImage": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800",
-    "cityIds": ["paris"],
+    "cityIds": ["paris", "nice", "lyon"],
     "totalCitiesInCountry": 18
+  },
+  {
+    "id": "jp",
+    "name": "Japonya",
+    "countryCode": "JP",
+    "heroImage": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800",
+    "cityIds": ["tokyo", "kyoto", "osaka"],
+    "totalCitiesInCountry": 47
+  },
+  {
+    "id": "es",
+    "name": "İspanya",
+    "countryCode": "ES",
+    "heroImage": "https://images.unsplash.com/photo-1464790719320-516ecd75af6c?w=800",
+    "cityIds": ["barcelona", "madrid", "seville"],
+    "totalCitiesInCountry": 17
+  },
+  {
+    "id": "de",
+    "name": "Almanya",
+    "countryCode": "DE",
+    "heroImage": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800",
+    "cityIds": ["berlin", "munich", "hamburg"],
+    "totalCitiesInCountry": 16
   }
 ]

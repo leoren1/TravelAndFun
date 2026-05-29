@@ -4,6 +4,7 @@ import 'package:explore_index/data/models/category.dart';
 import 'package:explore_index/data/models/city.dart';
 import 'package:explore_index/data/models/place.dart';
 import 'package:explore_index/data/providers.dart';
+import 'package:explore_index/domain/usecases/calculate_category_discovery.dart';
 import 'package:explore_index/domain/usecases/compute_worth_visiting_again.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -26,6 +27,9 @@ class WorthItAgainState {
   /// Top-3 categories that are least explored.
   final List<CategoryType> missingCategories;
 
+  /// Discovery percentage for each missing category (0.0–100.0).
+  final Map<CategoryType, double> missingCategoryPcts;
+
   /// Long-form insight paragraph to show the user.
   final String insightParagraph;
 
@@ -41,6 +45,7 @@ class WorthItAgainState {
     required this.discoveryPercent,
     required this.reason,
     required this.missingCategories,
+    required this.missingCategoryPcts,
     required this.insightParagraph,
     required this.tripPlanPlaceIds,
     required this.tripPlanPlaces,
@@ -52,6 +57,7 @@ class WorthItAgainState {
     double? discoveryPercent,
     String? reason,
     List<CategoryType>? missingCategories,
+    Map<CategoryType, double>? missingCategoryPcts,
     String? insightParagraph,
     List<String>? tripPlanPlaceIds,
     List<Place>? tripPlanPlaces,
@@ -62,6 +68,7 @@ class WorthItAgainState {
       discoveryPercent: discoveryPercent ?? this.discoveryPercent,
       reason: reason ?? this.reason,
       missingCategories: missingCategories ?? this.missingCategories,
+      missingCategoryPcts: missingCategoryPcts ?? this.missingCategoryPcts,
       insightParagraph: insightParagraph ?? this.insightParagraph,
       tripPlanPlaceIds: tripPlanPlaceIds ?? this.tripPlanPlaceIds,
       tripPlanPlaces: tripPlanPlaces ?? this.tripPlanPlaces,
@@ -98,6 +105,16 @@ class WorthItAgainViewModel
       places: places,
     ).execute();
 
+    // Compute per-missing-category discovery percentages.
+    final catCalc = CalculateCategoryDiscovery(
+      city: city,
+      visits: cityVisits,
+      places: places,
+    );
+    final missingCategoryPcts = {
+      for (final cat in result.missingCategories) cat: catCalc.execute(cat),
+    };
+
     // Resolve trip plan place ids to Place objects.
     final tripPlanPlaces = result.tripPlanPlaceIds
         .map((id) {
@@ -113,6 +130,7 @@ class WorthItAgainViewModel
       discoveryPercent: result.discoveryPercent,
       reason: result.reason,
       missingCategories: result.missingCategories,
+      missingCategoryPcts: missingCategoryPcts,
       insightParagraph: result.insightParagraph,
       tripPlanPlaceIds: result.tripPlanPlaceIds,
       tripPlanPlaces: tripPlanPlaces,

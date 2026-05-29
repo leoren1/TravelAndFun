@@ -1,4 +1,4 @@
-// lib/presentation/views/verify_visit/verify_visit_view.dart
+﻿// lib/presentation/views/verify_visit/verify_visit_view.dart
 
 import 'dart:io';
 
@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:explore_index/core/utils/theme_extensions.dart';
 
 class VerifyVisitView extends ConsumerStatefulWidget {
   final String placeId;
@@ -46,11 +47,11 @@ class _VerifyVisitViewState extends ConsumerState<VerifyVisitView> {
       lastDate: DateTime.now(),
       builder: (ctx, child) => Theme(
         data: ThemeData.dark().copyWith(
-          colorScheme: const ColorScheme.dark(
+          colorScheme: ColorScheme.dark(
             primary: AppColors.primary,
-            surface: AppColors.surfaceElevated,
+            surface: context.appColors.surfaceElevated,
           ),
-          dialogBackgroundColor: AppColors.surface,
+          dialogBackgroundColor: context.appColors.surface,
         ),
         child: child!,
       ),
@@ -105,12 +106,12 @@ class _VerifyVisitViewState extends ConsumerState<VerifyVisitView> {
     final vmState = ref.watch(verifyVisitViewModelProvider);
 
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: context.appColors.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
+        backgroundColor: context.appColors.background,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: AppColors.textPrimary),
+          icon: Icon(Icons.arrow_back, color: context.appColors.textPrimary),
           onPressed: () => context.pop(),
         ),
         title: const Text('Verify Visit', style: AppTextStyles.titleSmall),
@@ -237,7 +238,7 @@ class _StepIndicator extends StatelessWidget {
           return Expanded(
             child: Container(
               height: 2,
-              color: stepIndex < currentIndex ? AppColors.primary : AppColors.divider,
+              color: stepIndex < currentIndex ? AppColors.primary : context.appColors.divider,
             ),
           );
         }
@@ -257,32 +258,32 @@ class _StepIndicator extends StatelessWidget {
                     ? AppColors.primary
                     : isCurrent
                         ? AppColors.primary.withOpacity(0.2)
-                        : AppColors.surfaceElevated,
+                        : context.appColors.surfaceElevated,
                 border: Border.all(
                   color: isCurrent || isCompleted
                       ? AppColors.primary
-                      : AppColors.divider,
+                      : context.appColors.divider,
                   width: 2,
                 ),
               ),
               alignment: Alignment.center,
               child: isCompleted
-                  ? const Icon(Icons.check, color: AppColors.textPrimary, size: 16)
+                  ? Icon(Icons.check, color: context.appColors.textPrimary, size: 16)
                   : Text(
                       '${stepIndex + 1}',
                       style: AppTextStyles.caption.copyWith(
                         color: isCurrent
                             ? AppColors.primary
-                            : AppColors.textMuted,
+                            : context.appColors.textMuted,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
             ),
-            const SizedBox(height: AppSpacing.xs),
+            SizedBox(height: AppSpacing.xs),
             Text(
               steps[stepIndex],
               style: AppTextStyles.overline.copyWith(
-                color: isCurrent ? AppColors.primary : AppColors.textMuted,
+                color: isCurrent ? AppColors.primary : context.appColors.textMuted,
               ),
             ),
           ],
@@ -328,14 +329,14 @@ class _PhotoStep extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          const SizedBox(height: AppSpacing.lg),
+          SizedBox(height: AppSpacing.lg),
           Row(
             children: [
               Expanded(
                 child: OutlinedButton.icon(
                   style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: AppColors.divider),
-                    foregroundColor: AppColors.textSecondary,
+                    side: BorderSide(color: context.appColors.divider),
+                    foregroundColor: context.appColors.textSecondary,
                     padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
                   ),
                   onPressed: onPickGallery,
@@ -343,12 +344,12 @@ class _PhotoStep extends StatelessWidget {
                   label: const Text('Gallery'),
                 ),
               ),
-              const SizedBox(width: AppSpacing.sm),
+              SizedBox(width: AppSpacing.sm),
               Expanded(
                 child: OutlinedButton.icon(
                   style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: AppColors.divider),
-                    foregroundColor: AppColors.textSecondary,
+                    side: BorderSide(color: context.appColors.divider),
+                    foregroundColor: context.appColors.textSecondary,
                     padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
                   ),
                   onPressed: onPickCamera,
@@ -365,18 +366,18 @@ class _PhotoStep extends StatelessWidget {
               width: double.infinity,
               height: 200,
               decoration: BoxDecoration(
-                color: AppColors.surfaceElevated,
+                color: context.appColors.surfaceElevated,
                 borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
                 border: Border.all(
-                  color: AppColors.divider,
+                  color: context.appColors.divider,
                   style: BorderStyle.solid,
                 ),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(Icons.camera_alt_outlined,
-                      color: AppColors.textMuted, size: 48),
+                  Icon(Icons.camera_alt_outlined,
+                      color: context.appColors.textMuted, size: 48),
                   const SizedBox(height: AppSpacing.md),
                   Text('Tap to take a photo', style: AppTextStyles.captionMuted),
                   const SizedBox(height: AppSpacing.sm),
@@ -431,13 +432,13 @@ class _RatingStep extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sm),
                   child: AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 150),
+                    duration: Duration(milliseconds: 150),
                     child: Icon(
                       starValue <= rating ? Icons.star : Icons.star_border,
                       key: ValueKey('star_${starValue}_${starValue <= rating}'),
                       color: starValue <= rating
                           ? AppColors.warning
-                          : AppColors.textMuted,
+                          : context.appColors.textMuted,
                       size: 48,
                     ),
                   ),
@@ -446,11 +447,11 @@ class _RatingStep extends StatelessWidget {
             }),
           ),
         ),
-        const SizedBox(height: AppSpacing.xl),
+        SizedBox(height: AppSpacing.xl),
         Center(
           child: Text(
             _ratingLabel(rating),
-            style: AppTextStyles.titleSmall.copyWith(color: AppColors.textSecondary),
+            style: AppTextStyles.titleSmall.copyWith(color: context.appColors.textSecondary),
           ),
         ),
         const SizedBox(height: AppSpacing.xxxl),
@@ -497,14 +498,14 @@ class _NoteStep extends StatelessWidget {
             hintText: 'e.g. The sunset view was incredible...',
             hintStyle: AppTextStyles.captionMuted,
             filled: true,
-            fillColor: AppColors.surfaceElevated,
+            fillColor: context.appColors.surfaceElevated,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
-              borderSide: const BorderSide(color: AppColors.divider),
+              borderSide: BorderSide(color: context.appColors.divider),
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
-              borderSide: const BorderSide(color: AppColors.divider),
+              borderSide: BorderSide(color: context.appColors.divider),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
@@ -547,11 +548,11 @@ class _DateStep extends StatelessWidget {
           onTap: onPickDate,
           child: Container(
             width: double.infinity,
-            padding: const EdgeInsets.all(AppSpacing.lg),
+            padding: EdgeInsets.all(AppSpacing.lg),
             decoration: BoxDecoration(
-              color: AppColors.surfaceElevated,
+              color: context.appColors.surfaceElevated,
               borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
-              border: Border.all(color: AppColors.divider),
+              border: Border.all(color: context.appColors.divider),
             ),
             child: Row(
               children: [
@@ -601,8 +602,8 @@ class _BottomActions extends StatelessWidget {
           Expanded(
             child: OutlinedButton(
               style: OutlinedButton.styleFrom(
-                side: const BorderSide(color: AppColors.divider),
-                foregroundColor: AppColors.textSecondary,
+                side: BorderSide(color: context.appColors.divider),
+                foregroundColor: context.appColors.textSecondary,
                 padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
@@ -627,13 +628,16 @@ class _BottomActions extends StatelessWidget {
                 ? null
                 : isLastStep
                     ? onSubmit
-                    : onNext,
+                    : (vmState.currentStep == VerifyVisitStep.photo &&
+                            !vmState.canAdvanceFromPhoto)
+                        ? null
+                        : onNext,
             child: vmState.isSubmitting
-                ? const SizedBox(
+                ? SizedBox(
                     width: 20,
                     height: 20,
                     child: CircularProgressIndicator(
-                      color: AppColors.textPrimary,
+                      color: context.appColors.textPrimary,
                       strokeWidth: 2,
                     ),
                   )
@@ -647,3 +651,5 @@ class _BottomActions extends StatelessWidget {
     );
   }
 }
+
+

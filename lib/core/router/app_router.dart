@@ -1,5 +1,6 @@
-import 'package:explore_index/core/constants/app_colors.dart';
+﻿import 'package:explore_index/core/constants/app_colors.dart';
 import 'package:explore_index/core/router/app_routes.dart';
+import 'package:explore_index/core/utils/theme_extensions.dart';
 import 'package:explore_index/presentation/views/city_dashboard/city_dashboard_view.dart';
 import 'package:explore_index/presentation/views/category_detail/category_detail_view.dart';
 import 'package:explore_index/presentation/views/country_detail/country_detail_view.dart';
@@ -12,6 +13,14 @@ import 'package:explore_index/presentation/views/photo_journal/photo_journal_vie
 import 'package:explore_index/presentation/views/profile/profile_view.dart';
 import 'package:explore_index/presentation/views/social_feed/social_feed_view.dart';
 import 'package:explore_index/presentation/views/trip_planner/trip_planner_view.dart';
+import 'package:explore_index/core/utils/theme_extensions.dart';
+// ── New Immersive Trip Planner module ─────────────────────────────────────────
+import 'package:explore_index/features/trip_planner/presentation/views/trip_main/trip_main_view.dart';
+import 'package:explore_index/features/trip_planner/presentation/views/country_exploration/country_exploration_view.dart';
+import 'package:explore_index/features/trip_planner/presentation/views/city_discovery/city_discovery_view.dart';
+import 'package:explore_index/features/trip_planner/presentation/views/place_detail/place_detail_view.dart';
+import 'package:explore_index/features/trip_planner/presentation/views/schedule/schedule_view.dart';
+import 'package:explore_index/features/trip_planner/presentation/views/auto_suggest/auto_suggest_view.dart';
 import 'package:explore_index/presentation/views/verify_visit/verify_visit_view.dart';
 import 'package:explore_index/presentation/views/world_map/world_map_view.dart';
 import 'package:explore_index/presentation/views/worth_it_again/worth_it_again_view.dart';
@@ -22,11 +31,13 @@ import 'package:go_router/go_router.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: AppRoutes.dashboard,
+    // E2E full-coverage: start at Plans (lightweight shell route) so bottom nav
+    // is accessible. Dashboard at '/' still causes ANR on x86_64 Impeller emulator.
+    initialLocation: '/plans',
     errorBuilder: (context, state) => Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: context.appColors.background,
       appBar: AppBar(
-        backgroundColor: AppColors.surface,
+        backgroundColor: context.appColors.surface,
         title: const Text('Page Not Found'),
         leading: BackButton(onPressed: () => context.go(AppRoutes.dashboard)),
       ),
@@ -35,19 +46,19 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           mainAxisSize: MainAxisSize.min,
           children: [
             const Text('🗺️', style: TextStyle(fontSize: 64)),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Text(
               'Route not found',
               style: TextStyle(
-                color: AppColors.textPrimary,
+                color: context.appColors.textPrimary,
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
             Text(
               state.uri.toString(),
-              style: TextStyle(color: AppColors.textMuted, fontSize: 13),
+              style: TextStyle(color: context.appColors.textMuted, fontSize: 13),
             ),
             const SizedBox(height: 24),
             FilledButton(
@@ -95,10 +106,41 @@ final appRouterProvider = Provider<GoRouter>((ref) {
 
       // ── Push routes (no bottom nav) ──────────────────────────────────────
 
+      // ── Immersive Trip Planner module (new) ──────────────────────────────
       GoRoute(
         path: AppRoutes.tripPlanner,
-        builder: (context, state) => const TripPlannerView(),
+        builder: (context, state) => const TripMainView(),
       ),
+      GoRoute(
+        path: AppRoutes.exploreCountry,
+        builder: (context, state) {
+          final countryId = state.pathParameters['countryId']!;
+          return CountryExplorationView(countryId: countryId);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.exploreCity,
+        builder: (context, state) {
+          final cityId = state.pathParameters['cityId']!;
+          return CityDiscoveryView(cityId: cityId);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.explorePlace,
+        builder: (context, state) {
+          final placeId = state.pathParameters['placeId']!;
+          return PlaceDetailView(placeId: placeId);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.schedule,
+        builder: (context, state) => const ScheduleView(),
+      ),
+      GoRoute(
+        path: AppRoutes.autoSuggest,
+        builder: (context, state) => const AutoSuggestView(),
+      ),
+      // ─────────────────────────────────────────────────────────────────────
       GoRoute(
         path: AppRoutes.journal,
         builder: (context, state) => const PhotoJournalView(),

@@ -3,6 +3,7 @@
     "id": "istanbul",
     "name": "Istanbul",
     "countryId": "tr",
+    "tier": "bronze",
     "heroImage": "https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800",
     "latitude": 41.0082,
     "longitude": 28.9784,
@@ -15,88 +16,344 @@
       "nature": 3,
       "nightlife": 3,
       "localMarkets": 3,
-      "hiddenGems": 4,
-      "events": 3
+      "hiddenGems": 4
     }
   },
   {
     "id": "izmir",
     "name": "İzmir",
     "countryId": "tr",
+    "tier": "silver",
     "heroImage": "https://images.unsplash.com/photo-1570457073443-1d57fdfceee3?w=800",
     "latitude": 38.4192,
     "longitude": 27.1287,
     "categoryTargets": {
-      "historicalPlaces": 3,
-      "foodRestaurants": 2,
-      "cafes": 2,
-      "museumsArt": 2,
-      "routes": 2,
-      "nature": 2,
-      "nightlife": 2,
-      "localMarkets": 2,
-      "hiddenGems": 2,
-      "events": 2
+      "historicalPlaces": 2,
+      "foodRestaurants": 1,
+      "cafes": 1,
+      "museumsArt": 1,
+      "routes": 1,
+      "nature": 1,
+      "localMarkets": 1,
+      "hiddenGems": 1
     }
   },
   {
     "id": "antalya",
     "name": "Antalya",
     "countryId": "tr",
+    "tier": "silver",
     "heroImage": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
     "latitude": 36.8841,
     "longitude": 30.7056,
     "categoryTargets": {
-      "historicalPlaces": 4,
-      "foodRestaurants": 3,
-      "cafes": 2,
-      "museumsArt": 2,
-      "routes": 3,
-      "nature": 4,
-      "nightlife": 2,
-      "localMarkets": 2,
-      "hiddenGems": 3,
-      "events": 2
+      "historicalPlaces": 3,
+      "foodRestaurants": 1,
+      "museumsArt": 1,
+      "routes": 1,
+      "nature": 2,
+      "hiddenGems": 1
+    }
+  },
+  {
+    "id": "cappadocia",
+    "name": "Kapadokya",
+    "countryId": "tr",
+    "tier": "silver",
+    "heroImage": "https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=800",
+    "latitude": 38.6431,
+    "longitude": 34.8289,
+    "categoryTargets": {
+      "historicalPlaces": 3,
+      "foodRestaurants": 1,
+      "routes": 1,
+      "nature": 3,
+      "localMarkets": 1,
+      "hiddenGems": 2
+    }
+  },
+  {
+    "id": "bodrum",
+    "name": "Bodrum",
+    "countryId": "tr",
+    "tier": "gold",
+    "heroImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800",
+    "latitude": 37.0344,
+    "longitude": 27.4305,
+    "categoryTargets": {
+      "historicalPlaces": 2,
+      "foodRestaurants": 1,
+      "nature": 2,
+      "nightlife": 1,
+      "hiddenGems": 2
     }
   },
   {
     "id": "roma",
     "name": "Roma",
     "countryId": "it",
+    "tier": "bronze",
     "heroImage": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800",
     "latitude": 41.9028,
     "longitude": 12.4964,
     "categoryTargets": {
-      "historicalPlaces": 5,
-      "foodRestaurants": 4,
-      "cafes": 3,
-      "museumsArt": 4,
+      "historicalPlaces": 4,
+      "foodRestaurants": 2,
+      "cafes": 1,
+      "museumsArt": 2,
+      "routes": 1,
+      "nature": 1,
+      "nightlife": 1,
+      "localMarkets": 1
+    }
+  },
+  {
+    "id": "venice",
+    "name": "Venedik",
+    "countryId": "it",
+    "tier": "bronze",
+    "heroImage": "https://images.unsplash.com/photo-1534113414509-0eec2bfb493f?w=800",
+    "latitude": 45.4408,
+    "longitude": 12.3155,
+    "categoryTargets": {
+      "historicalPlaces": 3,
+      "foodRestaurants": 1,
+      "cafes": 1,
+      "museumsArt": 2,
       "routes": 2,
-      "nature": 2,
-      "nightlife": 2,
-      "localMarkets": 2,
-      "hiddenGems": 2,
-      "events": 2
+      "localMarkets": 1,
+      "hiddenGems": 1
+    }
+  },
+  {
+    "id": "florence",
+    "name": "Floransa",
+    "countryId": "it",
+    "tier": "silver",
+    "heroImage": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=800",
+    "latitude": 43.7696,
+    "longitude": 11.2558,
+    "categoryTargets": {
+      "historicalPlaces": 3,
+      "foodRestaurants": 1,
+      "cafes": 1,
+      "museumsArt": 2,
+      "routes": 1,
+      "nature": 1,
+      "localMarkets": 1,
+      "hiddenGems": 2
     }
   },
   {
     "id": "paris",
     "name": "Paris",
     "countryId": "fr",
+    "tier": "bronze",
     "heroImage": "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=800",
     "latitude": 48.8566,
     "longitude": 2.3522,
     "categoryTargets": {
-      "historicalPlaces": 5,
+      "historicalPlaces": 3,
+      "foodRestaurants": 2,
+      "cafes": 2,
+      "museumsArt": 2,
+      "routes": 1,
+      "nature": 1,
+      "nightlife": 1,
+      "localMarkets": 1,
+      "hiddenGems": 1
+    }
+  },
+  {
+    "id": "nice",
+    "name": "Nis",
+    "countryId": "fr",
+    "tier": "silver",
+    "heroImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+    "latitude": 43.7102,
+    "longitude": 7.262,
+    "categoryTargets": {
+      "historicalPlaces": 1,
+      "foodRestaurants": 1,
+      "museumsArt": 2,
+      "routes": 1,
+      "nature": 1,
+      "localMarkets": 1,
+      "hiddenGems": 1
+    }
+  },
+  {
+    "id": "lyon",
+    "name": "Lyon",
+    "countryId": "fr",
+    "tier": "gold",
+    "heroImage": "https://images.unsplash.com/photo-1524484485831-a92ffc0de03f?w=800",
+    "latitude": 45.764,
+    "longitude": 4.8357,
+    "categoryTargets": {
+      "historicalPlaces": 2,
+      "foodRestaurants": 2,
+      "museumsArt": 1
+    }
+  },
+  {
+    "id": "tokyo",
+    "name": "Tokyo",
+    "countryId": "jp",
+    "tier": "bronze",
+    "heroImage": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800",
+    "latitude": 35.6762,
+    "longitude": 139.6503,
+    "categoryTargets": {
+      "historicalPlaces": 4,
       "foodRestaurants": 4,
-      "cafes": 4,
+      "cafes": 3,
+      "museumsArt": 3,
+      "routes": 2,
+      "nature": 3,
+      "nightlife": 3,
+      "localMarkets": 1,
+      "hiddenGems": 2
+    }
+  },
+  {
+    "id": "kyoto",
+    "name": "Kyoto",
+    "countryId": "jp",
+    "tier": "silver",
+    "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800",
+    "latitude": 35.0116,
+    "longitude": 135.7681,
+    "categoryTargets": {
+      "historicalPlaces": 2,
+      "foodRestaurants": 1,
+      "cafes": 1,
+      "routes": 2,
+      "nature": 1,
+      "localMarkets": 1,
+      "hiddenGems": 3
+    }
+  },
+  {
+    "id": "osaka",
+    "name": "Osaka",
+    "countryId": "jp",
+    "tier": "silver",
+    "heroImage": "https://images.unsplash.com/photo-1589452271712-64b8a66d4be7?w=800",
+    "latitude": 34.6937,
+    "longitude": 135.5023,
+    "categoryTargets": {
+      "historicalPlaces": 1,
+      "foodRestaurants": 1,
+      "nightlife": 1,
+      "localMarkets": 1,
+      "hiddenGems": 2
+    }
+  },
+  {
+    "id": "barcelona",
+    "name": "Barcelona",
+    "countryId": "es",
+    "tier": "bronze",
+    "heroImage": "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=800",
+    "latitude": 41.3851,
+    "longitude": 2.1734,
+    "categoryTargets": {
+      "historicalPlaces": 4,
+      "foodRestaurants": 3,
+      "museumsArt": 3,
+      "routes": 2,
+      "nature": 3,
+      "nightlife": 3,
+      "localMarkets": 2,
+      "hiddenGems": 2
+    }
+  },
+  {
+    "id": "madrid",
+    "name": "Madrid",
+    "countryId": "es",
+    "tier": "silver",
+    "heroImage": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800",
+    "latitude": 40.4168,
+    "longitude": -3.7038,
+    "categoryTargets": {
+      "historicalPlaces": 1,
+      "foodRestaurants": 1,
+      "museumsArt": 3,
+      "routes": 1,
+      "nature": 1,
+      "nightlife": 1,
+      "localMarkets": 1
+    }
+  },
+  {
+    "id": "seville",
+    "name": "Sevilla",
+    "countryId": "es",
+    "tier": "gold",
+    "heroImage": "https://images.unsplash.com/photo-1555993539-1732b0258235?w=800",
+    "latitude": 37.3891,
+    "longitude": -5.9845,
+    "categoryTargets": {
+      "historicalPlaces": 2,
+      "foodRestaurants": 1,
+      "nightlife": 1,
+      "hiddenGems": 1
+    }
+  },
+  {
+    "id": "berlin",
+    "name": "Berlin",
+    "countryId": "de",
+    "tier": "bronze",
+    "heroImage": "https://images.unsplash.com/photo-1560969184-10fe8719e047?w=800",
+    "latitude": 52.52,
+    "longitude": 13.405,
+    "categoryTargets": {
+      "historicalPlaces": 4,
+      "foodRestaurants": 3,
       "museumsArt": 4,
-      "routes": 3,
+      "routes": 1,
       "nature": 2,
       "nightlife": 3,
       "localMarkets": 2,
-      "hiddenGems": 3,
-      "events": 3
+      "hiddenGems": 2
+    }
+  },
+  {
+    "id": "munich",
+    "name": "Münih",
+    "countryId": "de",
+    "tier": "silver",
+    "heroImage": "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=800",
+    "latitude": 48.1351,
+    "longitude": 11.582,
+    "categoryTargets": {
+      "historicalPlaces": 2,
+      "foodRestaurants": 1,
+      "museumsArt": 2,
+      "nature": 1,
+      "localMarkets": 1,
+      "hiddenGems": 1
+    }
+  },
+  {
+    "id": "hamburg",
+    "name": "Hamburg",
+    "countryId": "de",
+    "tier": "gold",
+    "heroImage": "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=800",
+    "latitude": 53.5511,
+    "longitude": 9.9937,
+    "categoryTargets": {
+      "historicalPlaces": 1,
+      "museumsArt": 1,
+      "routes": 1,
+      "nature": 1,
+      "nightlife": 1,
+      "localMarkets": 1,
+      "hiddenGems": 1
     }
   }
 ]

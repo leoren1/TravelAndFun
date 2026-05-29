@@ -50,9 +50,16 @@ class ComputeWorthVisitingAgain {
     );
     final allCatDiscoveries = catCalc.executeAll();
 
+    // Only consider categories that actually have places in this city.
+    // Categories with no places return 0% but can never be improved by visiting.
+    final activeCatDiscoveries = Map.fromEntries(
+      allCatDiscoveries.entries.where((e) =>
+          places.any((p) => p.cityId == city.id && p.category == e.key)),
+    );
+
     final worthIt = cityDiscovery >= 10 && cityDiscovery <= 80;
 
-    final sorted = allCatDiscoveries.entries.toList()
+    final sorted = activeCatDiscoveries.entries.toList()
       ..sort((a, b) => a.value.compareTo(b.value));
     final missingCategories = sorted.take(3).map((e) => e.key).toList();
 

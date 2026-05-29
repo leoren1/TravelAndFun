@@ -1,7 +1,8 @@
-import 'package:explore_index/core/constants/app_colors.dart';
+﻿import 'package:explore_index/core/constants/app_colors.dart';
 import 'package:explore_index/core/constants/app_spacing.dart';
 import 'package:explore_index/core/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:explore_index/core/utils/theme_extensions.dart';
 
 class StatChip extends StatelessWidget {
   final String value;
@@ -18,14 +19,14 @@ class StatChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(
+      padding: EdgeInsets.symmetric(
         horizontal: AppSpacing.md,
         vertical: AppSpacing.sm,
       ),
       decoration: BoxDecoration(
-        color: AppColors.surfaceElevated,
+        color: context.appColors.surfaceElevated,
         borderRadius: BorderRadius.circular(AppSpacing.radiusChip),
-        border: Border.all(color: AppColors.divider),
+        border: Border.all(color: context.appColors.divider),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -33,7 +34,7 @@ class StatChip extends StatelessWidget {
           Text(
             value,
             style: AppTextStyles.titleSmall.copyWith(
-              color: valueColor ?? AppColors.textPrimary,
+              color: valueColor ?? context.appColors.textPrimary,
             ),
           ),
           const SizedBox(height: 2),
@@ -64,3 +65,4 @@ class BoostChip extends StatelessWidget {
     );
   }
 }
+

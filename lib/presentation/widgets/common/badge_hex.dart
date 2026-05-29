@@ -1,6 +1,7 @@
-import 'package:explore_index/core/constants/app_colors.dart';
+﻿import 'package:explore_index/core/constants/app_colors.dart';
 import 'package:explore_index/core/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:explore_index/core/utils/theme_extensions.dart';
 
 class BadgeHex extends StatelessWidget {
   final String icon;
@@ -27,25 +28,25 @@ class BadgeHex extends StatelessWidget {
             width: size,
             height: size * 0.866,
             color: isLocked
-                ? AppColors.surfaceElevated
+                ? context.appColors.surfaceElevated
                 : AppColors.primary.withOpacity(0.2),
             child: Center(
               child: Text(
                 icon,
                 style: TextStyle(
                   fontSize: size * 0.38,
-                  color: isLocked ? AppColors.textMuted : null,
+                  color: isLocked ? context.appColors.textMuted : null,
                 ),
               ),
             ),
           ),
         ),
-        const SizedBox(height: 6),
+        SizedBox(height: 6),
         Text(
           isLocked ? 'Locked' : name,
           style: AppTextStyles.captionMuted.copyWith(
             color:
-                isLocked ? AppColors.textMuted : AppColors.textSecondary,
+                isLocked ? context.appColors.textMuted : context.appColors.textSecondary,
           ),
           textAlign: TextAlign.center,
           maxLines: 2,
@@ -75,3 +76,4 @@ class _HexClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(_HexClipper old) => false;
 }
+

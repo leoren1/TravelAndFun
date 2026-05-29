@@ -1,4 +1,4 @@
-// lib/presentation/views/city_dashboard/city_dashboard_view.dart
+﻿// lib/presentation/views/city_dashboard/city_dashboard_view.dart
 
 import 'package:explore_index/core/constants/app_colors.dart';
 import 'package:explore_index/core/constants/app_spacing.dart';
@@ -9,6 +9,7 @@ import 'package:explore_index/presentation/viewmodels/city_dashboard_viewmodel.d
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:explore_index/core/utils/theme_extensions.dart';
 
 class CityDashboardView extends ConsumerWidget {
   final String cityId;
@@ -19,21 +20,21 @@ class CityDashboardView extends ConsumerWidget {
     final asyncState = ref.watch(cityDashboardViewModelProvider(cityId));
 
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: context.appColors.background,
       appBar: AppBar(
-        backgroundColor: AppColors.background,
+        backgroundColor: context.appColors.background,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: AppColors.textPrimary),
+          icon: Icon(Icons.arrow_back, color: context.appColors.textPrimary),
           onPressed: () => context.pop(),
         ),
         title: asyncState.whenOrNull(
           data: (s) => Text(s.city.name, style: AppTextStyles.titleSmall),
         ) ??
-            const Text('City', style: AppTextStyles.titleSmall),
+            Text('City', style: AppTextStyles.titleSmall),
         actions: [
           IconButton(
-            icon: const Icon(Icons.refresh, color: AppColors.textSecondary),
+            icon: Icon(Icons.refresh, color: context.appColors.textSecondary),
             onPressed: () =>
                 ref.read(cityDashboardViewModelProvider(cityId).notifier).refresh(),
           ),
@@ -47,12 +48,15 @@ class CityDashboardView extends ConsumerWidget {
         error: (err, _) => Center(
           child: Text(err.toString(), style: AppTextStyles.body),
         ),
-        data: (state) => ListView(
-          padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.pageHorizontal,
-            vertical: AppSpacing.lg,
-          ),
-          children: [
+        data: (state) => SafeArea(
+          top: false,
+          bottom: true,
+          child: ListView(
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppSpacing.pageHorizontal,
+              vertical: AppSpacing.lg,
+            ),
+            children: [
             // ── Large circular progress ───────────────────────────────────
             _CityDiscoveryHero(
               cityName: state.city.name,
@@ -83,6 +87,7 @@ class CityDashboardView extends ConsumerWidget {
             ),
             const SizedBox(height: AppSpacing.xxxl),
           ],
+          ),
         ),
       ),
     );
@@ -111,11 +116,11 @@ class _CityDiscoveryHero extends StatelessWidget {
             : AppColors.danger;
 
     return Container(
-      padding: const EdgeInsets.all(AppSpacing.xxl),
+      padding: EdgeInsets.all(AppSpacing.xxl),
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: context.appColors.surface,
         borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
-        border: Border.all(color: AppColors.divider),
+        border: Border.all(color: context.appColors.divider),
       ),
       child: Column(
         children: [
@@ -129,7 +134,7 @@ class _CityDiscoveryHero extends StatelessWidget {
                   child: CircularProgressIndicator(
                     value: pct / 100,
                     strokeWidth: 12,
-                    backgroundColor: AppColors.divider,
+                    backgroundColor: context.appColors.divider,
                     valueColor: AlwaysStoppedAnimation<Color>(progressColor),
                     strokeCap: StrokeCap.round,
                   ),
@@ -174,11 +179,11 @@ class _WorthVisitingCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => context.push(AppRoutes.worthAgainPath(cityId)),
       child: Container(
-      padding: const EdgeInsets.all(AppSpacing.lg),
+      padding: EdgeInsets.all(AppSpacing.lg),
       decoration: BoxDecoration(
-        color: AppColors.surface,
+        color: context.appColors.surface,
         borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
-        border: Border.all(color: AppColors.divider),
+        border: Border.all(color: context.appColors.divider),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -231,21 +236,21 @@ class _YesNoChip extends StatelessWidget {
     final color = value ? AppColors.success : AppColors.danger;
     final label = value ? 'YES' : 'NO';
     return Container(
-      padding: const EdgeInsets.symmetric(
+      padding: EdgeInsets.symmetric(
         horizontal: AppSpacing.lg,
         vertical: AppSpacing.xs,
       ),
       decoration: BoxDecoration(
-        color: selected ? color.withOpacity(0.15) : AppColors.surfaceElevated,
+        color: selected ? color.withOpacity(0.15) : context.appColors.surfaceElevated,
         borderRadius: BorderRadius.circular(AppSpacing.radiusChip),
         border: Border.all(
-          color: selected ? color : AppColors.divider,
+          color: selected ? color : context.appColors.divider,
         ),
       ),
       child: Text(
         label,
         style: AppTextStyles.caption.copyWith(
-          color: selected ? color : AppColors.textMuted,
+          color: selected ? color : context.appColors.textMuted,
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -266,11 +271,11 @@ class _EventsShortcutCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => context.push(AppRoutes.eventsPath(cityId)),
       child: Container(
-        padding: const EdgeInsets.all(AppSpacing.lg),
+        padding: EdgeInsets.all(AppSpacing.lg),
         decoration: BoxDecoration(
-          color: AppColors.surface,
+          color: context.appColors.surface,
           borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
-          border: Border.all(color: AppColors.divider),
+          border: Border.all(color: context.appColors.divider),
         ),
         child: Row(
           children: [
@@ -285,7 +290,7 @@ class _EventsShortcutCard extends StatelessWidget {
                 ],
               ),
             ),
-            const Icon(Icons.chevron_right, color: AppColors.textMuted, size: 18),
+            Icon(Icons.chevron_right, color: context.appColors.textMuted, size: 18),
           ],
         ),
       ),
@@ -316,12 +321,12 @@ class _CategoryProgressTile extends StatelessWidget {
         AppRoutes.categoryDetailPath(cityId, progress.type.jsonKey),
       ),
       child: Container(
-        margin: const EdgeInsets.only(bottom: AppSpacing.sm),
-        padding: const EdgeInsets.all(AppSpacing.lg),
+        margin: EdgeInsets.only(bottom: AppSpacing.sm),
+        padding: EdgeInsets.all(AppSpacing.lg),
         decoration: BoxDecoration(
-          color: AppColors.surface,
+          color: context.appColors.surface,
           borderRadius: BorderRadius.circular(AppSpacing.radiusCard),
-          border: Border.all(color: AppColors.divider),
+          border: Border.all(color: context.appColors.divider),
         ),
         child: Row(
           children: [
@@ -351,13 +356,13 @@ class _CategoryProgressTile extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: AppSpacing.xs),
+                  SizedBox(height: AppSpacing.xs),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(AppSpacing.radiusSmall),
                     child: LinearProgressIndicator(
                       value: pct / 100,
                       minHeight: 4,
-                      backgroundColor: AppColors.divider,
+                      backgroundColor: context.appColors.divider,
                       valueColor: AlwaysStoppedAnimation<Color>(progressColor),
                     ),
                   ),
@@ -369,11 +374,13 @@ class _CategoryProgressTile extends StatelessWidget {
               '${pct.toStringAsFixed(0)}%',
               style: AppTextStyles.caption.copyWith(color: progressColor),
             ),
-            const SizedBox(width: AppSpacing.xs),
-            const Icon(Icons.chevron_right, color: AppColors.textMuted, size: 16),
+            SizedBox(width: AppSpacing.xs),
+            Icon(Icons.chevron_right, color: context.appColors.textMuted, size: 16),
           ],
         ),
       ),
     );
   }
 }
+
+

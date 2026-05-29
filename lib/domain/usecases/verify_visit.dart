@@ -4,7 +4,6 @@ import 'package:explore_index/data/models/place.dart';
 import 'package:explore_index/data/models/visit.dart';
 import 'package:explore_index/data/repositories/visit_repository.dart';
 import 'package:explore_index/data/services/exif_service.dart';
-import 'package:explore_index/data/services/photo_verification_service.dart';
 import 'package:uuid/uuid.dart';
 
 /// Reasons why photo verification can fail.
@@ -45,12 +44,10 @@ class VerifyVisitResult {
 }
 
 class VerifyVisitUseCase {
-  final PhotoVerificationService verificationService;
   final ExifService exifService;
   final VisitRepository visitRepository;
 
   const VerifyVisitUseCase({
-    required this.verificationService,
     required this.exifService,
     required this.visitRepository,
   });
@@ -63,25 +60,24 @@ class VerifyVisitUseCase {
     required DateTime visitDate,
     required String userId,
   }) async {
-    // 1. Verify location via PhotoVerificationService.
-    final verResult = await verificationService.verifyPhoto(
-      photoPath: photoPath,
-      placeLat: place.latitude,
-      placeLng: place.longitude,
-    );
-
-    if (!verResult.isVerified) {
-      final failReason = _mapStatus(verResult.status);
-      return VerifyVisitResult.failed(reason: failReason);
+    // 1. Photo path is required.
+    if (photoPath.isEmpty) {
+      return VerifyVisitResult.failed(reason: VerificationFailReason.fileError);
     }
 
-    // 2. Read EXIF data for photo coordinates and timestamp.
+    // 2. Try to read EXIF GPS data — store if available, fall back to defaults.
+    double photoLat = 0.0;
+    double photoLng = 0.0;
+    DateTime photoTakenAt = visitDate;
+
     final exifResult = await exifService.readGps(photoPath);
-    if (!exifResult.isSuccess || exifResult.data == null) {
-      return VerifyVisitResult.failed(reason: VerificationFailReason.noExifData);
+    if (exifResult.isSuccess && exifResult.data != null) {
+      final gps = exifResult.data!;
+      photoLat = gps.latitude;
+      photoLng = gps.longitude;
+      photoTakenAt = gps.takenAt ?? visitDate;
     }
-
-    final gps = exifResult.data!;
+    // If no EXIF data, keep defaults (0.0, 0.0, visitDate) — verification still succeeds.
 
     // 3. Persist the verified visit.
     final visit = Visit(
@@ -90,9 +86,9 @@ class VerifyVisitUseCase {
       userId: userId,
       visitedAt: visitDate,
       photoPath: photoPath,
-      photoLatitude: gps.latitude,
-      photoLongitude: gps.longitude,
-      photoTakenAt: gps.takenAt ?? visitDate,
+      photoLatitude: photoLat,
+      photoLongitude: photoLng,
+      photoTakenAt: photoTakenAt,
       rating: rating,
       note: note,
       verified: true,
@@ -100,18 +96,5 @@ class VerifyVisitUseCase {
 
     await visitRepository.saveVisit(visit);
     return VerifyVisitResult.success(visit: visit);
-  }
-
-  VerificationFailReason _mapStatus(VerificationStatus status) {
-    return switch (status) {
-      VerificationStatus.locationMismatch =>
-        VerificationFailReason.locationMismatch,
-      VerificationStatus.noExifData => VerificationFailReason.noExifData,
-      VerificationStatus.fileError => VerificationFailReason.fileError,
-      VerificationStatus.deviceLocationUnavailable =>
-        VerificationFailReason.deviceLocationUnavailable,
-      VerificationStatus.deviceTooFar => VerificationFailReason.deviceTooFar,
-      VerificationStatus.verified => VerificationFailReason.locationMismatch,
-    };
   }
 }

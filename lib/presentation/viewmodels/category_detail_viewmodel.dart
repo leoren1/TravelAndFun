@@ -5,6 +5,7 @@ import 'package:explore_index/data/models/place.dart';
 import 'package:explore_index/data/models/visit.dart';
 import 'package:explore_index/data/providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:explore_index/domain/usecases/calculate_category_discovery.dart';
 
 // ---------------------------------------------------------------------------
 // Parameter object (cityId + categoryName)
@@ -130,10 +131,12 @@ class CategoryDetailViewModel extends AutoDisposeFamilyAsyncNotifier<
 
     final placeRepo = ref.read(placeRepositoryProvider);
     final visitRepo = ref.read(visitRepositoryProvider);
+    final cityRepo = ref.read(cityRepositoryProvider);
 
     final places =
         await placeRepo.getPlacesByCityAndCategory(cityId, category.jsonKey);
     final allVisits = await visitRepo.getAllVisits();
+    final city = await cityRepo.getCityById(cityId);
 
     // Index visits by placeId for quick lookup.
     final visitsByPlace = <String, List<Visit>>{};
@@ -164,9 +167,18 @@ class CategoryDetailViewModel extends AutoDisposeFamilyAsyncNotifier<
 
     final verifiedCount = entries.where((e) => e.isVerified).length;
     final totalCount = entries.length;
-    final discoveryPercent = totalCount == 0
-        ? 0.0
-        : (verifiedCount / totalCount * 100).clamp(0.0, 100.0);
+
+    // Use categoryTarget as denominator (same as CalculateCategoryDiscovery)
+    // so the % shown here is always consistent with CityDashboard progress tiles.
+    final discoveryPercent = city != null
+        ? CalculateCategoryDiscovery(
+            city: city,
+            visits: allVisits,
+            places: places,
+          ).execute(category)
+        : (totalCount == 0
+            ? 0.0
+            : (verifiedCount / totalCount * 100).clamp(0.0, 100.0));
 
     return CategoryDetailState(
       category: category,

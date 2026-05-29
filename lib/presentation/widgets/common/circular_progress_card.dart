@@ -1,7 +1,8 @@
-import 'package:explore_index/core/constants/app_colors.dart';
+﻿import 'package:explore_index/core/constants/app_colors.dart';
 import 'package:explore_index/core/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
+import 'package:explore_index/core/utils/theme_extensions.dart';
 
 class CircularProgressCard extends StatelessWidget {
   final double percentage;
@@ -36,6 +37,7 @@ class CircularProgressCard extends StatelessWidget {
               percentage: percentage,
               color: color,
               strokeWidth: strokeWidth,
+              bgColor: context.appColors.divider,
             ),
           ),
           centerWidget ??
@@ -69,11 +71,13 @@ class _ArcPainter extends CustomPainter {
   final double percentage;
   final Color color;
   final double strokeWidth;
+  final Color bgColor;
 
   const _ArcPainter({
     required this.percentage,
     required this.color,
     required this.strokeWidth,
+    required this.bgColor,
   });
 
   @override
@@ -82,7 +86,7 @@ class _ArcPainter extends CustomPainter {
     final radius = (size.width - strokeWidth) / 2;
 
     final bgPaint = Paint()
-      ..color = AppColors.divider
+      ..color = bgColor
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round;
@@ -107,3 +111,4 @@ class _ArcPainter extends CustomPainter {
   bool shouldRepaint(_ArcPainter oldDelegate) =>
       oldDelegate.percentage != percentage || oldDelegate.color != color;
 }
+

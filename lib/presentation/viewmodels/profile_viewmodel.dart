@@ -1,8 +1,10 @@
 // lib/presentation/viewmodels/profile_viewmodel.dart
 
 import 'package:explore_index/data/models/badge.dart';
+import 'package:explore_index/data/models/travel_mode.dart';
 import 'package:explore_index/data/models/user_profile.dart';
 import 'package:explore_index/data/providers.dart';
+import 'package:explore_index/domain/usecases/calculate_world_discovery.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // ---------------------------------------------------------------------------
@@ -11,8 +13,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class BadgeEntry {
   final Badge badge;
-
-  /// True when the badge id is present in the user's [UserProfile.badgeIds].
   final bool isUnlocked;
 
   const BadgeEntry({required this.badge, required this.isUnlocked});
@@ -26,19 +26,10 @@ class BadgeEntry {
 }
 
 class UserStats {
-  /// Total verified visits across all places.
   final int totalVisits;
-
-  /// Distinct cities that have at least one verified visit.
   final int citiesVisited;
-
-  /// Distinct countries visited (derived from cities).
   final int countriesVisited;
-
-  /// Average rating across all visits (0.0 if none).
   final double averageRating;
-
-  /// Number of places the user has verified (distinct place ids).
   final int uniquePlacesVisited;
 
   const UserStats({
@@ -66,23 +57,40 @@ class UserStats {
   }
 }
 
+/// Mode-specific discovery percentages.
+class ModeDiscovery {
+  final double bronze;
+  final double silver;
+  final double gold;
+
+  const ModeDiscovery({
+    required this.bronze,
+    required this.silver,
+    required this.gold,
+  });
+}
+
 // ---------------------------------------------------------------------------
 // State
 // ---------------------------------------------------------------------------
 
 class ProfileState {
   final UserProfile profile;
-
-  /// All badge definitions, each annotated with locked/unlocked status.
   final List<BadgeEntry> badges;
-
-  /// Aggregated user statistics.
   final UserStats stats;
+
+  /// Discovery % for each travel mode — used in the profile mode stats section.
+  final ModeDiscovery modeDiscovery;
+
+  /// Currently active travel mode.
+  final TravelMode currentMode;
 
   const ProfileState({
     required this.profile,
     required this.badges,
     required this.stats,
+    required this.modeDiscovery,
+    required this.currentMode,
   });
 
   List<BadgeEntry> get unlockedBadges =>
@@ -94,11 +102,15 @@ class ProfileState {
     UserProfile? profile,
     List<BadgeEntry>? badges,
     UserStats? stats,
+    ModeDiscovery? modeDiscovery,
+    TravelMode? currentMode,
   }) {
     return ProfileState(
       profile: profile ?? this.profile,
       badges: badges ?? this.badges,
       stats: stats ?? this.stats,
+      modeDiscovery: modeDiscovery ?? this.modeDiscovery,
+      currentMode: currentMode ?? this.currentMode,
     );
   }
 }
@@ -110,32 +122,35 @@ class ProfileState {
 class ProfileViewModel extends AsyncNotifier<ProfileState> {
   @override
   Future<ProfileState> build() async {
-    final userRepo = ref.read(userRepositoryProvider);
+    // Rebuild when mode changes so the active mode chip updates.
+    final currentMode = ref.watch(travelModeProvider);
+
+    final userRepo  = ref.read(userRepositoryProvider);
     final placeRepo = ref.read(placeRepositoryProvider);
     final visitRepo = ref.read(visitRepositoryProvider);
-    final cityRepo = ref.read(cityRepositoryProvider);
+    final cityRepo  = ref.read(cityRepositoryProvider);
+    final countryRepo = ref.read(countryRepositoryProvider);
 
-    final profile = await userRepo.getUserProfile();
-    final allBadges = await userRepo.getAllBadges();
-    final visits = await visitRepo.getAllVisits();
-    final places = await placeRepo.getAllPlaces();
-    final cities = await cityRepo.getAllCities();
+    final profile    = await userRepo.getUserProfile();
+    final allBadges  = await userRepo.getAllBadges();
+    final visits     = await visitRepo.getAllVisits();
+    final places     = await placeRepo.getAllPlaces();
+    final cities     = await cityRepo.getAllCities();
+    final countries  = await countryRepo.getAllCountries();
 
-    // Build badge entries with locked/unlocked status.
+    // Build badge entries.
     final badgeEntries = allBadges.map((badge) {
       return BadgeEntry(
         badge: badge,
         isUnlocked: profile.badgeIds.contains(badge.id),
       );
-    }).toList();
+    }).toList()
+      ..sort((a, b) {
+        if (a.isUnlocked != b.isUnlocked) return a.isUnlocked ? -1 : 1;
+        return a.badge.name.compareTo(b.badge.name);
+      });
 
-    // Sort: unlocked first, then alphabetically by name.
-    badgeEntries.sort((a, b) {
-      if (a.isUnlocked != b.isUnlocked) return a.isUnlocked ? -1 : 1;
-      return a.badge.name.compareTo(b.badge.name);
-    });
-
-    // Compute stats.
+    // Stats.
     final uniquePlaceIds = visits.map((v) => v.placeId).toSet();
 
     final visitedCityIds = <String>{};
@@ -149,10 +164,8 @@ class ProfileViewModel extends AsyncNotifier<ProfileState> {
         .map((c) => c.countryId)
         .toSet();
 
-    final ratingSum =
-        visits.fold<double>(0, (sum, v) => sum + v.rating);
-    final avgRating =
-        visits.isEmpty ? 0.0 : ratingSum / visits.length;
+    final ratingSum = visits.fold<double>(0, (sum, v) => sum + v.rating);
+    final avgRating = visits.isEmpty ? 0.0 : ratingSum / visits.length;
 
     final stats = UserStats(
       totalVisits: visits.length,
@@ -162,16 +175,32 @@ class ProfileViewModel extends AsyncNotifier<ProfileState> {
       uniquePlacesVisited: uniquePlaceIds.length,
     );
 
+    // Mode-specific discovery percentages.
+    double _disc(TravelMode m) => CalculateWorldDiscovery(
+          countries: countries,
+          cities: cities,
+          visits: visits,
+          places: places,
+          mode: m,
+        ).execute();
+
+    final modeDiscovery = ModeDiscovery(
+      bronze: _disc(TravelMode.bronze),
+      silver: _disc(TravelMode.silver),
+      gold:   _disc(TravelMode.gold),
+    );
+
     return ProfileState(
       profile: profile,
       badges: badgeEntries,
       stats: stats,
+      modeDiscovery: modeDiscovery,
+      currentMode: currentMode,
     );
   }
 
   Future<void> refresh() async => ref.invalidateSelf();
 
-  /// Updates the user profile and refreshes state.
   Future<void> updateProfile(UserProfile updated) async {
     await ref.read(userRepositoryProvider).updateUserProfile(updated);
     await refresh();
