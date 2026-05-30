@@ -1,16 +1,22 @@
 #!/bin/sh
 #
-# git pre-push hook — triggers the Jenkins iOS deploy pipeline when you push.
+# git pre-push hook — triggers the Jenkins pipelines when you push.
 # Installed into .git/hooks/pre-push by ci/install-git-hook.sh
 #
-# The build job checks out the repo from GitHub, so we wait a few seconds for
-# the push to land on GitHub before asking Jenkins to build. The /buildByToken
-# endpoint (Build Token Root plugin) is exempt from CSRF/login.
+# Waits a few seconds for the push to reach GitHub, then triggers:
+#   1) travelandfun-ios        -> build & install on the USB iPhone
+#   2) travelandfun-testflight -> build & upload to TestFlight
+# /buildByToken is exempt from CSRF/login.
 #
-JOB_URL="http://localhost:8090/buildByToken/build?job=travelandfun-ios&token=travelandfun-deploy"
+BASE="http://localhost:8090/buildByToken/build"
+DEPLOY_URL="$BASE?job=travelandfun-ios&token=travelandfun-deploy"
+TESTFLIGHT_URL="$BASE?job=travelandfun-testflight&token=travelandfun-testflight"
 
-# Fire-and-forget in the background so `git push` returns immediately.
-( sleep 12; curl -fsS -X POST "$JOB_URL" >/dev/null 2>&1 ) &
+(
+  sleep 12
+  curl -fsS -X POST "$DEPLOY_URL"     >/dev/null 2>&1
+  curl -fsS -X POST "$TESTFLIGHT_URL" >/dev/null 2>&1
+) &
 
-echo "[jenkins] iOS deploy will be triggered ~12s after this push completes"
+echo "[jenkins] iOS deploy + TestFlight will be triggered ~12s after this push completes"
 exit 0

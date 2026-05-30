@@ -1,0 +1,39 @@
+// Jenkins pipeline: build a distribution IPA and upload it to TestFlight.
+// Trigger: SCM polling — runs on every push to main (plus the pre-push hook).
+pipeline {
+  agent any
+
+  triggers {
+    pollSCM('H/2 * * * *')
+  }
+
+  options {
+    timestamps()
+    disableConcurrentBuilds()
+    buildDiscarder(logRotator(numToKeepStr: '20'))
+  }
+
+  environment {
+    PATH = "/Users/erentazegul/development/flutter/bin:/opt/homebrew/bin:${env.PATH}"
+    LANG = 'en_US.UTF-8'
+    LC_ALL = 'en_US.UTF-8'
+  }
+
+  stages {
+    stage('Checkout') {
+      steps { checkout scm }
+    }
+
+    stage('Build & Upload to TestFlight') {
+      steps {
+        sh 'chmod +x scripts/testflight_upload.sh'
+        sh './scripts/testflight_upload.sh'
+      }
+    }
+  }
+
+  post {
+    success { echo '✅ Uploaded to TestFlight — processing in App Store Connect.' }
+    failure { echo '❌ TestFlight build/upload failed — check the stage logs above.' }
+  }
+}
