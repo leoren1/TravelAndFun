@@ -2,7 +2,6 @@
 // Design: Interactive world map with country markers, draggable discovery sheet,
 // and a pulsing AI auto-suggest button.
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,6 +11,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:explore_index/core/constants/app_colors.dart';
 import 'package:explore_index/core/constants/app_spacing.dart';
 import 'package:explore_index/core/constants/app_text_styles.dart';
+import 'package:explore_index/core/map/country_borders.dart';
 import 'package:explore_index/features/trip_planner/data/models/explore_city.dart';
 import 'package:explore_index/features/trip_planner/data/models/explore_country.dart';
 import 'package:explore_index/features/trip_planner/presentation/providers/explore_providers.dart';
@@ -157,63 +157,183 @@ class _TripMainBodyState extends State<_TripMainBody>
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Interactive world map — OSM tiles with tappable country markers.
-// Tap anywhere to enter the nearest country; glowing dots show available ones.
+// Interactive vector world map — no internet tiles needed.
+// Draws country polygons from bundled GeoJSON; available countries are
+// highlighted in purple and tappable; ocean is a flat blue background.
 // ─────────────────────────────────────────────────────────────────────────────
 
-class _ExploreWorldMap extends StatelessWidget {
+class _ExploreWorldMap extends StatefulWidget {
   final List<ExploreCountry> countries;
   const _ExploreWorldMap({required this.countries});
 
-  /// Returns the country whose centroid is closest to [tap].
+  @override
+  State<_ExploreWorldMap> createState() => _ExploreWorldMapState();
+}
+
+class _ExploreWorldMapState extends State<_ExploreWorldMap> {
+  List<Polygon<String>> _polygons = [];
+
+  /// Maps app country name → GeoJSON ISO-3166-1 alpha-2 (lowercase).
+  static const _nameToIso = <String, String>{
+    'France'               : 'fr',
+    'Japan'                : 'jp',
+    'Italy'                : 'it',
+    'Spain'                : 'es',
+    'United Kingdom'       : 'gb',
+    'Greece'               : 'gr',
+    'Turkey'               : 'tr',
+    'Germany'              : 'de',
+    'United States'        : 'us',
+    'Portugal'             : 'pt',
+    'Morocco'              : 'ma',
+    'India'                : 'in',
+    'Egypt'                : 'eg',
+    'United Arab Emirates' : 'ae',
+    'Netherlands'          : 'nl',
+    'Australia'            : 'au',
+    'Switzerland'          : 'ch',
+    'Mexico'               : 'mx',
+    'Brazil'               : 'br',
+    'South Korea'          : 'kr',
+    'Argentina'            : 'ar',
+    'Thailand'             : 'th',
+  };
+
+  @override
+  void initState() {
+    super.initState();
+    _loadPolygons();
+  }
+
+  @override
+  void didUpdateWidget(_ExploreWorldMap old) {
+    super.didUpdateWidget(old);
+    if (old.countries != widget.countries) _loadPolygons();
+  }
+
+  Future<void> _loadPolygons() async {
+    final raw = await CountryBordersService.load();
+    if (!mounted) return;
+
+    // ISO codes for countries the app has data for
+    final availableIsos = widget.countries
+        .map((c) => _nameToIso[c.name] ?? '')
+        .where((iso) => iso.isNotEmpty)
+        .toSet();
+
+    const availableFill   = Color(0x556C63FF); // purple 33%
+    const availableBorder = Color(0xCC6C63FF); // purple 80%
+    const unavailFill     = Color(0x18888888); // grey 10%
+    const unavailBorder   = Color(0x40999999); // grey 25%
+
+    const labelStyle = TextStyle(
+      fontSize: 9,
+      fontWeight: FontWeight.w700,
+      color: Colors.white,
+      shadows: [Shadow(blurRadius: 2, color: Colors.black54)],
+    );
+
+    final labelledIsos = <String>{};
+    final polys = <Polygon<String>>[];
+
+    for (final cp in raw) {
+      final isAvail = availableIsos.contains(cp.iso);
+      final outer = cp.rings.isNotEmpty ? cp.rings[0] : const <LatLng>[];
+      final holes = cp.rings.length > 1 ? cp.rings.sublist(1) : null;
+      if (outer.isEmpty) continue;
+
+      // Only label available countries (once per ISO)
+      final wantLabel = isAvail && !labelledIsos.contains(cp.iso);
+      if (wantLabel) labelledIsos.add(cp.iso);
+
+      polys.add(Polygon<String>(
+        points: outer,
+        holePointsList: holes,
+        color:            isAvail ? availableFill   : unavailFill,
+        borderColor:      isAvail ? availableBorder : unavailBorder,
+        borderStrokeWidth: isAvail ? 1.2 : 0.5,
+        label:      wantLabel ? cp.name : null,
+        labelStyle: labelStyle,
+        labelPlacement: PolygonLabelPlacement.polylabel,
+        hitValue: cp.iso,
+      ));
+    }
+
+    // Draw available countries last so they render on top
+    polys.sort((a, b) {
+      final av = availableIsos.contains(a.hitValue) ? 1 : 0;
+      final bv = availableIsos.contains(b.hitValue) ? 1 : 0;
+      return av.compareTo(bv);
+    });
+
+    setState(() => _polygons = polys);
+  }
+
+  /// Returns the app country closest to the tapped lat/lng.
   ExploreCountry? _nearest(LatLng tap) {
-    if (countries.isEmpty) return null;
-    ExploreCountry nearest = countries.first;
+    if (widget.countries.isEmpty) return null;
+    ExploreCountry nearest = widget.countries.first;
     double minSq = double.infinity;
-    for (final c in countries) {
-      final dlat = tap.latitude - c.lat;
+    for (final c in widget.countries) {
+      final dlat = tap.latitude  - c.lat;
       final dlng = tap.longitude - c.lng;
       final sq = dlat * dlat + dlng * dlng;
-      if (sq < minSq) {
-        minSq = sq;
-        nearest = c;
-      }
+      if (sq < minSq) { minSq = sq; nearest = c; }
     }
     return nearest;
   }
 
   @override
   Widget build(BuildContext context) {
-    // Build circle layers for available countries (outer glow + inner dot)
-    final outerCircles = countries
-        .map((c) => CircleMarker(
-              point: LatLng(c.lat, c.lng),
-              radius: 18,
-              color: AppColors.primary.withOpacity(0.12),
-              borderColor: AppColors.primary.withOpacity(0.35),
-              borderStrokeWidth: 1.5,
-              useRadiusInMeter: false,
-            ))
-        .toList();
-
-    final innerCircles = countries
-        .map((c) => CircleMarker(
-              point: LatLng(c.lat, c.lng),
-              radius: 7,
-              color: AppColors.primary.withOpacity(0.85),
-              borderColor: Colors.white.withOpacity(0.9),
-              borderStrokeWidth: 1.5,
-              useRadiusInMeter: false,
-            ))
-        .toList();
+    // Flag + name badges for available countries
+    final markers = widget.countries.map((c) {
+      return Marker(
+        point: LatLng(c.lat, c.lng),
+        width: 90,
+        height: 34,
+        child: GestureDetector(
+          onTap: () => context.push('/trip-planner/country/${c.id}'),
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.92),
+              borderRadius: BorderRadius.circular(20),
+              boxShadow: const [
+                BoxShadow(color: Colors.black26, blurRadius: 4, offset: Offset(0, 2)),
+              ],
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 4),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(c.flagEmoji, style: const TextStyle(fontSize: 13)),
+                const SizedBox(width: 4),
+                Flexible(
+                  child: Text(
+                    c.name,
+                    style: const TextStyle(
+                      fontSize: 9,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF1A1A2E),
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }).toList();
 
     return FlutterMap(
       options: MapOptions(
-        // Centre on meridian, low zoom → full world visible above the sheet
         initialCenter: const LatLng(20, 10),
         initialZoom: 1.5,
         minZoom: 1.2,
         maxZoom: 9.0,
+        // Ocean background — no tile layer needed
+        backgroundColor: const Color(0xFFB8D4E8),
         onTap: (_, latLng) {
           final c = _nearest(latLng);
           if (c != null) context.push('/trip-planner/country/${c.id}');
@@ -225,32 +345,12 @@ class _ExploreWorldMap extends StatelessWidget {
         ),
       ),
       children: [
-        // OSM tiles — confirmed working on physical Android device.
-        // CachedTileProvider + RepaintBoundary required for Android Impeller:
-        // without RepaintBoundary tiles load but remain invisible on Impeller/GLES.
-        TileLayer(
-          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-          userAgentPackageName: 'com.exploreindex.explore_index',
-          tileProvider: _CachedTileProvider(),
-          tileBuilder: (context, tileWidget, tile) =>
-              RepaintBoundary(child: tileWidget),
-        ),
-        // Outer glow circles for available countries
-        CircleLayer(circles: outerCircles),
-        // Inner solid dots for available countries
-        CircleLayer(circles: innerCircles),
+        // Vector country polygons — no internet, no tiles
+        PolygonLayer(polygons: _polygons),
+        // Flag + name badges for available countries
+        MarkerLayer(markers: markers),
       ],
     );
-  }
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// CachedNetworkImage tile provider — required for Android/Impeller tile rendering.
-// ─────────────────────────────────────────────────────────────────────────────
-class _CachedTileProvider extends TileProvider {
-  @override
-  ImageProvider getImage(TileCoordinates coordinates, TileLayer options) {
-    return CachedNetworkImageProvider(getTileUrl(coordinates, options));
   }
 }
 
