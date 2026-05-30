@@ -86,7 +86,10 @@ class _AutoSuggestViewState extends ConsumerState<AutoSuggestView>
 
     return Scaffold(
       backgroundColor: context.appColors.background,
-      body: Stack(
+      body: SafeArea(
+        top: false,  // header handles top via its own SafeArea
+        bottom: true, // prevents content from going behind gesture nav bar
+        child: Stack(
         children: [
           // Main content
           Column(
@@ -127,6 +130,7 @@ class _AutoSuggestViewState extends ConsumerState<AutoSuggestView>
               state: state,
             ),
         ],
+        ),
       ),
     );
   }

@@ -92,11 +92,11 @@ class _TripMainBodyState extends State<_TripMainBody>
         // LAYER 2: Draggable discovery sheet
         DraggableScrollableSheet(
           controller: _sheetCtrl,
-          initialChildSize: 0.42,
-          minChildSize: 0.42,
+          initialChildSize: 0.32,
+          minChildSize: 0.32,
           maxChildSize: 0.92,
           snap: true,
-          snapSizes: const [0.42, 0.92],
+          snapSizes: const [0.32, 0.92],
           builder: (context, scrollController) {
             return _DiscoverySheet(
               scrollController: scrollController,
@@ -157,7 +157,7 @@ class _TripMainBodyState extends State<_TripMainBody>
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Interactive world map — modern CartoDB Voyager tiles with country markers.
+// Interactive world map — OSM tiles with tappable country markers.
 // Tap anywhere to enter the nearest country; glowing dots show available ones.
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -209,8 +209,10 @@ class _ExploreWorldMap extends StatelessWidget {
 
     return FlutterMap(
       options: MapOptions(
-        initialCenter: const LatLng(28, 18),
-        initialZoom: 1.8,
+        // Centre on meridian, low zoom → full world visible above the sheet
+        initialCenter: const LatLng(20, 10),
+        initialZoom: 1.5,
+        minZoom: 1.2,
         maxZoom: 9.0,
         onTap: (_, latLng) {
           final c = _nearest(latLng);
@@ -223,15 +225,13 @@ class _ExploreWorldMap extends StatelessWidget {
         ),
       ),
       children: [
-        // Modern CartoDB Voyager tiles (primary) — clean, colorful, no API key.
-        // Falls back to OSM tiles automatically if CartoDB is unreachable.
+        // OSM tiles — confirmed working on physical Android device.
+        // CachedTileProvider + RepaintBoundary required for Android Impeller:
+        // without RepaintBoundary tiles load but remain invisible on Impeller/GLES.
         TileLayer(
-          urlTemplate:
-              'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png',
-          subdomains: const ['a', 'b', 'c', 'd'],
+          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
           userAgentPackageName: 'com.exploreindex.explore_index',
           tileProvider: _CachedTileProvider(),
-          fallbackUrl: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
           tileBuilder: (context, tileWidget, tile) =>
               RepaintBoundary(child: tileWidget),
         ),
@@ -245,7 +245,7 @@ class _ExploreWorldMap extends StatelessWidget {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// CachedNetworkImage tile provider — reliable on Android vs plain NetworkImage.
+// CachedNetworkImage tile provider — required for Android/Impeller tile rendering.
 // ─────────────────────────────────────────────────────────────────────────────
 class _CachedTileProvider extends TileProvider {
   @override
