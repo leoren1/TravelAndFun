@@ -223,13 +223,15 @@ class _ExploreWorldMap extends StatelessWidget {
         ),
       ),
       children: [
-        // Modern CartoDB Voyager tiles — clean, colorful, no API key needed
+        // Modern CartoDB Voyager tiles (primary) — clean, colorful, no API key.
+        // Falls back to OSM tiles automatically if CartoDB is unreachable.
         TileLayer(
           urlTemplate:
               'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png',
           subdomains: const ['a', 'b', 'c', 'd'],
           userAgentPackageName: 'com.exploreindex.explore_index',
           tileProvider: _CachedTileProvider(),
+          fallbackUrl: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
           tileBuilder: (context, tileWidget, tile) =>
               RepaintBoundary(child: tileWidget),
         ),
