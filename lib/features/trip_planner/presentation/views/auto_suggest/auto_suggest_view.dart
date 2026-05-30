@@ -1126,7 +1126,67 @@ class _StepResults extends ConsumerWidget {
           ...List.generate(days.length, (dayIndex) {
             final day = days[dayIndex];
             final slots = itinerary.slotsForDay(day);
-            if (slots.isEmpty) return const SizedBox.shrink();
+            // Show "Free Day / Rest" for days without scheduled activities
+            if (slots.isEmpty) {
+              return Container(
+                margin: const EdgeInsets.only(bottom: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 6,
+                          ),
+                          decoration: BoxDecoration(
+                            color: context.appColors.surfaceElevated,
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(
+                                color: context.appColors.divider),
+                          ),
+                          child: Text(
+                            'Day ${dayIndex + 1}',
+                            style: AppTextStyles.caption.copyWith(
+                              color: context.appColors.textSecondary,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Text(
+                          DateFormat('EEEE, MMM d').format(day),
+                          style: AppTextStyles.bodyMedium,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 14, vertical: 12),
+                      decoration: BoxDecoration(
+                        color: context.appColors.surfaceElevated,
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(color: context.appColors.divider),
+                      ),
+                      child: Row(
+                        children: [
+                          const Text('🌿', style: TextStyle(fontSize: 18)),
+                          const SizedBox(width: 10),
+                          Text(
+                            'Free day — relax or explore at your own pace',
+                            style: AppTextStyles.caption.copyWith(
+                              color: context.appColors.textSecondary,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }
 
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,

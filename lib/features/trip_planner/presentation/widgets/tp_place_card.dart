@@ -153,14 +153,19 @@ class TpPlaceCard extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        const SizedBox(width: 4),
-                        Text(
-                          '(${place.reviewDisplay})',
-                          style: AppTextStyles.captionMuted.copyWith(
-                            color: Colors.white.withOpacity(0.55),
+                        const SizedBox(width: 3),
+                        // Review count wrapped in Flexible to prevent overflow
+                        Flexible(
+                          child: Text(
+                            '(${place.reviewDisplay})',
+                            style: AppTextStyles.captionMuted.copyWith(
+                              color: Colors.white.withOpacity(0.55),
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
                           ),
                         ),
-                        const SizedBox(width: 10),
+                        const SizedBox(width: 6),
                         // Duration
                         const Icon(
                           Icons.schedule_rounded,
@@ -168,16 +173,22 @@ class TpPlaceCard extends StatelessWidget {
                           size: 13,
                         ),
                         const SizedBox(width: 3),
-                        Text(
-                          place.estimatedDuration,
-                          style: AppTextStyles.captionMuted.copyWith(
-                            color: Colors.white.withOpacity(0.60),
+                        // Duration wrapped in Flexible to prevent overflow
+                        Flexible(
+                          child: Text(
+                            place.estimatedDuration,
+                            style: AppTextStyles.captionMuted.copyWith(
+                              color: Colors.white.withOpacity(0.60),
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
                           ),
                         ),
-                        const Spacer(),
-                        // Add button
-                        if (showAddButton)
+                        // Add button (only shown when explicitly requested)
+                        if (showAddButton) ...[
+                          const SizedBox(width: 4),
                           _AddButton(onTap: onAdd ?? onTap),
+                        ],
                       ],
                     ),
                   ],

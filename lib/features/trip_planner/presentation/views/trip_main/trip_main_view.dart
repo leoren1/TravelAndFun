@@ -157,16 +157,15 @@ class _TripMainBodyState extends State<_TripMainBody>
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Interactive world map — tap anywhere to enter the nearest country.
-// No markers on the map; navigation is driven by proximity to country centroids.
+// Interactive world map — modern CartoDB Voyager tiles with country markers.
+// Tap anywhere to enter the nearest country; glowing dots show available ones.
 // ─────────────────────────────────────────────────────────────────────────────
 
 class _ExploreWorldMap extends StatelessWidget {
   final List<ExploreCountry> countries;
   const _ExploreWorldMap({required this.countries});
 
-  /// Returns the country whose centroid is closest to [tap] (squared Euclidean
-  /// distance — fast and sufficient for finding the nearest point).
+  /// Returns the country whose centroid is closest to [tap].
   ExploreCountry? _nearest(LatLng tap) {
     if (countries.isEmpty) return null;
     ExploreCountry nearest = countries.first;
@@ -185,11 +184,33 @@ class _ExploreWorldMap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Build circle layers for available countries (outer glow + inner dot)
+    final outerCircles = countries
+        .map((c) => CircleMarker(
+              point: LatLng(c.lat, c.lng),
+              radius: 18,
+              color: AppColors.primary.withOpacity(0.12),
+              borderColor: AppColors.primary.withOpacity(0.35),
+              borderStrokeWidth: 1.5,
+              useRadiusInMeter: false,
+            ))
+        .toList();
+
+    final innerCircles = countries
+        .map((c) => CircleMarker(
+              point: LatLng(c.lat, c.lng),
+              radius: 7,
+              color: AppColors.primary.withOpacity(0.85),
+              borderColor: Colors.white.withOpacity(0.9),
+              borderStrokeWidth: 1.5,
+              useRadiusInMeter: false,
+            ))
+        .toList();
+
     return FlutterMap(
       options: MapOptions(
         initialCenter: const LatLng(28, 18),
         initialZoom: 1.8,
-        // Limit zoom to ~city level; OSM tiles degrade beyond this on high-DPI.
         maxZoom: 9.0,
         onTap: (_, latLng) {
           final c = _nearest(latLng);
@@ -202,15 +223,20 @@ class _ExploreWorldMap extends StatelessWidget {
         ),
       ),
       children: [
+        // Modern CartoDB Voyager tiles — clean, colorful, no API key needed
         TileLayer(
-          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+          urlTemplate:
+              'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png',
+          subdomains: const ['a', 'b', 'c', 'd'],
           userAgentPackageName: 'com.exploreindex.explore_index',
           tileProvider: _CachedTileProvider(),
-          // RepaintBoundary fixes Android Impeller compositing issue where
-          // tiles load but remain invisible without a layer boundary.
           tileBuilder: (context, tileWidget, tile) =>
               RepaintBoundary(child: tileWidget),
         ),
+        // Outer glow circles for available countries
+        CircleLayer(circles: outerCircles),
+        // Inner solid dots for available countries
+        CircleLayer(circles: innerCircles),
       ],
     );
   }

@@ -69,8 +69,18 @@ class AutoSuggestService {
 
     // 5. Assign places to days -------------------------------------------------
     final slots = <ScheduleSlot>[];
-    final usedPlaceIds = <String>{};
+    // Track per-day used places to allow the same place on different days
+    // (recycling for long trips), but prevent duplicates within a single day.
+    final usedPlaceIdsGlobal = <String>{};
     int placeIndex = 0;
+
+    // Decide how many slots per day considering realistic daily time budget.
+    // From 09:00 to 20:00 = 660 minutes. Average visit ≈ 120 min + 30 gap = 150.
+    // Max realistic slots = 660 / 150 ≈ 4.  Cap packed at 4 as well.
+    final effectiveSlotsPerDay = params.slotsPerDay.clamp(1, 4);
+
+    // Max daily start time: no new slot may begin after 18:00.
+    const int _kDailyStartCutoff = 18 * 60; // 18:00
 
     for (int dayIndex = 0; dayIndex < params.tripDays; dayIndex++) {
       final date = DateTime(
@@ -92,18 +102,21 @@ class AutoSuggestService {
       final secondCity =
           secondCityId != null ? _repo.getCityById(secondCityId) : null;
 
-      final slotsThisDay = params.slotsPerDay;
+      final slotsThisDay = effectiveSlotsPerDay;
       // For packed trips, split day: first half from primary city, second half
       // from second city.
       final splitAtSlot =
           secondCityId != null ? (slotsThisDay / 2).ceil() : slotsThisDay;
 
       int currentMinutes = 9 * 60; // 9:00 AM start
+      // Per-day set: prevent the same place twice on the same calendar day.
+      final usedToday = <String>{};
 
       for (int slotIndex = 0; slotIndex < slotsThisDay; slotIndex++) {
+        // Stop if next slot would start at or after 18:00
+        if (currentMinutes >= _kDailyStartCutoff) break;
+
         // Decide which city pool to draw from for this slot.
-        // secondCityId is non-null only when travelStyle == 'packed' and
-        // there are multiple cities. Use it directly when in the second half.
         final String activeCityId;
         final String activeCityName;
         if (secondCityId != null && slotIndex >= splitAtSlot) {
@@ -114,43 +127,58 @@ class AutoSuggestService {
           activeCityName = cityName;
         }
 
-        // Find next unused place for this city
+        // Find next unused (globally) place for this city.
         ExplorePlace? place;
         for (int i = placeIndex; i < sorted.length; i++) {
           final candidate = sorted[i];
-          if (!usedPlaceIds.contains(candidate.id) &&
+          if (!usedPlaceIdsGlobal.contains(candidate.id) &&
+              !usedToday.contains(candidate.id) &&
               candidate.cityId == activeCityId) {
             place = candidate;
             placeIndex = i + 1;
             break;
           }
         }
-        // If no city-specific place found, take any unused place
+        // If no city-specific unused place found, take any globally unused place
         if (place == null) {
           for (int i = 0; i < sorted.length; i++) {
-            if (!usedPlaceIds.contains(sorted[i].id)) {
-              place = sorted[i];
-              // Don't advance placeIndex here — keep it stable for city matching
+            final candidate = sorted[i];
+            if (!usedPlaceIdsGlobal.contains(candidate.id) &&
+                !usedToday.contains(candidate.id)) {
+              place = candidate;
               break;
             }
           }
         }
-        if (place == null) break; // All places used
+        // All places globally exhausted → recycle (allow revisits on new days)
+        if (place == null) {
+          usedPlaceIdsGlobal.clear();
+          placeIndex = 0;
+          for (int i = 0; i < sorted.length; i++) {
+            final candidate = sorted[i];
+            if (!usedToday.contains(candidate.id) &&
+                candidate.cityId == activeCityId) {
+              place = candidate;
+              placeIndex = i + 1;
+              break;
+            }
+          }
+          // If still null (only 0 places total), abort day
+          if (place == null) break;
+        }
 
-        usedPlaceIds.add(place.id);
+        usedPlaceIdsGlobal.add(place.id);
+        usedToday.add(place.id);
 
         final durationMinutes = _parseDurationToMinutes(place.estimatedDuration);
         final startHour = currentMinutes ~/ 60;
         final startMin = currentMinutes % 60;
 
-        final endMinutes = currentMinutes + durationMinutes;
-        final endHour = endMinutes ~/ 60;
-        final endMin = endMinutes % 60;
-
-        // Cap end time at 23:30
-        final clampedEndHour = endHour.clamp(0, 23);
-        final clampedEndMin =
-            endHour > 23 ? 30 : endMin.clamp(0, 59);
+        // Cap slot end at 20:00 so evenings stay free
+        final rawEnd = currentMinutes + durationMinutes;
+        final cappedEnd = rawEnd.clamp(currentMinutes, 20 * 60);
+        final endHour = cappedEnd ~/ 60;
+        final endMin = cappedEnd % 60;
 
         // Fetch category emoji
         final categories = _repo.getCategoriesForCity(place.cityId);
@@ -166,8 +194,7 @@ class AutoSuggestService {
             countryName: countryName,
             date: date,
             startTime: TimeOfDay(hour: startHour, minute: startMin),
-            endTime:
-                TimeOfDay(hour: clampedEndHour, minute: clampedEndMin),
+            endTime: TimeOfDay(hour: endHour, minute: endMin),
             categoryId: place.categoryId,
             categoryEmoji: cat?.emoji ?? '📍',
             gradientStartHex: place.gradientStartHex,
@@ -176,16 +203,13 @@ class AutoSuggestService {
           ),
         );
 
-        // Advance current time: duration + 30-minute travel/rest gap
-        currentMinutes = endMinutes + 30;
+        // Advance current time: capped duration + 30-minute travel/rest gap
+        currentMinutes = cappedEnd + 30;
 
         // For packed trips with a city switch, add a 60-minute transit gap
         if (secondCityId != null && slotIndex == splitAtSlot - 1) {
           currentMinutes += 60;
         }
-
-        // If past 22:00, stop adding slots for this day
-        if (currentMinutes >= 22 * 60) break;
       }
     }
 
