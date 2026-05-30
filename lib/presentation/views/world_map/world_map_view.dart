@@ -995,11 +995,9 @@ class _WorldMapState extends State<_WorldMap> {
         },
       ),
       children: [
-        // Base tile layer
+        // Base tile layer — OSM (confirmed working on physical Android device)
         TileLayer(
-          urlTemplate:
-              'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png',
-          subdomains: const ['a', 'b', 'c', 'd'],
+          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
           userAgentPackageName: 'com.exploreindex.explore_index',
           maxZoom: 19,
           maxNativeZoom: 19,
